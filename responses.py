@@ -6,7 +6,7 @@ import CSGO_Project.CSGOsql
 def handle_response(message, username, usernameID) -> str:
     p_message = message.lower()
     try:
-        command = p_message.split(" ").lower()
+        command = p_message.split(" ")[0].lower()
     except:
         command = None
 
@@ -18,6 +18,15 @@ def handle_response(message, username, usernameID) -> str:
     if command == "-steamid":
         CSGO_Project.CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1])
         return "SteamID updated"
+    
+    if command == "-top10":
+        category = p_message.split(" ")[1]
+        try:
+            return CSGO_Project.CSGOsql.findTop10(category)
+        except:
+            return "Category does not exist"
+            
+            
 
     return
 
