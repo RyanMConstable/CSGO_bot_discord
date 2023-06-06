@@ -2,9 +2,9 @@ import discord
 import responses
 import os
 
-async def send_message(username, message, user_message, is_private):
+async def send_message(username, message, user_message, usernameID, is_private):
     try:
-        response = responses.handle_response(user_message, username)
+        response = responses.handle_response(user_message, username, usernameID)
         if response == None:
             return
         await message.author.send(response) if is_private else await message.channel.send(response)
@@ -20,6 +20,7 @@ def run_discord_bot():
         if message.author == client.user:
             return
 
+        usernameID = str(message.author.id)
         username = str(message.author)
         user_message = message.content
         channel = str(message.channel)
@@ -30,5 +31,5 @@ def run_discord_bot():
         #await send_message(username, message, user_message, is_private=True)
 
         #this sends in the discord
-        await send_message(username, message, user_message, is_private=False)
+        await send_message(username, message, user_message, usernameID, is_private=False)
     client.run(TOKEN)

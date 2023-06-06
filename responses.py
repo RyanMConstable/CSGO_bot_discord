@@ -1,6 +1,9 @@
+import sys
+sys.path.append('..')
+import CSGO_Project as CSGO
 
 ##########################################################
-def handle_response(message, username) -> str:
+def handle_response(message, username, usernameID) -> str:
     p_message = message.lower()
 
     #Display all options
