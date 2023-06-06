@@ -1,6 +1,7 @@
 import sys
+import time
 sys.path.append('..')
-import CSGO_Project as CSGO
+import CSGO_Project.CSGOsql
 
 ##########################################################
 def handle_response(message, username, usernameID) -> str:
@@ -12,7 +13,9 @@ def handle_response(message, username, usernameID) -> str:
         return returnString 
     
     if p_message.split(" ")[0] == "-steamid":
-        return "I currently do nothing"
+        CSGO_Project.CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1])
+        time.sleep(1)
+        return "SteamID updated"
 
     return
 
