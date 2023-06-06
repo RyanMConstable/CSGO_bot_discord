@@ -21,10 +21,7 @@ def handle_response(message, username, usernameID) -> str:
     
     if command == "-top10":
         category = p_message.split(" ")[1]
-        try:
-            return CSGO_Project.CSGOsql.findTop10(category)
-        except:
-            return "Category does not exist"
+        return CSGO_Project.CSGOsql.findTop10(category)
             
             
 
