@@ -14,7 +14,6 @@ def handle_response(message, username, usernameID) -> str:
     
     if p_message.split(" ")[0] == "-steamid":
         CSGO_Project.CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1])
-        time.sleep(1)
         return "SteamID updated"
 
     return
