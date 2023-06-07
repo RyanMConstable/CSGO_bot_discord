@@ -25,6 +25,14 @@ def handle_response(message, username, usernameID) -> str:
     if command == "-top10":
         category = p_message.split(" ")[1]
         return CSGO_Project.CSGOsql.findTop10(category)
+    
+    if command == "-topuser10":
+        try:
+            id = CSGO_Project.CSGOsql.findSteamID(usernameID)
+        except:
+            return "Can't find an id linked with your discord? Try '-steamid <id>' or wrong id."
+        category = p_message.split(" ")[1]
+        return CSGO_Project.CSGOsql.findTop10user(category, id)
             
             
 
