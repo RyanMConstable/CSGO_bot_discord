@@ -1,6 +1,8 @@
 import sys
 sys.path.append('..')
 import CSGO_Project.CSGOsql
+import CSGO_Project.findMatchSteamAPI
+import CSGO_Project.getJSONInfo
 
 ##########################################################
 def handle_response(message, username, usernameID) -> str:
@@ -33,7 +35,17 @@ def handle_response(message, username, usernameID) -> str:
         category = p_message.split(" ")[1]
         return CSGO_Project.CSGOsql.findTop10user(category, id)
             
-            
+    if command == "-updategames":
+        id = CSGO_Project.CSGOsql.findSteamID(usernameID)
+        if id is None or id == []:
+            return "Can't find an id linked with your discord? Use '-steamid <id>'"
+        #This is a list of game codes
+        gameCodes = CSGO_Project.findMatchSteamAPI.generateNewCodes(id)
+        print("Getting codes...")
+        CSGO_Project.CSGOsql.addGameCodes(gameCodes)
+        for gamecode in gameCodes:
+            CSGO_Project.CSGOsql.addGameStats(CSGO_Project.getJSONInfo.returnGameInfo(CSGO_Project.getJSONInfo.getJSONInfo(gamecode)))
+        return "Games updated"
 
     return
 
