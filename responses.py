@@ -24,10 +24,24 @@ def handle_response(message, username, usernameID) -> str:
         CSGO_Project.CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1])
         return "SteamID updated"
     
-    if command == "-top10":
-        category = p_message.split(" ")[1]
-        return CSGO_Project.CSGOsql.findTop10(category)
     
+    
+    #Easy commands to find stats for
+    if command == "-top":
+        try:
+            num = p_message.split(" ")[1]
+            category = p_message.split(" ")[2]
+            return CSGO_Project.CSGOsql.findTopX(category, num)
+        except Exception as e:
+            print(e)
+            return "Incorrect format, try '-top <amount> <category>'"
+    
+    
+    
+    
+    
+    
+    #Specific user commands
     if command == "-topuser10":
         id = CSGO_Project.CSGOsql.findSteamID(usernameID)
         if id is None:
@@ -41,5 +55,7 @@ def handle_response(message, username, usernameID) -> str:
             return "Can't find an id linked with your discord? Use '-steamid <id>'"
         CSGO_Project.CSGOsql.updateGames(id)
         return "Updating games"
+    
+    
     return
 
