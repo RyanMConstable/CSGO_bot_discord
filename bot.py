@@ -4,7 +4,7 @@ import os
 
 async def send_message(username, message, user_message, usernameID, is_private):
     try:
-        response = await responses.handle_response(user_message, username, usernameID)
+        response = responses.handle_response(user_message, username, usernameID)
         if response == None:
             return
         await message.author.send(response) if is_private else await message.channel.send(response)

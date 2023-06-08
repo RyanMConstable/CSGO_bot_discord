@@ -5,7 +5,7 @@ import CSGO_Project.findMatchSteamAPI
 import CSGO_Project.getJSONInfo
 
 ##########################################################
-async def handle_response(message, username, usernameID) -> str:
+def handle_response(message, username, usernameID) -> str:
     p_message = message.lower()
     try:
         command = p_message.split(" ")[0].lower()
@@ -39,7 +39,7 @@ async def handle_response(message, username, usernameID) -> str:
         id = CSGO_Project.CSGOsql.findSteamID(usernameID)
         if id is None or id == []:
             return "Can't find an id linked with your discord? Use '-steamid <id>'"
-        await CSGO_Project.CSGOsql.updateGames(id)
-        return "Updating games... may take a while"
+        CSGO_Project.CSGOsql.updateGames(id)
+        return "Updating games"
     return
 
