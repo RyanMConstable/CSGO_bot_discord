@@ -36,6 +36,14 @@ def handle_response(message, username, usernameID) -> str:
             print(e)
             return "Incorrect format, try '-top <amount> <category>'"
     
+    #This command makes the discord bot time out because it takes so long... Find a way to do this asynchronously?
+    if command == "-updateall":
+        try: 
+            CSGO_Project.CSGOsql.updateAllUsers()
+        except:
+            return "Failure"
+        return "Updated all users"
+    
     
     
     
