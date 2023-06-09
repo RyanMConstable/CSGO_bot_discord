@@ -14,14 +14,17 @@ def handle_response(message, username, usernameID) -> str:
 
     #Display help messages
     if p_message == "help" or p_message == '-h' or p_message == 'h' or p_message == '-help':
-        returnString = "Commands:\n  -steamid <id>\n  -top <amount> <category>\n  -topuser10 <category>\n    Categories: [totalkills, score, tk_count, assist, deaths, 5k, 4k, 3k, 2k, 1k, headshot, kd, rws, shot_count, hit_count, flashbang_thrown, smoke_thrown, he_thrown, molly_thrown, incendiary_thrown, decoy_thrown, round_count]" 
+        returnString = "Commands:\n  -steamid <id> <steamkey>\n  -top <amount> <category>\n  -topuser10 <category>\n    Categories: [totalkills, score, tk_count, assist, deaths, 5k, 4k, 3k, 2k, 1k, headshot, kd, rws, shot_count, hit_count, flashbang_thrown, smoke_thrown, he_thrown, molly_thrown, incendiary_thrown, decoy_thrown, round_count]" 
         return returnString 
     
     
     
     #This allows a user to add their steamid to the database for future reference
     if command == "-steamid":
-        CSGO_Project.CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1])
+        try:
+            CSGO_Project.CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1], p_message.split(" ")[2])
+        except:
+            return "Incorrect Input try '-steamid <id> <key>"
         return "SteamID updated"
     
     
