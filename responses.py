@@ -22,7 +22,7 @@ def handle_response(message, username, usernameID) -> str:
     #This allows a user to add their steamid to the database for future reference
     if command == "-steamid":
         try:
-            CSGO_Project.CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1], p_message.split(" ")[2])
+            CSGO_Project.CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1], message.split(" ")[2])
         except:
             return "Incorrect Input try '-steamid <id> <key>"
         return "SteamID updated"
