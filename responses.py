@@ -22,7 +22,7 @@ def handle_response(message, username, usernameID) -> str:
     #This allows a user to add their steamid to the database for future reference
     if command == "-steamid":
         try:
-            CSGO_Project.CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1], message.split(" ")[2])
+            CSGO_Project.CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1], message.split(" ")[2].upper())
         except:
             return "Incorrect Input try '-steamid <id> <key>"
         return "SteamID updated"
@@ -36,7 +36,7 @@ def handle_response(message, username, usernameID) -> str:
             category = p_message.split(" ")[2]
             return CSGO_Project.CSGOsql.findTopX(category, num)
         except Exception as e:
-            print(e)
+            print("ERROR IN responses.py: " + e)
             return "Incorrect format, try '-top <amount> <category>'"
     
     #This command makes the discord bot time out because it takes so long... Find a way to do this asynchronously?
