@@ -64,7 +64,7 @@ def handle_response(message, username, usernameID) -> str:
         id = CSGO_Project.CSGOsql.findSteamID(usernameID)
         if id is None or id == []:
             return "Can't find an id linked with your discord? Use '-steamid <id>'"
-        CSGO_Project.CSGOsql.updateGames(id)
+        CSGO_Project.CSGOsql.updateGames(id[0], id[1])
         return "Updating games"
     
     
