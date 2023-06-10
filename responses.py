@@ -24,7 +24,7 @@ def handle_response(message, username, usernameID) -> str:
         try:
             CSGO_Project.CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1], message.split(" ")[2].upper())
         except:
-            return "Incorrect Input try '-steamid <id> <key>"
+            return "Incorrect Input try '-steamid <id> <key>'"
         return "SteamID updated"
     
     
@@ -40,7 +40,7 @@ def handle_response(message, username, usernameID) -> str:
             return "Incorrect format, try '-top <amount> <category>'"
     
     #This command makes the discord bot time out because it takes so long... Find a way to do this asynchronously?
-    if command == "-updateall":
+    if command == "-update":
         try: 
             CSGO_Project.CSGOsql.updateAllUsers()
         except:
