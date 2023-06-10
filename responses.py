@@ -58,7 +58,7 @@ def handle_response(message, username, usernameID) -> str:
         if id is None:
             return "Can't find an id linked with your discord? Use '-steamid <id>'"
         category = p_message.split(" ")[1]
-        return CSGO_Project.CSGOsql.findTop10user(category, id)
+        return CSGO_Project.CSGOsql.findTop10user(category, id[0])
             
     if command == "-updategames":
         id = CSGO_Project.CSGOsql.findSteamID(usernameID)
