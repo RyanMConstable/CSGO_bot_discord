@@ -1,8 +1,4 @@
-import sys
-sys.path.append('..')
-import CSGO_Project.CSGOsql
-import CSGO_Project.findMatchSteamAPI
-import CSGO_Project.getJSONInfo
+from CSGO_Project import CSGOsql, findMatchSteamAPI, getJSONInfo
 
 ##########################################################
 def handle_response(message, username, usernameID) -> str:
