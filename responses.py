@@ -18,7 +18,7 @@ def handle_response(message, username, usernameID) -> str:
     #This allows a user to add their steamid to the database for future reference
     if command == "-steamid":
         try:
-            CSGO_Project.CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1], message.split(" ")[2].upper())
+            CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1], message.split(" ")[2].upper())
         except:
             return "Incorrect Input try '-steamid <id> <key>'"
         return "SteamID updated"
@@ -30,7 +30,7 @@ def handle_response(message, username, usernameID) -> str:
         try:
             num = p_message.split(" ")[1]
             category = p_message.split(" ")[2]
-            return CSGO_Project.CSGOsql.findTopX(category, num)
+            return CSGOsql.findTopX(category, num)
         except Exception as e:
             print("ERROR IN responses.py: " + e)
             return "Incorrect format, try '-top <amount> <category>'"
@@ -38,7 +38,7 @@ def handle_response(message, username, usernameID) -> str:
     #This command makes the discord bot time out because it takes so long... Find a way to do this asynchronously?
     if command == "-update":
         try: 
-            CSGO_Project.CSGOsql.updateAllUsers()
+            CSGOsql.updateAllUsers()
         except:
             return "Failure"
         return "Updated all users"
@@ -50,17 +50,17 @@ def handle_response(message, username, usernameID) -> str:
     
     #Specific user commands
     if command == "-topuser10":
-        id = CSGO_Project.CSGOsql.findSteamID(usernameID)
+        id = CSGOsql.findSteamID(usernameID)
         if id is None:
             return "Can't find an id linked with your discord? Use '-steamid <id>'"
         category = p_message.split(" ")[1]
-        return CSGO_Project.CSGOsql.findTop10user(category, id[0])
+        return CSGOsql.findTop10user(category, id[0])
             
     if command == "-updategames":
-        id = CSGO_Project.CSGOsql.findSteamID(usernameID)
+        id = CSGOsql.findSteamID(usernameID)
         if id is None or id == []:
             return "Can't find an id linked with your discord? Use '-steamid <id>'"
-        CSGO_Project.CSGOsql.updateGames(id[0], id[1])
+        CSGOsql.updateGames(id[0], id[1])
         return "Updating games"
     
     
