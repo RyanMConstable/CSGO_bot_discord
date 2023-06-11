@@ -35,15 +35,6 @@ def handle_response(message, username, usernameID) -> str:
             print("ERROR IN responses.py: " + e)
             return "Incorrect format, try '-top <amount> <category>'"
     
-    #This command makes the discord bot time out because it takes so long... Find a way to do this asynchronously?
-    if command == "-update":
-        try: 
-            CSGOsql.updateAllUsers()
-        except:
-            return "Failure"
-        return "Updated all users"
-    
-    
     
     
     
@@ -55,13 +46,6 @@ def handle_response(message, username, usernameID) -> str:
             return "Can't find an id linked with your discord? Use '-steamid <id>'"
         category = p_message.split(" ")[1]
         return CSGOsql.findTop10user(category, id[0])
-            
-    if command == "-updategames":
-        id = CSGOsql.findSteamID(usernameID)
-        if id is None or id == []:
-            return "Can't find an id linked with your discord? Use '-steamid <id>'"
-        CSGOsql.updateGames(id[0], id[1])
-        return "Updating games"
     
     
     return
