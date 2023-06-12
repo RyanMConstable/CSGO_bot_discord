@@ -40,12 +40,17 @@ def handle_response(message, username, usernameID) -> str:
     
     
     #Specific user commands
-    if command == "-topuser10":
+    if command == "-topuser":
         id = CSGOsql.findSteamID(usernameID)
         if id is None:
             return "Can't find an id linked with your discord? Use '-steamid <id>'"
-        category = p_message.split(" ")[1]
-        return CSGOsql.findTop10user(category, id[0])
+        try:
+            num = p_message.split(" ")[1]
+            category = p_message.split(" ")[2]
+            return CSGOsql.findTop10user(category, id, num)
+        except Exception as e:
+            print("ERROR IN responses.py: " + e)
+            return "Incorrect format, try '-topuser <amount> <category>'"
     
     
     return
