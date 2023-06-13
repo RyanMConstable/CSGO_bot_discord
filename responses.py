@@ -53,5 +53,16 @@ def handle_response(message, username, usernameID) -> str:
             return "Incorrect format, try '-topuser <amount> <category>'"
     
     
+    if command == "-myavg":
+        id = CSGOsql.findSteamID(usernameID)
+        if id is None:
+            return "Can't find an id linked with your discord? Use '-steamid' first"
+        try:
+            return
+            #return CSGOsql.avgstats(id)
+        except Exception as e:
+            print("ERROR IN responses.py: " + e)
+            return "Error"
+    
     return
 
