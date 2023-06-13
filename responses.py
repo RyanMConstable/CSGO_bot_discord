@@ -1,4 +1,4 @@
-from CSGO_Project import CSGOsql, findMatchSteamAPI, getJSONInfo
+from CSGO_Project import CSGOsql
 
 ##########################################################
 def handle_response(message, username, usernameID) -> str:
