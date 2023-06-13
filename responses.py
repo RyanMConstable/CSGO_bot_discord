@@ -47,7 +47,7 @@ def handle_response(message, username, usernameID) -> str:
         try:
             num = p_message.split(" ")[1]
             category = p_message.split(" ")[2]
-            return CSGOsql.findTop10user(category, id, num)
+            return CSGOsql.findTop10user(category, id[0], num)
         except Exception as e:
             print("ERROR IN responses.py: " + e)
             return "Incorrect format, try '-topuser <amount> <category>'"
