@@ -58,8 +58,18 @@ def handle_response(message, username, usernameID) -> str:
         if id is None:
             return "Can't find an id linked with your discord? Use '-steamid' first"
         try:
-            return
-            #return CSGOsql.avgstats(id)
+            strVal = "Average stats per game:\n"
+            strVal += "\nKills: " + str(CSGOsql.selectAvgUserStat("totalkills", id[0]))
+            strVal += "\nScore: " + str(CSGOsql.selectAvgUserStat("score", id[0]))
+            strVal += "\nTeam Kills: " + str(CSGOsql.selectAvgUserStat("tk_count", id[0]))
+            strVal += "\nAssists: " + str(CSGOsql.selectAvgUserStat("assist", id[0]))
+            strVal += "\nDeaths: " + str(CSGOsql.selectAvgUserStat("deaths", id[0]))
+            strVal += "\nHeadshots: " + str(CSGOsql.selectAvgUserStat("headshot", id[0]))
+            strVal += "\nKD: " + str(CSGOsql.selectAvgUserStat("kd", id[0]))
+            strVal += "\nRWS: " + str(CSGOsql.selectAvgUserStat("rws", id[0]))
+            strVal += "\nShot Count: " + str(CSGOsql.selectAvgUserStat("shot_count", id[0]))
+            strVal += "\nHit Count: " + str(CSGOsql.selectAvgUserStat("hit_count", id[0]))
+            return strVal
         except Exception as e:
             print("ERROR IN responses.py: " + e)
             return "Error"
