@@ -17,6 +17,7 @@ def handle_response(message, username, usernameID) -> str:
     
     #This allows a user to add their steamid to the database for future reference
     if command == "-steamid":
+        #Here we should attempt an API call to validate the user...
         try:
             CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1], message.split(" ")[2].upper())
         except:
