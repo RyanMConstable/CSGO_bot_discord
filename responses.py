@@ -10,7 +10,7 @@ def handle_response(message, username, usernameID) -> str:
 
     #Display help messages
     if p_message == "help" or p_message == '-h' or p_message == 'h' or p_message == '-help':
-        returnString = "Commands:\n  -steamid <id> <steamkey>\n  -top <amount> <category>\n  -topuser <amount> <category>\n    Categories: [totalkills, score, tk_count, assist, deaths, 5k, 4k, 3k, 2k, 1k, headshot, kd, rws, shot_count, hit_count, flashbang_thrown, smoke_thrown, he_thrown, molly_thrown, incendiary_thrown, decoy_thrown, round_count]" 
+        returnString = "Commands:\n  -steamid <id> <steamkey>\n  -myavg\n  -top <amount> <category>\n  -topuser <amount> <category>\n    Categories: [totalkills, score, tk_count, assist, deaths, 5k, 4k, 3k, 2k, 1k, headshot, kd, rws, shot_count, hit_count, flashbang_thrown, smoke_thrown, he_thrown, molly_thrown, incendiary_thrown, decoy_thrown, round_count]" 
         return returnString 
     
     
