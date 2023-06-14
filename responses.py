@@ -74,7 +74,7 @@ def handle_response(message, username, usernameID) -> str:
             return strVal
         except Exception as e:
             print("ERROR IN responses.py: " + e)
-            return "Error"
+            return "Error, most likely invalid steamid/steam key"
     
     return
 
