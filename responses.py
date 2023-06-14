@@ -59,6 +59,8 @@ def handle_response(message, username, usernameID) -> str:
             return "Can't find an id linked with your discord? Use '-steamid' first"
         try:
             strVal = "Average stats per game:\n"
+            
+            strVal += "\nTotal Games: " + str(CSGOsql.findNumberOfGames(id[0]))
             strVal += "\nKills: " + str(CSGOsql.selectAvgUserStat("totalkills", id[0]))
             strVal += "\nScore: " + str(CSGOsql.selectAvgUserStat("score", id[0]))
             strVal += "\nTeam Kills: " + str(CSGOsql.selectAvgUserStat("tk_count", id[0]))
