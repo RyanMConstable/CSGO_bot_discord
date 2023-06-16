@@ -76,6 +76,9 @@ def handle_response(message, username, usernameID) -> str:
         except Exception as e:
             print("ERROR IN responses.py: " + e)
             return "Error, most likely invalid steamid/steam key"
+        
+    if p_message[0] == '-':
+        return "Command not found try '-help'"
     
     return
 
