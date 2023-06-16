@@ -45,12 +45,18 @@ def handle_response(message, username, usernameID) -> str:
         id = CSGOsql.findSteamID(usernameID)
         if id is None:
             return "Can't find an id linked with your discord? Use '-steamid' first"
+        if len(p_message) == 8:
+            try:
+                return CSGOsql.findusertop(id[0])
+            except:
+                print("ERROR IN responses.py: " + str(e))
+                return "Unexpected Error"
         try:
             num = p_message.split(" ")[1]
             category = p_message.split(" ")[2]
             return CSGOsql.findTop10user(category, id[0], num)
         except Exception as e:
-            print("ERROR IN responses.py: " + e)
+            print("ERROR IN responses.py: " + str(e))
             return "Incorrect format, try '-topuser <amount> <category>'"
     
     
