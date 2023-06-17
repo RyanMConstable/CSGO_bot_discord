@@ -1,2 +1,2 @@
 # CSGO_bot_discord
-Works with CSGO_Project as a discord bot
+Uses CSGO_Project backend to parse information for use in discord
