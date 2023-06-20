@@ -27,7 +27,7 @@ def handle_response(message, username, usernameID) -> str:
     
     
     
-    #Easy commands to find stats for
+    #Returns the top x (between 0 and 100) for all users in database of a given category
     if command == "-top":
         try:
             num = p_message.split(" ")[1]
@@ -41,7 +41,7 @@ def handle_response(message, username, usernameID) -> str:
     
     
     
-    #Specific user commands
+    #Returns the top x (between 0 and 100) for the user creating the command of a given category
     if command == "-mytop":
         id = CSGOsql.findSteamID(usernameID)
         if id is None:
@@ -60,7 +60,7 @@ def handle_response(message, username, usernameID) -> str:
             print("ERROR IN responses.py: " + str(e))
             return "Incorrect format, try '-mytop <amount> <category>'"
     
-    
+    #Gives the user their average, there should be a simpler command for this in the backend...
     if command == "-myavg":
         id = CSGOsql.findSteamID(usernameID)
         if id is None:
@@ -84,7 +84,8 @@ def handle_response(message, username, usernameID) -> str:
         except Exception as e:
             print("ERROR IN responses.py: " + e)
             return "Error, most likely invalid steamid/steam key"
-        
+    
+    #If user uses a - and it wasn't caught by previous statements, let them know the command was invalid
     if p_message[0] == '-':
         return "Command not found try '-help'"
     
