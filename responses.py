@@ -1,3 +1,4 @@
+from tabulate import tabulate
 from CSGO_Project import CSGOsql
 
 ##########################################################
@@ -65,20 +66,21 @@ def handle_response(message, username, usernameID) -> str:
         if id is None:
             return "Can't find an id linked with your discord? Use '-steamid' first"
         try:
-            strVal = "Average stats per game:\n"
+            strVal = []
+            strVal.append(["Total Games", str(CSGOsql.findNumberOfGames(id[0]))])
+            strVal.append(["Kills", str(CSGOsql.selectAvgUserStat("totalkills", id[0]))])
+            strVal.append(["Score", str(CSGOsql.selectAvgUserStat("score", id[0]))])
+            strVal.append(["Team Kills", str(CSGOsql.selectAvgUserStat("tk_count", id[0]))])
+            strVal.append(["Assists", str(CSGOsql.selectAvgUserStat("assist", id[0]))])
+            strVal.append(["Deaths", str(CSGOsql.selectAvgUserStat("deaths", id[0]))])
+            strVal.append(["Headshots", str(CSGOsql.selectAvgUserStat("headshot", id[0]))])
+            strVal.append(["KD", str(CSGOsql.selectAvgUserStat("kd", id[0]))])
+            strVal.append(["RWS", str(CSGOsql.selectAvgUserStat("rws", id[0]))])
+            strVal.append(["Shot Count", str(CSGOsql.selectAvgUserStat("shot_count", id[0]))])
+            strVal.append(["Hit Count", str(CSGOsql.selectAvgUserStat("hit_count", id[0]))])
             
-            strVal += "\nTotal Games: " + str(CSGOsql.findNumberOfGames(id[0]))
-            strVal += "\nKills: " + str(CSGOsql.selectAvgUserStat("totalkills", id[0]))
-            strVal += "\nScore: " + str(CSGOsql.selectAvgUserStat("score", id[0]))
-            strVal += "\nTeam Kills: " + str(CSGOsql.selectAvgUserStat("tk_count", id[0]))
-            strVal += "\nAssists: " + str(CSGOsql.selectAvgUserStat("assist", id[0]))
-            strVal += "\nDeaths: " + str(CSGOsql.selectAvgUserStat("deaths", id[0]))
-            strVal += "\nHeadshots: " + str(CSGOsql.selectAvgUserStat("headshot", id[0]))
-            strVal += "\nKD: " + str(CSGOsql.selectAvgUserStat("kd", id[0]))
-            strVal += "\nRWS: " + str(CSGOsql.selectAvgUserStat("rws", id[0]))
-            strVal += "\nShot Count: " + str(CSGOsql.selectAvgUserStat("shot_count", id[0]))
-            strVal += "\nHit Count: " + str(CSGOsql.selectAvgUserStat("hit_count", id[0]))
-            return strVal
+            head = ["Category", "Average"]
+            return tabulate(strVal, headers=head, tablefmt="grid")
         except Exception as e:
             print("ERROR IN responses.py: " + e)
             return "Error, most likely invalid steamid/steam key"
