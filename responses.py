@@ -22,7 +22,7 @@ def handle_response(message, username, usernameID) -> str:
         try:
             CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1], message.split(" ")[2].upper())
         except:
-            return "Incorrect Input try '-steamid <id> <key>'"
+            return "Incorrect Input try '-steamid <id> <key>'\nSteam key is found here as 'Authentication key': https://help.steampowered.com/en/wizard/HelpWithGameIssue/?appid=730&issueid=128"
         return "SteamID updated"
     
     
