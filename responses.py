@@ -29,6 +29,8 @@ def handle_response(message, username, usernameID) -> str:
     
     #Returns the top x (between 0 and 100) for all users in database of a given category
     if command == "-top":
+        if len(p_message) == 4:
+            return
         try:
             num = p_message.split(" ")[1]
             category = p_message.split(" ")[2]
