@@ -46,7 +46,7 @@ def handle_response(message, username, usernameID) -> str:
         id = CSGOsql.findSteamID(usernameID)
         if id is None:
             return "Can't find an id linked with your discord? Use '-steamid' first"
-        if len(p_message) == 8:
+        if len(p_message) == 6:
             try:
                 return CSGOsql.findusertop(id[0])
             except:
