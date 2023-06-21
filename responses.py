@@ -48,8 +48,9 @@ def handle_response(message, username, usernameID) -> str:
             return "Can't find an id linked with your discord? Use '-steamid' first"
         if len(p_message) == 6:
             try:
-                return CSGOsql.findusertop(id[0])
-            except:
+                topuserinfo = CSGOsql.findusertop(id[0])
+                return tabulate(topuserinfo[0], headers=topuserinfo[1], tablefmt="grid")
+            except Exception as e:
                 print("ERROR IN responses.py: " + str(e))
                 return "Unexpected Error"
         try:
