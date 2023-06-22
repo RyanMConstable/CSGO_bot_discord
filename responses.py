@@ -85,7 +85,8 @@ def handle_response(message, username, usernameID) -> str:
             strVal.append(["Hit Count", str(CSGOsql.selectAvgUserStat("hit_count", id[0]))])
             
             head = ["Category", "Average"]
-            return tabulate(strVal, head, tablefmt="grid")
+            output = t2a(header=head, body=strVal, style=PresetStyle.thin_compact)
+            return output
         except Exception as e:
             print("ERROR IN responses.py: " + e)
             return "Error, most likely invalid steamid/steam key"
