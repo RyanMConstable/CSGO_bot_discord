@@ -1,13 +1,15 @@
 import discord
 import responses
 import os
-
 async def send_message(username, message, user_message, usernameID, is_private):
     try:
         response = responses.handle_response(user_message, username, usernameID)
         if response == None:
             return
-        await message.author.send(response) if is_private else await message.channel.send(response)
+        
+        embed = discord.Embed(title = "")
+        embed.add_field(name = "", value = str(response))
+        await message.author.send(embed=embed) if is_private else await message.channel.send(embed=embed)
     except Exception as e:
         print(e)
 
