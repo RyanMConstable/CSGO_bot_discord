@@ -6,10 +6,9 @@ async def send_message(username, message, user_message, usernameID, is_private):
         response = responses.handle_response(user_message, username, usernameID)
         if response == None:
             return
-        
         embed = discord.Embed(title = "")
         embed.add_field(name = "", value = str(response))
-        await message.author.send(embed=embed) if is_private else await message.channel.send(embed=embed)
+        await message.author.send(embed=embed) if is_private else await message.channel.send("```\n{}\n```".format(response))
     except Exception as e:
         print(e)
 

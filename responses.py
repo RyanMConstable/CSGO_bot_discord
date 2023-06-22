@@ -1,4 +1,5 @@
 from tabulate import tabulate
+from table2ascii import table2ascii as t2a, PresetStyle
 from CSGO_Project import CSGOsql
 
 ##########################################################
@@ -84,7 +85,7 @@ def handle_response(message, username, usernameID) -> str:
             strVal.append(["Hit Count", str(CSGOsql.selectAvgUserStat("hit_count", id[0]))])
             
             head = ["Category", "Average"]
-            return tabulate(strVal, headers=head, tablefmt="grid")
+            return tabulate(strVal, head, tablefmt="grid")
         except Exception as e:
             print("ERROR IN responses.py: " + e)
             return "Error, most likely invalid steamid/steam key"
