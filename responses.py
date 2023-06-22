@@ -29,7 +29,7 @@ def handle_response(message, username, usernameID) -> str:
     
     
     #Returns the top x (between 0 and 100) for all users in database of a given category
-    if command == "-top" or command == "-givetop":
+    if command == "-top":
         if len(p_message) == 4:
             result = CSGOsql.findtopstat()
             output = t2a(header=result[1], body=result[0], style=PresetStyle.thin_compact)
@@ -49,11 +49,11 @@ def handle_response(message, username, usernameID) -> str:
     
     
     #Returns the top x (between 0 and 100) for the user creating the command of a given category
-    if command == "-mytop":
+    if command == "-mytop" or command == "-givetop":
         id = CSGOsql.findSteamID(usernameID)
         if id is None:
             return "Can't find an id linked with your discord? Use '-steamid' first"
-        if len(p_message) == 6:
+        if len(p_message) == 6 or len(p_message) == 8:
             try:
                 topuserinfo = CSGOsql.findusertop(id[0])
                 output = t2a(header=topuserinfo[1], body=topuserinfo[0], style=PresetStyle.thin_compact)
