@@ -29,7 +29,7 @@ def handle_response(message, username, usernameID) -> str:
     
     
     #Returns the top x (between 0 and 100) for all users in database of a given category
-    if command == "-top":
+    if command == "-top" or command == "-givetop":
         if len(p_message) == 4:
             result = CSGOsql.findtopstat()
             output = t2a(header=result[1], body=result[0], style=PresetStyle.thin_compact)
