@@ -37,7 +37,9 @@ def handle_response(message, username, usernameID) -> str:
         try:
             num = p_message.split(" ")[1]
             category = p_message.split(" ")[2]
-            return CSGOsql.findTopX(category, num)
+            result = CSGOsql.findTopX(category, num)
+            output = t2a(header=result[1], body=result[0], style=PresetStyle.thin_compact)
+            return output
         except Exception as e:
             print("ERROR IN responses.py: " + e)
             return "Incorrect format, try '-top <amount> <category>'"
