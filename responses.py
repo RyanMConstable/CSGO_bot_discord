@@ -32,7 +32,8 @@ def handle_response(message, username, usernameID) -> str:
     if command == "-top":
         if len(p_message) == 4:
             result = CSGOsql.findtopstat()
-            return tabulate(result[0], result[1], tablefmt="grid")
+            output = t2a(header=result[1], body=result[0], style=PresetStyle.thin_compact)
+            return output
         try:
             num = p_message.split(" ")[1]
             category = p_message.split(" ")[2]
@@ -53,7 +54,8 @@ def handle_response(message, username, usernameID) -> str:
         if len(p_message) == 6:
             try:
                 topuserinfo = CSGOsql.findusertop(id[0])
-                return tabulate(topuserinfo[0], headers=topuserinfo[1], tablefmt="grid")
+                output = t2a(header=topuserinfo[1], body=topuserinfo[0], style=PresetStyle.thin_compact)
+                return output
             except Exception as e:
                 print("ERROR IN responses.py: " + str(e))
                 return "Unexpected Error"
