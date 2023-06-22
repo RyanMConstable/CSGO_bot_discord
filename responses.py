@@ -62,7 +62,9 @@ def handle_response(message, username, usernameID) -> str:
         try:
             num = p_message.split(" ")[1]
             category = p_message.split(" ")[2]
-            return CSGOsql.findTop10user(category, id[0], num)
+            updateGames = CSGOsql.findTop10user(category, id[0], num)
+            output = t2a(header=updateGames[1], body=updateGames[0], style=PresetStyle.thin_compact)
+            return output
         except Exception as e:
             print("ERROR IN responses.py: " + str(e))
             return "Incorrect format, try '-mytop <amount> <category>'"
