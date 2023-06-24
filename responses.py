@@ -77,20 +77,9 @@ def handle_response(message, username, usernameID) -> str:
         if id is None:
             return "Can't find an id linked with your discord? Use '-steamid' first"
         try:
-            strVal = []
-            strVal.append(["Total Games", str(CSGOsql.findNumberOfGames(id[0]))])
-            strVal.append(["Kills", str(CSGOsql.selectAvgUserStat("totalkills", id[0]))])
-            strVal.append(["Score", str(CSGOsql.selectAvgUserStat("score", id[0]))])
-            strVal.append(["Team Kills", str(CSGOsql.selectAvgUserStat("tk_count", id[0]))])
-            strVal.append(["Assists", str(CSGOsql.selectAvgUserStat("assist", id[0]))])
-            strVal.append(["Deaths", str(CSGOsql.selectAvgUserStat("deaths", id[0]))])
-            strVal.append(["Headshots", str(CSGOsql.selectAvgUserStat("headshot", id[0]))])
-            strVal.append(["KD", str(CSGOsql.selectAvgUserStat("kd", id[0]))])
-            strVal.append(["RWS", str(CSGOsql.selectAvgUserStat("rws", id[0]))])
-            strVal.append(["Shot Count", str(CSGOsql.selectAvgUserStat("shot_count", id[0]))])
-            strVal.append(["Hit Count", str(CSGOsql.selectAvgUserStat("hit_count", id[0]))])
-            
-            head = ["Category", "Average"]
+            csgoReturn = CSGOsql.findAvg(id[0])
+            head = csgoReturn[0]
+            strVal = csgoReturn[1]
             output = t2a(header=head, body=strVal, style=PresetStyle.thin_compact)
             return output
         except Exception as e:
