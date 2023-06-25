@@ -62,6 +62,17 @@ def handle_response(message, username, usernameID) -> str:
             except Exception as e:
                 print("ERROR IN responses.py: " + str(e))
                 return "Unexpected Error"
+        if len(p_message.split(" ")) == 2:
+            try:
+                name = p_message.split(" ")[1]
+                foundid = CSGOsql.findSteamID2(name)
+                print(foundid)
+                topuserinfo = CSGOsql.findusertop(foundid)
+                output = t2a(header=topuserinfo[1], body=topuserinfo[0], style=PresetStyle.thin_compact)
+                return output
+            except Exception as e:
+                print("ERROR IN responses.py: " + str(e))
+                return "Incorrect format, try '-mytop <amount> <category> <optional username>'"
         if len(p_message.split(" ")) == 3:
             try:
                 num = p_message.split(" ")[1]
