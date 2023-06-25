@@ -86,7 +86,7 @@ def handle_response(message, username, usernameID) -> str:
                 return "Incorrect format, try '-mytop <amount> <category> <optional username>'"
     
     #Gives the user their average, there should be a simpler command for this in the backend...
-    if command == "-myavg":
+    if command == "-avg":
         id = CSGOsql.findSteamID(usernameID)
         if id is None:
             return "Can't find an id linked with your discord? Use '-steamid' first"
