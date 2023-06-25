@@ -34,15 +34,16 @@ def handle_response(message, username, usernameID) -> str:
             result = CSGOsql.findtopstat()
             output = t2a(header=result[1], body=result[0], style=PresetStyle.thin_compact)
             return output
-        try:
-            num = p_message.split(" ")[1]
-            category = p_message.split(" ")[2]
-            result = CSGOsql.findTopX(category, num)
-            output = t2a(header=result[1], body=result[0], style=PresetStyle.thin_compact)
-            return output
-        except Exception as e:
-            print("ERROR IN responses.py: " + e)
-            return "Incorrect format, try '-top <amount> <category>'"
+        if len(p_message.split(" ")) == 3:
+            try:
+                num = p_message.split(" ")[1]
+                category = p_message.split(" ")[2]
+                result = CSGOsql.findTopX(category, num)
+                output = t2a(header=result[1], body=result[0], style=PresetStyle.thin_compact)
+                return output
+            except Exception as e:
+                print("ERROR IN responses.py: " + e)
+                return "Incorrect format, try '-top <amount> <category>'"
     
     
     
@@ -61,15 +62,28 @@ def handle_response(message, username, usernameID) -> str:
             except Exception as e:
                 print("ERROR IN responses.py: " + str(e))
                 return "Unexpected Error"
-        try:
-            num = p_message.split(" ")[1]
-            category = p_message.split(" ")[2]
-            updateGames = CSGOsql.findTop10user(category, id[0], num)
-            output = t2a(header=updateGames[1], body=updateGames[0], style=PresetStyle.thin_compact)
-            return output
-        except Exception as e:
-            print("ERROR IN responses.py: " + str(e))
-            return "Incorrect format, try '-mytop <amount> <category>'"
+        if len(p_message.split(" ")) == 3:
+            try:
+                num = p_message.split(" ")[1]
+                category = p_message.split(" ")[2]
+                updateGames = CSGOsql.findTop10user(category, id[0], num)
+                output = t2a(header=updateGames[1], body=updateGames[0], style=PresetStyle.thin_compact)
+                return output
+            except Exception as e:
+                print("ERROR IN responses.py: " + str(e))
+                return "Incorrect format, try '-mytop <amount> <category> <optional username>'"
+        if len(p_message.split(" ")) == 4:
+            try:
+                num = p_message.split(" ")[1]
+                category = p_message.split(" ")[2]
+                name = p_message.split(" ")[3]
+                foundid = CSGOsql.findSteamID2(name)
+                updateGames = CSGOsql.findTop10user(category, foundid, num)
+                output = t2a(header=updateGames[1], body=updateGames[0], style=PresetStyle.thin_compact)
+                return output
+            except Exception as e:
+                print("ERROR IN responses.py: " + str(e))
+                return "Incorrect format, try '-mytop <amount> <category> <optional username>'"
     
     #Gives the user their average, there should be a simpler command for this in the backend...
     if command == "-myavg":
