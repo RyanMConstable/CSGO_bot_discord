@@ -43,7 +43,7 @@ def handle_response(message, username, usernameID) -> str:
                 return output
             except Exception as e:
                 print("ERROR IN responses.py: " + e)
-                return "Incorrect format, try '-top <amount> <category>'"
+                return "Incorrect format, try '-leaders <amount> <category>'"
     
     
     
@@ -72,7 +72,7 @@ def handle_response(message, username, usernameID) -> str:
                 return output
             except Exception as e:
                 print("ERROR IN responses.py: " + str(e))
-                return "Incorrect format, try '-mytop <amount> <category> <optional username>'"
+                return "Incorrect format, try '-top <amount> <category> <optional username>'"
         if len(p_message.split(" ")) == 3:
             try:
                 num = p_message.split(" ")[1]
@@ -82,7 +82,7 @@ def handle_response(message, username, usernameID) -> str:
                 return output
             except Exception as e:
                 print("ERROR IN responses.py: " + str(e))
-                return "Incorrect format, try '-mytop <amount> <category> <optional username>'"
+                return "Incorrect format, try '-top <amount> <category> <optional username>'"
         if len(p_message.split(" ")) == 4:
             try:
                 num = p_message.split(" ")[1]
@@ -94,7 +94,7 @@ def handle_response(message, username, usernameID) -> str:
                 return output
             except Exception as e:
                 print("ERROR IN responses.py: " + str(e))
-                return "Incorrect format, try '-mytop <amount> <category> <optional username>'"
+                return "Incorrect format, try '-top <amount> <category> <optional username>'"
     
     #Gives the user their average, there should be a simpler command for this in the backend...
     if command == "-avg":
