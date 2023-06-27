@@ -65,7 +65,6 @@ def handle_response(message, username, usernameID) -> str:
             try:
                 name = p_message.split(" ")[1]
                 foundid = CSGOsql.findSteamID2(name)
-                print(foundid)
                 topuserinfo = CSGOsql.findusertop(foundid)
                 output = t2a(header=topuserinfo[1], body=topuserinfo[0], style=PresetStyle.thin_compact)
                 return output
