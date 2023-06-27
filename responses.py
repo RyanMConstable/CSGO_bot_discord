@@ -125,7 +125,7 @@ def handle_response(message, username, usernameID) -> str:
     
     #If user uses a - and it wasn't caught by previous statements, let them know the command was invalid
     if p_message[0] == '-':
-        return "Command not found try '-help'"
+        return "Command not found try '-help' or '-h'"
     
     return
 
