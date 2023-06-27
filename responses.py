@@ -88,7 +88,7 @@ def handle_response(message, username, usernameID) -> str:
                 name = p_message.split(" ")[3]
                 foundid = CSGOsql.findSteamID2(name)
                 updateGames = CSGOsql.findTopUser(category, foundid, num)
-                output = t2a(header=["Highest {}".format(category)], body=updateGames[0], style=PresetStyle.thin_compact, footer=[name])
+                output = t2a(header=["Highest {}".format(category)], body=updateGames[0], style=PresetStyle.thin_compact, footer=[name + "'s games"])
                 return output
             except Exception as e:
                 print("ERROR IN responses.py: " + str(e))
