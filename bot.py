@@ -10,7 +10,8 @@ async def send_message(username, message, user_message, usernameID, is_private):
         embed.add_field(name = "", value = "```\n{}\n```".format(response))
         if len(embed) > 1024:
             await message.author.send("```\n{}\n```".format(response)) if is_private else await message.channel.send("```\n{}\n```".format(response))
-        await message.author.send(embed=embed) if is_private else await message.channel.send(embed = embed)
+        else:
+            await message.author.send(embed=embed) if is_private else await message.channel.send(embed = embed)
     except Exception as e:
         print(e)
 
