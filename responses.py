@@ -19,25 +19,9 @@ def handle_response(message, username, usernameID) -> str:
     if command == "-steamid":
         return responsesExt.steamid(usernameID, p_message.split(" ")[1], message.split(" ")[2].upper())
     
-    
-    
     #Returns the top x (between 0 and 100) for all users in database of a given category
     if command == "-leaders":
-        if len(p_message) == 8:
-            result = CSGOsql.findtopstat()
-            output = t2a(header=result[1], body=result[0], style=PresetStyle.thin_compact)
-            return output
-        if len(p_message.split(" ")) == 3:
-            try:
-                num = p_message.split(" ")[1]
-                category = p_message.split(" ")[2]
-                result = CSGOsql.findTopX(category, num)
-                output = t2a(header=result[1], body=result[0], style=PresetStyle.thin_compact)
-                return output
-            except Exception as e:
-                print("ERROR IN responses.py: " + e)
-                return "Incorrect format, try '-leaders <amount> <category>'"
-    
+        return responsesExt.leaders(p_message)
     
     
     

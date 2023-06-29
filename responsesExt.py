@@ -1,5 +1,6 @@
 from table2ascii import table2ascii as t2a, PresetStyle
 from CSGO_Project import CSGOsql
+import os
 
 #This file contains functions that get executed for the responses.py file
 
@@ -89,3 +90,19 @@ def steamid(discordID, steamID, steamKEY):
         errorMSG += "https://help.steampowered.com/en/wizard/HelpWithGameIssue/?appid=730&issueid=128"
         return errorMSG
     return "SteamID updated"
+
+
+def leaders(fullCommand):
+    if fullCommand == "-leaders":
+        result = CSGOsql.findtopstat()
+    elif len(fullCommand.split(" ")) == 3:
+        try:
+            num = fullCommand.split(" ")[1]
+            category = fullCommand.split(" ")[2]
+            result = CSGOsql.findTopX(commandsToCol[category], num)
+        except Exception as e:
+            os.system("echo [ERROR] in leaders function: {} >> responsesLOG.txt".format(e))
+            return "Incorrect format, try '-leaders <amount> <category>'"
+    else:
+        return "Invalid command use '-h' for help"
+    return t2a(header=result[1], body=result[0], style=PresetStyle.thin_compact)
