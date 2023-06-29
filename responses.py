@@ -17,12 +17,7 @@ def handle_response(message, username, usernameID) -> str:
     
     #This allows a user to add their steamid to the database for future reference
     if command == "-steamid":
-        #Here we should attempt an API call to validate the user...
-        try:
-            CSGOsql.setDiscordUser(usernameID, p_message.split(" ")[1], message.split(" ")[2].upper())
-        except:
-            return "Incorrect Input try '-steamid <id> <key>'\nSteam key is found here as 'Authentication key': https://help.steampowered.com/en/wizard/HelpWithGameIssue/?appid=730&issueid=128"
-        return "SteamID updated"
+        return responsesExt.steamid(usernameID, p_message.split(" ")[1], message.split(" ")[2].upper())
     
     
     

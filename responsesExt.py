@@ -78,3 +78,14 @@ def help():
         dictionaryKeys.append(key)
     
     return commands + str(dictionaryKeys)
+
+
+def steamid(discordID, steamID, steamKEY):
+    try:
+        CSGOsql.setDiscordUser(discordID, steamID, steamKEY)
+    except:
+        errorMSG = "Incorrect Input try '-steamid <id> <key>'\n"
+        errorMSG += "Steam key is found here as 'Authentication key': "
+        errorMSG += "https://help.steampowered.com/en/wizard/HelpWithGameIssue/?appid=730&issueid=128"
+        return errorMSG
+    return "SteamID updated"
