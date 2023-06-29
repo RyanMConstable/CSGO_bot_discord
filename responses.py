@@ -74,7 +74,7 @@ def handle_response(message, username, usernameID) -> str:
     
     #Gives the user their average, there should be a simpler command for this in the backend...
     if command == "-avg":
-        return responsesExt.avg(usernameID, p_message)
+        return responsesExt.avg(usernameID, p_message, username)
     
     #If user uses a - and it wasn't caught by previous statements, let them know the command was invalid
     if p_message[0] == '-':

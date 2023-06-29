@@ -111,30 +111,22 @@ def leaders(fullCommand):
 
 
 #For the average of the given users
-def avg(userID, fullCommand):
+def avg(userID, fullCommand, discordName):
+    commandLength = len(fullCommand.split(" "))
+    
     if fullCommand == '-avg':
-        id = CSGOsql.findSteamID(userID)
-        if id is None:
-            return "Can't find an id linked with your discord? Use '-steamid' first"
-        try:
-            csgoReturn = CSGOsql.findAvg(id[0])
-            head = csgoReturn[0]
-            strVal = csgoReturn[1]
-            output = t2a(header=head, body=strVal, style=PresetStyle.thin_compact)
-            return output
-        except Exception as e:
-            print("ERROR IN responses.py: " + e)
-            return "Error, most likely invalid steamid/steam key"
-    elif len(fullCommand.split(" ")) == 2:
-        try:
-            name = fullCommand.split(" ")[1]
-            foundid = CSGOsql.findSteamID2(name)
-            csgoReturn = CSGOsql.findAvg(foundid)
-            strVal = csgoReturn[1]
-            output = t2a(header=["Category", name], body=strVal, style=PresetStyle.thin_compact)
-            return output
-        except Exception as e:
-            print("ERROR IN responses.py: " + e)
-            return "Error, most likely invalid steamid/steam key"
+        name = discordName.split("#")[0]
+        steamid = CSGOsql.findSteamID(userID)[0]
+    elif commandLength == 2:
+        name = fullCommand.split(" ")[1]
+        steamid = CSGOsql.findSteamID2(name)
     else:
         return "Invalid Command try '-h' for help"
+    
+    try:
+        tableValues = CSGOsql.findAvg(steamid)
+        head = ["Category", name]
+        body = tableValues[1]
+        return t2a(header=head, body=body, style=PresetStyle.thin_compact)
+    except:
+        return "Error..."
