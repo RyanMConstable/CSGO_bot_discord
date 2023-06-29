@@ -1,20 +1,19 @@
 from table2ascii import table2ascii as t2a, PresetStyle
 from CSGO_Project import CSGOsql
+import responsesExt
 
 ##########################################################
 def handle_response(message, username, usernameID) -> str:
+    #This makes sure that any command in any form of caps is met
     p_message = message.lower()
     try:
         command = p_message.split(" ")[0].lower()
     except:
         command = None
-
-    #Display help messages
+    
+    #Display help message to the user
     if p_message == "help" or p_message == '-h' or p_message == 'h' or p_message == '-help':
-        returnString = "Commands:\n\t  -steamid <id> <steamkey>\n\t  -avg <optional Steam User>\n\t  -top <optional Steam User> <optional amount> <optional category> <optional Steam User>\n\t  -leaders <optional amount> <optional category>\n\n    Categories: \n\t[totalkills, score, tk_count, assist, deaths, 5k, 4k, 3k, 2k, 1k, headshot, kd, rws, shot_count, hit_count, flashbang_thrown, smoke_thrown, he_thrown, molly_thrown, incendiary_thrown, decoy_thrown, round_count, adr, clutches, clutch_won_count, clutch_loss_count, entry_kill_won_count, entry_kill_loss_count, entry_hold_kill_won_count, entry_hold_kill_loss_count, rank_old, rank_new, total_health_damage, total_armor_damage, total_health_damage_taken, total_armor_damage_taken, kill_per_round, assist_per_round, death_per_round, total_time_death, avg_time_death, 1v1_won_count, 1v2_won_count, 1v3_won_count, 1v4_won_count, 1v5_won_count, 1v1_loss_count, 1v2_loss_count, 1v3_loss_count, 1v4_loss_count, 1v5_loss_count, 1v1_count, 1v2_count, 1v3_count, 1v4_count, 1v4_count]" 
-        return returnString 
-    
-    
+        return responsesExt.help()
     
     #This allows a user to add their steamid to the database for future reference
     if command == "-steamid":
