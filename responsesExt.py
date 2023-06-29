@@ -81,6 +81,7 @@ def help():
     return commands + str(dictionaryKeys)
 
 
+#Add your steamid to the database so it tracks your games
 def steamid(discordID, steamID, steamKEY):
     try:
         CSGOsql.setDiscordUser(discordID, steamID, steamKEY)
@@ -92,6 +93,7 @@ def steamid(discordID, steamID, steamKEY):
     return "SteamID updated"
 
 
+#For the top all time leaders of categories
 def leaders(fullCommand):
     if fullCommand == "-leaders":
         result = CSGOsql.findtopstat()
@@ -101,7 +103,7 @@ def leaders(fullCommand):
             category = fullCommand.split(" ")[2]
             result = CSGOsql.findTopX(commandsToCol[category], num)
         except Exception as e:
-            os.system("echo [ERROR] in leaders function: {} >> responsesLOG.txt".format(e))
+            #os.system("echo [ERROR] in leaders function: {} >> responsesLOG.txt".format(e))
             return "Incorrect format, try '-leaders <amount> <category>'"
     else:
         return "Invalid command use '-h' for help"
