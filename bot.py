@@ -8,6 +8,7 @@ async def send_message(username, message, user_message, usernameID, is_private):
             return
         embed = discord.Embed(title = "")
         embed.add_field(name = "", value = "```\n{}\n```".format(response))
+        print(len(embed))
         if len(embed) > 1024:
             await message.author.send("```\n{}\n```".format(response)) if is_private else await message.channel.send("```\n{}\n```".format(response))
         else:
