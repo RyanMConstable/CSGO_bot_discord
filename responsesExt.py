@@ -112,10 +112,10 @@ def leaders(fullCommand):
 
 #For the average of the given users
 def avg(userID, fullCommand):
-    id = CSGOsql.findSteamID(userID)
-    if id is None:
-        return "Can't find an id linked with your discord? Use '-steamid' first"
-    if len(fullCommand.split(" ")) == 1:
+    if fullCommand == '-avg':
+        id = CSGOsql.findSteamID(userID)
+        if id is None:
+            return "Can't find an id linked with your discord? Use '-steamid' first"
         try:
             csgoReturn = CSGOsql.findAvg(id[0])
             head = csgoReturn[0]
@@ -125,7 +125,7 @@ def avg(userID, fullCommand):
         except Exception as e:
             print("ERROR IN responses.py: " + e)
             return "Error, most likely invalid steamid/steam key"
-    if len(fullCommand.split(" ")) == 2:
+    elif len(fullCommand.split(" ")) == 2:
         try:
             name = fullCommand.split(" ")[1]
             foundid = CSGOsql.findSteamID2(name)
@@ -136,3 +136,5 @@ def avg(userID, fullCommand):
         except Exception as e:
             print("ERROR IN responses.py: " + e)
             return "Error, most likely invalid steamid/steam key"
+    else:
+        return "Invalid Command try '-h' for help"
