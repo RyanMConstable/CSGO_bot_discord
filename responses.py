@@ -74,30 +74,7 @@ def handle_response(message, username, usernameID) -> str:
     
     #Gives the user their average, there should be a simpler command for this in the backend...
     if command == "-avg":
-        id = CSGOsql.findSteamID(usernameID)
-        if id is None:
-            return "Can't find an id linked with your discord? Use '-steamid' first"
-        if len(p_message.split(" ")) == 1:
-            try:
-                csgoReturn = CSGOsql.findAvg(id[0])
-                head = csgoReturn[0]
-                strVal = csgoReturn[1]
-                output = t2a(header=head, body=strVal, style=PresetStyle.thin_compact)
-                return output
-            except Exception as e:
-                print("ERROR IN responses.py: " + e)
-                return "Error, most likely invalid steamid/steam key"
-        if len(p_message.split(" ")) == 2:
-            try:
-                name = p_message.split(" ")[1]
-                foundid = CSGOsql.findSteamID2(name)
-                csgoReturn = CSGOsql.findAvg(foundid)
-                strVal = csgoReturn[1]
-                output = t2a(header=["Category", name], body=strVal, style=PresetStyle.thin_compact)
-                return output
-            except Exception as e:
-                print("ERROR IN responses.py: " + e)
-                return "Error, most likely invalid steamid/steam key"
+        return responsesExt.avg(usernameID, p_message)
     
     #If user uses a - and it wasn't caught by previous statements, let them know the command was invalid
     if p_message[0] == '-':

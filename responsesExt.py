@@ -108,3 +108,31 @@ def leaders(fullCommand):
     else:
         return "Invalid command use '-h' for help"
     return t2a(header=result[1], body=result[0], style=PresetStyle.thin_compact)
+
+
+#For the average of the given users
+def avg(userID, fullCommand):
+    id = CSGOsql.findSteamID(userID)
+    if id is None:
+        return "Can't find an id linked with your discord? Use '-steamid' first"
+    if len(fullCommand.split(" ")) == 1:
+        try:
+            csgoReturn = CSGOsql.findAvg(id[0])
+            head = csgoReturn[0]
+            strVal = csgoReturn[1]
+            output = t2a(header=head, body=strVal, style=PresetStyle.thin_compact)
+            return output
+        except Exception as e:
+            print("ERROR IN responses.py: " + e)
+            return "Error, most likely invalid steamid/steam key"
+    if len(fullCommand.split(" ")) == 2:
+        try:
+            name = fullCommand.split(" ")[1]
+            foundid = CSGOsql.findSteamID2(name)
+            csgoReturn = CSGOsql.findAvg(foundid)
+            strVal = csgoReturn[1]
+            output = t2a(header=["Category", name], body=strVal, style=PresetStyle.thin_compact)
+            return output
+        except Exception as e:
+            print("ERROR IN responses.py: " + e)
+            return "Error, most likely invalid steamid/steam key"
