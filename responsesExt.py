@@ -134,7 +134,7 @@ def avg(userID, fullCommand, discordName):
     
 #For the top games of the given users
 def top(userID, message, discordName):
-    searcherName = discordName.split("#")[0]
+    name = discordName.split("#")[0]
     commandList = ["-top", "-givetop"]
     commandLen = len(message.split(" "))
     
@@ -157,10 +157,9 @@ def top(userID, message, discordName):
             steamid = CSGOsql.findSteamID2(name)
         
         limit = message.split(" ")[1]
-        category = message.split(" ")[2]
+        category = commandsToCol[message.split(" ")[2]]
         topGames = CSGOsql.findTopUser(category, steamid, limit)
     
-    head = ["Highest {}".format(category)]
-    body = topGames[0]
-    foot = [name + "'s games"]        
-    return t2a(header=head, body=body, style=PresetStyle.thin_compact, footer=foot)
+        head = ["Highest {}".format(category)]
+        body = topGames[0]        
+    return t2a(header=head, body=body, style=PresetStyle.thin_compact)
