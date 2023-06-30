@@ -72,11 +72,11 @@ def handle_response(message, username, usernameID) -> str:
                 print("ERROR IN responses.py: " + str(e))
                 return "Incorrect format, try '-top <amount> <category> <optional username>'"
     
-    #Gives the user their average, there should be a simpler command for this in the backend...
+    #Gives the user their average
     if command == "-avg":
         return responsesExt.avg(usernameID, p_message, username)
     
-    #If user uses a - and it wasn't caught by previous statements, let them know the command was invalid
+    #If there was an attempted command but command not found...
     if p_message[0] == '-':
         return "Command not found try '-help' or '-h'"
     
