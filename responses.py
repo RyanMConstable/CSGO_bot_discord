@@ -28,6 +28,7 @@ def handle_response(message, username, usernameID) -> str:
     
     #Returns the top x (between 0 and 100) for the user creating the command of a given category
     if command == "-top" or command == "-givetop":
+        return responsesExt.top(usernameID, p_message, username)
         id = CSGOsql.findSteamID(usernameID)
         if id is None:
             return "Can't find an id linked with your discord? Use '-steamid' first"

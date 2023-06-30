@@ -130,3 +130,37 @@ def avg(userID, fullCommand, discordName):
         return t2a(header=head, body=body, style=PresetStyle.thin_compact)
     except:
         return "Error..."
+    
+    
+#For the top games of the given users
+def top(userID, message, discordName):
+    searcherName = discordName.split("#")[0]
+    commandList = ["-top", "-givetop"]
+    commandLen = len(message.split(" "))
+    
+    steamid = CSGOsql.findSteamID(userID)[0]
+    if steamid is None:
+        return "Can't find an id linked with your discord? Use '-steamid' first"
+    
+    if message in commandList or commandLen == 2:
+        if commandLen == 2:
+            name = message.split(" ")[1]
+            steamid = CSGOsql.findSteamID2(name)
+        
+        topuserinfo = CSGOsql.findusertop(steamid)
+        head = topuserinfo[1]
+        body = topuserinfo[0]
+
+    elif commandLen == 3 or commandLen == 4:
+        if commandLen == 4:
+            name = message.split(" ")[3]
+            steamid = CSGOsql.findSteamID2(name)
+        
+        limit = message.split(" ")[1]
+        category = message.split(" ")[2]
+        topGames = CSGOsql.findTopUser(category, steamid, limit)
+    
+    head = ["Highest {}".format(category)]
+    body = topGames[0]
+    foot = [name + "'s games"]        
+    return t2a(header=head, body=body, style=PresetStyle.thin_compact, footer=foot)
