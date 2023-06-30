@@ -1,5 +1,3 @@
-from table2ascii import table2ascii as t2a, PresetStyle
-from CSGO_Project import CSGOsql
 import responsesExt
 
 ##########################################################
