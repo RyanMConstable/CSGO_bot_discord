@@ -176,3 +176,14 @@ def top(userID, message, discordName):
         head = ["Highest {}".format(category)]
         body = topGames[0]        
     return t2a(header=head, body=body, style=PresetStyle.thin_compact)
+
+
+def bottom(message):
+    try:
+        limit = message.split(" ")[1]
+        category = commandsToCol[message.split(" ")[2]]
+        bottomResults = CSGOsql.findBottom(category, limit)
+    except:
+        return "Invalid Command"
+    
+    return t2a(header=[category, "This is bad"], body = bottomResults, style=PresetStyle.thin_compact)

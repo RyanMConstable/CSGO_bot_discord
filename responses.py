@@ -29,6 +29,10 @@ def handle_response(message, username, usernameID) -> str:
     if command == "-avg":
         return responsesExt.avg(usernameID, p_message, username)
     
+    #Gives the user bottom of a category
+    if command == "-bottom":
+        return responsesExt.bottom(message)
+    
     #If there was an attempted command but command not found...
     if p_message[0] == '-':
         return "Command not found try '-help' or '-h'"
