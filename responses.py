@@ -23,55 +23,9 @@ def handle_response(message, username, usernameID) -> str:
     if command == "-leaders":
         return responsesExt.leaders(p_message)
     
-    
-    
-    
     #Returns the top x (between 0 and 100) for the user creating the command of a given category
     if command == "-top" or command == "-givetop":
         return responsesExt.top(usernameID, p_message, username)
-        id = CSGOsql.findSteamID(usernameID)
-        if id is None:
-            return "Can't find an id linked with your discord? Use '-steamid' first"
-        if len(p_message) == 4 or len(p_message) == 8:
-            try:
-                topuserinfo = CSGOsql.findusertop(id[0])
-                output = t2a(header=topuserinfo[1], body=topuserinfo[0], style=PresetStyle.thin_compact)
-                return output
-            except Exception as e:
-                print("ERROR IN responses.py: " + str(e))
-                return "Unexpected Error"
-        if len(p_message.split(" ")) == 2:
-            try:
-                name = p_message.split(" ")[1]
-                foundid = CSGOsql.findSteamID2(name)
-                topuserinfo = CSGOsql.findusertop(foundid)
-                output = t2a(header=topuserinfo[1], body=topuserinfo[0], style=PresetStyle.thin_compact)
-                return output
-            except Exception as e:
-                print("ERROR IN responses.py: " + str(e))
-                return "Incorrect format, try '-top <amount> <category> <optional username>'"
-        if len(p_message.split(" ")) == 3:
-            try:
-                num = p_message.split(" ")[1]
-                category = p_message.split(" ")[2]
-                updateGames = CSGOsql.findTopUser(category, id[0], num)
-                output = t2a(header=["Highest {}".format(category)], body=updateGames[0], style=PresetStyle.thin_compact, footer=[username.split("#")[0] + "'s games"])
-                return output
-            except Exception as e:
-                print("ERROR IN responses.py: " + str(e))
-                return "Incorrect format, try '-top <amount> <category> <optional username>'"
-        if len(p_message.split(" ")) == 4:
-            try:
-                num = p_message.split(" ")[1]
-                category = p_message.split(" ")[2]
-                name = p_message.split(" ")[3]
-                foundid = CSGOsql.findSteamID2(name)
-                updateGames = CSGOsql.findTopUser(category, foundid, num)
-                output = t2a(header=["Highest {}".format(category)], body=updateGames[0], style=PresetStyle.thin_compact, footer=[name + "'s games"])
-                return output
-            except Exception as e:
-                print("ERROR IN responses.py: " + str(e))
-                return "Incorrect format, try '-top <amount> <category> <optional username>'"
     
     #Gives the user their average
     if command == "-avg":
