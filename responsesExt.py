@@ -177,7 +177,7 @@ def top(userID, message, discordName):
         body = topGames[0]        
     return t2a(header=head, body=body, style=PresetStyle.thin_compact)
 
-
+#This function finds the bottom x users of a given category
 def bottom(message):
     try:
         limit = message.split(" ")[1]
