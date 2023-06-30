@@ -22,7 +22,7 @@ def handle_response(message, username, usernameID) -> str:
     
     #This allows a user to add their steamid to the database for future reference
     if command == "-steamid":
-        return responsesExt.steamid(usernameID, p_message.split(" ")[1], message.split(" ")[2].upper())
+        return responsesExt.steamid(usernameID, p_message)
     
     #Returns the top x (between 0 and 100) for all users in database of a given category
     if command == "-leaders":
@@ -38,7 +38,7 @@ def handle_response(message, username, usernameID) -> str:
     
     #Gives the user bottom of a category
     if command == "-bottom":
-        return responsesExt.bottom(message) 
+        return responsesExt.bottom(p_message) 
        
     return
 

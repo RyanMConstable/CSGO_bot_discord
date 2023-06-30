@@ -95,8 +95,10 @@ def help():
 
 
 #Add your steamid to the database so it tracks your games
-def steamid(discordID, steamID, steamKEY):
+def steamid(discordID, message):
     try:
+        steamID = message.split(" ")[1]
+        steamKEY = message.split(" ")[2]
         CSGOsql.setDiscordUser(discordID, steamID, steamKEY)
     except:
         errorMSG = "Incorrect Input try '-steamid <id> <key>'\n"
