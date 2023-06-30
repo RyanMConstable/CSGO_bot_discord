@@ -99,8 +99,8 @@ def leaders(fullCommand):
     elif len(fullCommand.split(" ")) == 3:
         try:
             num = fullCommand.split(" ")[1]
-            category = fullCommand.split(" ")[2]
-            result = CSGOsql.findTopX(commandsToCol[category], num)
+            category = commandsToCol[fullCommand.split(" ")[2]]
+            result = CSGOsql.findTopX(category, num)
         except Exception as e:
             #os.system("echo [ERROR] in leaders function: {} >> responsesLOG.txt".format(e))
             return "Incorrect format, try '-leaders <amount> <category>'"
