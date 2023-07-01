@@ -1,5 +1,5 @@
 # CSGO_bot_discord
-Uses CSGO_Project API to parse information for use in discord
+Uses CSGO_Project backend to parse information in a database to then display to the discord user
 
 
 ### Use
