@@ -77,6 +77,8 @@ commandsToCol["1v3total"] = "1v3_count"
 commandsToCol["1v4total"] = "1v4_count"
 commandsToCol["1v5total"] = "1v5_count"
 
+
+
 #Display help message tp the user
 def help():
     commands = "Commands:\n\t"
@@ -94,6 +96,7 @@ def help():
     return commands + str(dictionaryKeys)
 
 
+
 #Add your steamid to the database so it tracks your games
 def steamid(discordID, message):
     try:
@@ -106,6 +109,7 @@ def steamid(discordID, message):
         errorMSG += "https://help.steampowered.com/en/wizard/HelpWithGameIssue/?appid=730&issueid=128"
         return errorMSG
     return "SteamID updated"
+
 
 
 #For the top all time leaders of categories
@@ -123,6 +127,7 @@ def leaders(fullCommand):
     else:
         return "Invalid command use '-h' for help"
     return t2a(header=result[1], body=result[0], style=PresetStyle.thin_compact)
+
 
 
 #For the average of the given users
@@ -145,6 +150,7 @@ def avg(userID, fullCommand, discordName):
         return t2a(header=head, body=body, style=PresetStyle.thin_compact)
     except:
         return "Error..."
+    
     
     
 #For the top games of the given users
@@ -178,6 +184,8 @@ def top(userID, message, discordName):
         head = ["Highest {}".format(category)]
         body = topGames[0]        
     return t2a(header=head, body=body, style=PresetStyle.thin_compact)
+
+
 
 #This function finds the bottom x users of a given category
 def bottom(message):
