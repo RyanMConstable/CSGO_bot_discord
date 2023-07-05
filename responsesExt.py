@@ -145,7 +145,7 @@ def avg(userID, fullCommand, discordName):
         return "Invalid Command try '-h' for help"
     
     try:
-        tableValues = CSGOsql.findAvg(steamid)
+        tableValues = formatData.findAvg(steamid)
         head = ["Category", name]
         body = tableValues[1]
         return t2a(header=head, body=body, style=PresetStyle.thin_compact)

@@ -38,6 +38,7 @@ def findtopstat():
     return [userStats, head]
 
 
+
 #Write a function to find all top categories for a user given an id
 def findusertop(steamid):
     userStats = []
@@ -81,3 +82,30 @@ def findusertop(steamid):
     head = ["Category", "All Time Best"]
     return [userStats, head]
 
+
+
+####Write a function for 
+def findAvg(id):
+    strVal = []
+    strVal.append(["Total Games", str(CSGOsql.findNumberOfGames(id))])
+    strVal.append(["Kills", str(CSGOsql.selectAvgUserStat("totalkills", id))])
+    strVal.append(["Score", str(CSGOsql.selectAvgUserStat("score", id))])
+    strVal.append(["Team Kills", str(CSGOsql.selectAvgUserStat("tk_count", id))])
+    strVal.append(["Assists", str(CSGOsql.selectAvgUserStat("assist", id))])
+    strVal.append(["Deaths", str(CSGOsql.selectAvgUserStat("deaths", id))])
+    strVal.append(["Headshots", str(CSGOsql.selectAvgUserStat("headshot", id))])
+    strVal.append(["KD", str(CSGOsql.selectAvgUserStat("kd", id))])
+    strVal.append(["RWS", str(CSGOsql.selectAvgUserStat("rws", id))])
+    strVal.append(["Shot Count", str(CSGOsql.selectAvgUserStat("shot_count", id))])
+    strVal.append(["Hit Count", str(CSGOsql.selectAvgUserStat("hit_count", id))])
+    strVal.append(["ADR", str(CSGOsql.selectAvgUserStat("adr", id))])
+    strVal.append(["Entry Frags", str(CSGOsql.selectAvgUserStat("entry_kill_won_count", id))])
+    strVal.append(["Entry Deaths", str(CSGOsql.selectAvgUserStat("entry_kill_loss_count", id))])
+    strVal.append(["Total Damage", str(CSGOsql.selectAvgUserStat("total_health_damage", id))])
+    strVal.append(["Total Damage Taken", str(CSGOsql.selectAvgUserStat("total_health_damage_taken", id))])
+    strVal.append(["Kills Per Round", str(CSGOsql.selectAvgUserStat("kill_per_round", id))])
+    strVal.append(["Assists Per Round", str(CSGOsql.selectAvgUserStat("assist_per_round", id))])
+    strVal.append(["Deaths Per Round", str(CSGOsql.selectAvgUserStat("death_per_round", id))])
+    strVal.append(["Total Death Time", str(CSGOsql.selectAvgUserStat("total_time_death", id))])
+    strVal.append(["Avg Death Time", str(CSGOsql.selectAvgUserStat("avg_time_death", id))])
+    return [["Category", "Average"], strVal]
