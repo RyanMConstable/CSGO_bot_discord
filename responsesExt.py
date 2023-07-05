@@ -169,7 +169,7 @@ def top(userID, message, discordName):
             name = message.split(" ")[1]
             steamid = CSGOsql.findSteamID2(name)
         
-        topuserinfo = CSGOsql.findusertop(steamid)
+        topuserinfo = formatData.findusertop(steamid)
         head = topuserinfo[1]
         body = topuserinfo[0]
 
