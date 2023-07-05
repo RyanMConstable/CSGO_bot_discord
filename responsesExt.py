@@ -1,5 +1,6 @@
 from table2ascii import table2ascii as t2a, PresetStyle
 from CSGO_Project import CSGOsql
+import formatData
 
 #This file contains functions that get executed for the responses.py file
 
@@ -115,7 +116,7 @@ def steamid(discordID, message):
 #For the top all time leaders of categories
 def leaders(fullCommand):
     if fullCommand == "-leaders":
-        result = CSGOsql.findtopstat()
+        result = formatData.findtopstat()
     elif len(fullCommand.split(" ")) == 3:
         try:
             num = fullCommand.split(" ")[1]
