@@ -164,10 +164,13 @@ def top(userID, message, discordName):
     if steamid is None:
         return "Can't find an id linked with your discord? Use '-steamid' first"
     
-    if message in commandList or commandLen == 2:
+    if commandLen > 1:
+        name = ' '.join(message.split(" ")[1:])
+        testid = CSGOsql.findSteamID2(name)
+    
+    if message in commandList or testid is not None:
         if commandLen == 2:
-            name = message.split(" ")[1]
-            steamid = CSGOsql.findSteamID2(name)
+            steamid = testid
         
         topuserinfo = formatData.findusertop(steamid)
         head = topuserinfo[1]
