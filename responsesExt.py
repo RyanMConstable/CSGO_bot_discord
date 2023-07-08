@@ -173,9 +173,9 @@ def top(userID, message, discordName):
         head = topuserinfo[1]
         body = topuserinfo[0]
 
-    elif commandLen == 3 or commandLen == 4:
-        if commandLen == 4:
-            name = message.split(" ")[3]
+    elif commandLen >= 3:
+        if commandLen >= 4:
+            name = ' '.join(message.split(" ")[3:])
             steamid = CSGOsql.findSteamID2(name)
         
         limit = message.split(" ")[1]
