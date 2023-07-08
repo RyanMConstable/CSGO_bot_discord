@@ -143,18 +143,28 @@ def avg(userID, fullCommand, discordName):
         #This is the testing id, if this id is None you need to test for
         #1) if its none
         #2) 
-        testname = ' '.join(fullCommand.split(" ")[1:])
-        testid = CSGOsql.findSteamID2(name)
-        if testid is None and commandLength >= 3:
-            testname = ' '.join(fullCommand.split(" ")[2:])
-            testid = CSGOsql.findSteamID2(name)
-        if testid is not None:
-            steamid = testid
-            name = testname
+        if commandLength == 2:
+            #Two things happen, either the name of someone
+            #or the number
+            if fullCommand.split(" ")[1].isdigit() == False:
+                name = ' '.join(fullCommand.split(" ")[1:])
+                steamid = CSGOsql.findSteamID2(name)
+            else:
+                limiter = fullCommand.split(" ")[1]
+        else:
+            #Two things can also happen here
+            #1) Someone has a space in their name, last item is not a digit
+            if fullCommand.split(" ")[-1].isdigit() == True:
+                limiter = fullCommand.split(" ")[-1]
+            else:
+                name = ' '.join(fullCommand.split(" ")[1:])
+                steamid = CSGOsql.findSteamID2(name)
+                
     else:
         return "Invalid Command try '-h' for help"
     
     try:
+        print(name)
         tableValues = formatData.findAvg(steamid, limiter)
         head = ["Category", name]
         body = tableValues[1]
