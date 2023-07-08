@@ -6,7 +6,7 @@ def handle_response(message, username, usernameID) -> str:
     p_message = message.lower()
     
     #Create dictionary of commands
-    commands = {"-help":0, "-h":0, "h":0, "help":0, "-steamid":0, "-leaders":0, "-top":0, "-givetop":0, "-avg":0, "-bottom":0}
+    commands = {"-help":0, "-h":0, "h":0, "help":0, "-steamid":0, "-leaders":0, "-top":0, "-givetop":0, "-avg":0, "-bottom":0, "-condone":0}
     try:
         command = p_message.split(" ")[0]
     except:
