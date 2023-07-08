@@ -138,9 +138,14 @@ def avg(userID, fullCommand, discordName):
     if fullCommand == '-avg':
         name = discordName.split("#")[0]
         steamid = CSGOsql.findSteamID(userID)[0]
-    elif commandLength >= 2:
-        name = ' '.join(fullCommand.split(" ")[1:])
-        steamid = CSGOsql.findSteamID2(name)
+    elif commandLength == 2:
+        testname = ' '.join(fullCommand.split(" ")[1:])
+        testid = CSGOsql.findSteamID2(name)
+        if testid is None and fullCommand.split(" ")[1].isdigit():
+            limiter = fullCommand.split(" ")[1].isdigit()
+        else:
+            name = testname
+            steamid = testid
     else:
         return "Invalid Command try '-h' for help"
     
