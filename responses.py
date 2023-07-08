@@ -39,6 +39,10 @@ def handle_response(message, username, usernameID) -> str:
     #Gives the user bottom of a category
     if command == "-bottom":
         return responsesExt.bottom(p_message) 
+    
+    #Condone
+    if command == "-condone":
+        return "5 big guys does not condone: valorant, will flashes, wes holding outside"
        
     return
 
