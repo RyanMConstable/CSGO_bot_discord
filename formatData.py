@@ -85,7 +85,7 @@ def findusertop(steamid):
 
 
 ####Write a function for 
-def findAvg(id):
+def findAvg(id, limiter):
     strVal = []
     strVal.append(["Total Games", str(CSGOsql.findNumberOfGames(id))])
     strVal.append(["Kills", round(CSGOsql.selectAvgUserStat("totalkills", id), 2)])
