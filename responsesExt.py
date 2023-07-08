@@ -134,13 +134,17 @@ def leaders(fullCommand):
 #For the average of the given users
 def avg(userID, fullCommand, discordName):
     commandLength = len(fullCommand.split(" "))
+    limiter = 'ALL'
     
     if fullCommand == '-avg':
         name = discordName.split("#")[0]
         steamid = CSGOsql.findSteamID(userID)[0]
-    elif commandLength == 2:
+    elif commandLength >= 2:
         testname = ' '.join(fullCommand.split(" ")[1:])
         testid = CSGOsql.findSteamID2(name)
+        if testid is None and commandLength >= 3:
+            testname = ' '.join(fullCommand.split(" ")[2:])
+            testid = CSGOsql.findSteamID2(name)
         if testid is None and fullCommand.split(" ")[1].isdigit():
             limiter = fullCommand.split(" ")[1].isdigit()
         else:
@@ -150,7 +154,7 @@ def avg(userID, fullCommand, discordName):
         return "Invalid Command try '-h' for help"
     
     try:
-        tableValues = formatData.findAvg(steamid)
+        tableValues = formatData.findAvg(steamid, limiter)
         head = ["Category", name]
         body = tableValues[1]
         return t2a(header=head, body=body, style=PresetStyle.thin_compact)
