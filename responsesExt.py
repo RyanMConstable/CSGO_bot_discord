@@ -134,7 +134,7 @@ def leaders(fullCommand):
 #For the average of the given users
 def avg(userID, fullCommand, discordName):
     commandLength = len(fullCommand.split(" "))
-    limiter = 'ALL'
+    limiter = ' LIMIT '
     steamid = ''
     name = ''
     
@@ -154,12 +154,12 @@ def avg(userID, fullCommand, discordName):
             else:
                 name = discordName.split("#")[0]
                 steamid = CSGOsql.findSteamID(userID)[0]
-                limiter = fullCommand.split(" ")[1]
+                limiter += fullCommand.split(" ")[1]
         else:
             #Two things can also happen here
             #1) Someone has a space in their name, last item is not a digit
             if fullCommand.split(" ")[-1].isdigit() == True:
-                limiter = fullCommand.split(" ")[commandLength-1]
+                limiter += fullCommand.split(" ")[commandLength-1]
                 name = ' '.join(fullCommand.split(" ")[1:commandLength-1])
                 steamid = CSGOsql.findSteamID2(name)
             else:

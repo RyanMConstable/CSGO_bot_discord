@@ -85,9 +85,9 @@ def findusertop(steamid):
 
 
 ####Write a function for 
-def findAvg(id, limiter = None):
+def findAvg(id, limiter = 'LIMIT'):
     strVal = []
-    if limiter is None:
+    if limiter is 'LIMIT':
         strVal.append(["Total Games", str(CSGOsql.findNumberOfGames(id))])
     else:
         strVal.append(["Searching:", "{} Total games".format(limiter)])
