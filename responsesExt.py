@@ -159,8 +159,8 @@ def avg(userID, fullCommand, discordName):
             #Two things can also happen here
             #1) Someone has a space in their name, last item is not a digit
             if fullCommand.split(" ")[-1].isdigit() == True:
-                limiter = fullCommand.split(" ")[-1]
-                name = ' '.join(fullCommand.split(" ")[1:-2])
+                limiter = fullCommand.split(" ")[commandLength-1]
+                name = ' '.join(fullCommand.split(" ")[1:commandLength-1])
                 steamid = CSGOsql.findSteamID2(name)
             else:
                 name = ' '.join(fullCommand.split(" ")[1:])
@@ -170,7 +170,7 @@ def avg(userID, fullCommand, discordName):
         return "Invalid Command try '-h' for help"
     
     try:
-        print(steamid)
+        print(steamid, name)
         tableValues = formatData.findAvg(steamid, limiter)
         head = ["Category", name]
         body = tableValues[1]
