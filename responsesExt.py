@@ -135,18 +135,13 @@ def leaders(fullCommand):
 def avg(userID, fullCommand, discordName):
     commandLength = len(fullCommand.split(" "))
     limiter = '50000'
+    discordUser = discordName.split("#")[0]
+    discordUserSteamID = CSGOsql.findSteamID(userID)[0]
     steamid = ''
     name = ''
-    if fullCommand == '-avg':
-        name = discordName.split("#")[0]
-        steamid = CSGOsql.findSteamID(userID)[0]
-    elif commandLength >= 2:
-        #This is the testing id, if this id is None you need to test for
-        #1) if its none
-        #2) 
+    
+    if commandLength >= 2:
         if commandLength == 2:
-            #Two things happen, either the name of someone
-            #or the number
             if fullCommand.split(" ")[1].isdigit() == False:
                 name = ' '.join(fullCommand.split(" ")[1:])
                 steamid = CSGOsql.findSteamID2(name)
@@ -155,18 +150,16 @@ def avg(userID, fullCommand, discordName):
                 steamid = CSGOsql.findSteamID(userID)[0]
                 limiter = fullCommand.split(" ")[1]
         else:
-            #Two things can also happen here
-            #1) Someone has a space in their name, last item is not a digit
             if fullCommand.split(" ")[-1].isdigit() == True:
                 limiter = fullCommand.split(" ")[commandLength-1]
                 name = ' '.join(fullCommand.split(" ")[1:commandLength-1])
                 steamid = CSGOsql.findSteamID2(name)
             else:
                 name = ' '.join(fullCommand.split(" ")[1:])
-                steamid = CSGOsql.findSteamID2(name)
-                
+                steamid = CSGOsql.findSteamID2(name)    
     else:
         return "Invalid Command try '-h' for help"
+    
     
     try:
         print(steamid, name, limiter)
