@@ -135,10 +135,9 @@ def leaders(fullCommand):
 def avg(userID, fullCommand, discordName):
     commandLength = len(fullCommand.split(" "))
     limiter = '50000'
-    discordUser = discordName.split("#")[0]
-    discordUserSteamID = CSGOsql.findSteamID(userID)[0]
-    steamid = ''
-    name = ''
+    name = discordName.split("#")[0]
+    steamid = CSGOsql.findSteamID(userID)[0]
+    
     
     if commandLength >= 2:
         if commandLength == 2:
@@ -157,7 +156,7 @@ def avg(userID, fullCommand, discordName):
             else:
                 name = ' '.join(fullCommand.split(" ")[1:])
                 steamid = CSGOsql.findSteamID2(name)    
-    else:
+    elif commandLength != 1:
         return "Invalid Command try '-h' for help"
     
     
