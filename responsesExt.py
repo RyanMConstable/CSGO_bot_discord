@@ -134,34 +134,23 @@ def leaders(fullCommand):
 #For the average of the given users
 def avg(userID, fullCommand, discordName):
     commandLength = len(fullCommand.split(" "))
+    
     limiter = '50000'
     name = discordName.split("#")[0]
     steamid = CSGOsql.findSteamID(userID)[0]
-    
-    
+                
     if commandLength >= 2:
-        if commandLength == 2:
-            if fullCommand.split(" ")[1].isdigit() == False:
-                name = ' '.join(fullCommand.split(" ")[1:])
-                steamid = CSGOsql.findSteamID2(name)
-            else:
-                name = discordName.split("#")[0]
-                steamid = CSGOsql.findSteamID(userID)[0]
-                limiter = fullCommand.split(" ")[1]
+        if fullCommand.split(" ")[-1].isdigit() == False:
+            name = ' '.join(fullCommand.split(" ")[1:])
+            steamid = CSGOsql.findSteamID2(name)
         else:
-            if fullCommand.split(" ")[-1].isdigit() == True:
-                limiter = fullCommand.split(" ")[commandLength-1]
+            limiter = fullCommand.split(" ")[commandLength-1]
+            if commandLength != 2:
                 name = ' '.join(fullCommand.split(" ")[1:commandLength-1])
-                steamid = CSGOsql.findSteamID2(name)
-            else:
-                name = ' '.join(fullCommand.split(" ")[1:])
-                steamid = CSGOsql.findSteamID2(name)    
-    elif commandLength != 1:
-        return "Invalid Command try '-h' for help"
-    
+                steamid = CSGOsql.findSteamID2(name)   
     
     try:
-        print(steamid, name, limiter)
+        print("Steamid: {} Name: {} Limiter: {}".format(steamid, name, limiter))
         tableValues = formatData.findAvg(steamid, limiter)
         head = ["Category", name]
         body = tableValues[1]
