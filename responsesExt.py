@@ -137,7 +137,6 @@ def avg(userID, fullCommand, discordName):
     limiter = '50000'
     steamid = ''
     name = ''
-    
     if fullCommand == '-avg':
         name = discordName.split("#")[0]
         steamid = CSGOsql.findSteamID(userID)[0]
@@ -170,7 +169,7 @@ def avg(userID, fullCommand, discordName):
         return "Invalid Command try '-h' for help"
     
     try:
-        print(steamid, name)
+        print(steamid, name, limiter)
         tableValues = formatData.findAvg(steamid, limiter)
         head = ["Category", name]
         body = tableValues[1]
