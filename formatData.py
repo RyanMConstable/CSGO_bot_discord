@@ -1,4 +1,4 @@
-from CSGO_Project import CSGOsql
+import CSGO_Project.CSGOsql as CSGOsql
 
 #Write a function to find all top categories for a user given an id
 def findtopstat():

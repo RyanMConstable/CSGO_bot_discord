@@ -1,5 +1,5 @@
 from table2ascii import table2ascii as t2a, PresetStyle
-from CSGO_Project import CSGOsql
+import CSGOsql
 import formatData
 
 #This file contains functions that get executed for the responses.py file
