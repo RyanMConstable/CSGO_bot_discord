@@ -91,7 +91,6 @@ def findAvg(id, limiter):
         strVal.append(["Total Games", str(CSGOsql.findNumberOfGames(id))])
     else:
         strVal.append(["Games Searched:", limiter])
-    print("LIMITER = {}".format(limiter))
     strVal.append(["Kills", round(CSGOsql.selectAvgUserStat("totalkills", id, limiter), 2)])
     strVal.append(["Score", round(CSGOsql.selectAvgUserStat("score", id, limiter), 2)])
     strVal.append(["Team Kills", round(CSGOsql.selectAvgUserStat("tk_count", id, limiter),2)])
