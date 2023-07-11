@@ -1,4 +1,4 @@
-import CSGOsql
+import CSGOsql, dictCommands
 
 #Write a function to find all top categories for a user given an id
 def findtopstat():
@@ -91,8 +91,6 @@ def findAvg(id, limiter):
         strVal.append(["Total Games", str(CSGOsql.findNumberOfGames(id))])
     else:
         strVal.append(["Total Games:", limiter])
-        
-        
     
     strVal.append(["Kills", round(CSGOsql.selectAvgUserStat("totalkills", id, limiter), 2)])
     strVal.append(["Score", round(CSGOsql.selectAvgUserStat("score", id, limiter), 2)])
