@@ -1,4 +1,4 @@
-import CSGO_Project.CSGOsql as CSGOsql
+import CSGOsql
 
 #Write a function to find all top categories for a user given an id
 def findtopstat():
@@ -90,7 +90,10 @@ def findAvg(id, limiter):
     if int(limiter) >= 50000:
         strVal.append(["Total Games", str(CSGOsql.findNumberOfGames(id))])
     else:
-        strVal.append(["Games Searched:", limiter])
+        strVal.append(["Total Games:", limiter])
+        
+        
+    
     strVal.append(["Kills", round(CSGOsql.selectAvgUserStat("totalkills", id, limiter), 2)])
     strVal.append(["Score", round(CSGOsql.selectAvgUserStat("score", id, limiter), 2)])
     strVal.append(["Team Kills", round(CSGOsql.selectAvgUserStat("tk_count", id, limiter),2)])
