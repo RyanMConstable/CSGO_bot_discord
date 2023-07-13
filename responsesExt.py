@@ -143,5 +143,8 @@ def bestgame(username, message, userID):
     if message == "-bestgame":
         steamid = CSGOsql.findSteamID(userID)[0]
         tableInfo = formatData.sortGame(CSGOsql.findGameStats(steamid, "score", "DESC"))
-        return t2a(header=["Stats", name], body = tableInfo, style=PresetStyle.thin_compact)
+        returnString = "{}'s Best Score Game\n".format(name)
+        returnString += "Date: {}\n".format(tableInfo[1])
+        returnString += str(t2a(header=["Stats", "Best"], body = tableInfo[0], style=PresetStyle.thin_compact))
+        return returnString
     return "Test"

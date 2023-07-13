@@ -115,6 +115,10 @@ def findAvg(id, limiter):
 def sortGame(gameInfo):
     categories = dictCommands.gameStatsColumns
     returnList = []
-    for index in range(len(gameInfo[0])-7):
+    gameDate = None
+    for index in range(len(gameInfo[0])):
+        if categories[index] == "Date":
+            gameDate = gameInfo[0][index]
+            continue
         returnList.append([categories[index], gameInfo[0][index]])
-    return returnList
+    return [returnList, gameDate]
