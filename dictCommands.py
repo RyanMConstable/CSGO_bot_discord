@@ -71,3 +71,14 @@ commandsToCol["1v2total"] = "1v2_count"
 commandsToCol["1v3total"] = "1v3_count"
 commandsToCol["1v4total"] = "1v4_count"
 commandsToCol["1v5total"] = "1v5_count"
+
+
+
+
+gameStatsColumns = []
+gameStatsColumns.append("Kills", "Score", "TK", "Assist", "Deaths", "5k", "4k", "3k", "2k", "1k", "HEAD", "KD", "RWS", "Shots", "Hits", "Flashes", "HE", "Molly")
+gameStatsColumns.append("Incen", "Decoy", "Rounds", "Date", "ADR", "Clutches", "ClutchesWon", "ClutchesLost", "EntryKill", "EntryDeath")
+gameStatsColumns.append("EntryDeny", "EntryGiven", "OldRank", "NewRank", "DmgDone", "ArmorDmg", "DmgTaken")
+gameStatsColumns.append("ArmorDmgTaken", "KPR", "APR", "DPR", "DeathTime", "AvgDeath", "1v1Won", "1v2Won")
+gameStatsColumns.append("1v3Won", "1v4Won", "1v5Won", "1v1Loss", "1v2Loss", "1v3Loss", "1v4Loss", "1v5Loss", "1v1Count", "1v2Count")
+gameStatsColumns.append("1v3Count", "1v4Count", "1v5Count")
