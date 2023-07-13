@@ -26,7 +26,7 @@ def handle_response(message, username, usernameID) -> str:
     
     #This allows a user to find their best/worst game
     if command == "-bestgame":
-        return responsesExt.bestgame(usernameID, p_message)
+        return responsesExt.bestgame(usernameID, p_message, usernameID)
     
     #Returns the top x (between 0 and 100) for all users in database of a given category
     if command == "-leaders":
