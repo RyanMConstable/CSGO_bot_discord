@@ -120,5 +120,8 @@ def sortGame(gameInfo):
         if categories[index] == "Date":
             gameDate = gameInfo[0][index]
             continue
+        if len(str(gameInfo[0][index])) > 4:
+            returnList.append([categories[index], round(gameInfo[0][index])])
+            continue
         returnList.append([categories[index], gameInfo[0][index]])
     return [returnList, gameDate]
