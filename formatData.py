@@ -110,3 +110,7 @@ def findAvg(id, limiter):
     strVal.append(["Assists Per Round", round(CSGOsql.selectAvgUserStat("assist_per_round", id, limiter),2)])
     strVal.append(["Deaths Per Round", round(CSGOsql.selectAvgUserStat("death_per_round", id, limiter),2)])
     return [["Category", "Average"], strVal]
+
+
+def sortGame(gameInfo):
+    return

@@ -139,8 +139,9 @@ def bottom(message):
 
 #This function finds the bestgame of a user
 def bestgame(username, message, userID):
+    name = username.split("#")[0]
     if message == "-bestgame":
         steamid = CSGOsql.findSteamID(userID)[0]
-        #Takes stemaid, category, order = (DESC OR ASC)
-        return CSGOsql.findGameStats(steamid, "score", "DESC")
+        tableInfo = formatData.sortGame(CSGOsql.findGameStats(steamid, "score", "DESC"))
+        return t2a(header=["Stats", name])
     return "Test"
