@@ -148,3 +148,16 @@ def bestgame(username, message, userID):
         returnString += str(t2a(header=["Stats", "Best"], body = tableInfo[0], style=PresetStyle.thin_compact))
         return returnString
     return "Test"
+
+
+#This function finds the bestgame of a user
+def worstgame(username, message, userID):
+    name = username.split("#")[0]
+    if message == "-worstgame":
+        steamid = CSGOsql.findSteamID(userID)[0]
+        tableInfo = formatData.sortGame(CSGOsql.findGameStats(steamid, "score", "ASC"))
+        returnString = "{}'s Worst Score Game\n".format(name)
+        returnString += "Date: {}\n".format(tableInfo[1])
+        returnString += str(t2a(header=["Stats", "Worst"], body = tableInfo[0], style=PresetStyle.thin_compact))
+        return returnString
+    return "Test"

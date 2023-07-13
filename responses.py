@@ -6,7 +6,7 @@ def handle_response(message, username, usernameID) -> str:
     p_message = message.lower()
     
     #Create dictionary of commands
-    commands = {"-help":0, "-h":0, "h":0, "help":0, "-steamid":0, "-leaders":0, "-top":0, "-givetop":0, "-avg":0, "-bottom":0, "-condone":0, "-bestgame":0}
+    commands = {"-help":0, "-h":0, "h":0, "help":0, "-steamid":0, "-leaders":0, "-top":0, "-givetop":0, "-avg":0, "-bottom":0, "-condone":0, "-bestgame":0, "-worstgame":0}
     try:
         command = p_message.split(" ")[0]
     except:
@@ -24,9 +24,13 @@ def handle_response(message, username, usernameID) -> str:
     if command == "-steamid":
         return responsesExt.steamid(usernameID, p_message)
     
-    #This allows a user to find their best/worst game
+    #This allows a user to find their best game
     if command == "-bestgame":
         return responsesExt.bestgame(username, p_message, usernameID)
+    
+    #this allows a user to find their worst game
+    if command == "-worstgame":
+        return responsesExt.worstgame(username, p_message, usernameID)
     
     #Returns the top x (between 0 and 100) for all users in database of a given category
     if command == "-leaders":

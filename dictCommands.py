@@ -82,10 +82,3 @@ gameStatsColumns += ["HoldW", "HoldL", "OldRank", "NewRank", "DmgDone", "ArmDmg"
 gameStatsColumns += ["ArmTook", "KPR", "APR", "DPR", "DeathTm", "AvgTmLi", "1v1Won", "1v2Won"]
 gameStatsColumns += ["1v3Won", "1v4Won", "1v5Won", "1v1Loss", "1v2Loss", "1v3Loss", "1v4Loss", "1v5Loss", "1v1Tot", "1v2Tot"]
 gameStatsColumns += ["1v3Tot", "1v4Tot", "1v5Tot"]
-
-
-max_index = 0
-for item in range(len(gameStatsColumns)):
-    if len(gameStatsColumns[item]) > len(gameStatsColumns[max_index]):
-        max_index = item
-print(max_index, gameStatsColumns[max_index], len(gameStatsColumns[max_index]))
