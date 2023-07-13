@@ -113,4 +113,7 @@ def findAvg(id, limiter):
 
 
 def sortGame(gameInfo):
+    returnList = []
+    for item in range(gameInfo[0]):
+        returnList.append()
     return
