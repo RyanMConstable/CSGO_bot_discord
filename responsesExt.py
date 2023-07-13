@@ -14,7 +14,9 @@ def help():
     commands += "-steamid <id> <steamkey>\n\t"
     commands += "avg <optional steam user>\n\t"
     commands += "top <optional amount> <optional category> <optional steam user>\n\t"
-    commands += "-leaders <optional amount> <optional category>\n\n"
+    commands += "-leaders <optional amount> <optional category>\n\t"
+    commands += "-bestgame\n\t"
+    commands += "-worstgame\n\n"
     commands += "Categories:\n\t"
       
 
