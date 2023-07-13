@@ -135,3 +135,8 @@ def bottom(message):
         return "Invalid Command"
     
     return t2a(header=[category, "This is bad"], body = bottomResults, style=PresetStyle.thin_compact)
+
+
+#This function finds the bestgame of a user
+def bestgame(username, message):
+    return
