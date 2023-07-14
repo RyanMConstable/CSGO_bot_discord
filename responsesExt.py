@@ -170,7 +170,7 @@ def lastgame(username, message, userID):
     name = username.split("#")[0]
     if message == "-lastgame":
         steamid = CSGOsql.findSteamID(userID)[0]
-        tableInfo = formatData.sortGame(CSGOsql.findGameStats(steamid, "date", "ASC"))
+        tableInfo = formatData.sortGame(CSGOsql.findGameStats(steamid, "date", "DESC"))
         returnString = "{}'s Last Game\n".format(name)
         returnString += "Date: {}\n".format(tableInfo[1])
         returnString += str(t2a(header=["Stats", "Last"], body = tableInfo[0], style=PresetStyle.thin_compact))
