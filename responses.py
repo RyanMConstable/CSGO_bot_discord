@@ -50,7 +50,7 @@ def handle_response(message, username, usernameID) -> str:
     
     #Condone
     if command == "-condone":
-        return "5 big guys does not condone: valorant, will flashes, wes holding outside"
+        return "5 big guys does not condone: valorant, will flashes, wes holding outside, office after 11:30pm"
        
     return
 
