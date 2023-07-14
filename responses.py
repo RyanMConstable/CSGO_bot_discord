@@ -6,7 +6,7 @@ def handle_response(message, username, usernameID) -> str:
     p_message = message.lower()
     
     #Create dictionary of commands
-    commands = {"-help":0, "-h":0, "h":0, "help":0, "-steamid":0, "-leaders":0, "-top":0, "-givetop":0, "-avg":0, "-bottom":0, "-condone":0, "-bestgame":0, "-worstgame":0}
+    commands = {"-help":0, "-h":0, "h":0, "help":0, "-steamid":0, "-leaders":0, "-top":0, "-givetop":0, "-avg":0, "-bottom":0, "-condone":0, "-bestgame":0, "-worstgame":0, "-lastgame":0}
     try:
         command = p_message.split(" ")[0]
     except:
@@ -23,6 +23,10 @@ def handle_response(message, username, usernameID) -> str:
     #This allows a user to add their steamid to the database for future reference
     if command == "-steamid":
         return responsesExt.steamid(usernameID, p_message)
+    
+    #This allows the user to see their last game
+    if command == "-lastgame":
+        return responsesExt.lastgame(username, p_message, usernameID)
     
     #This allows a user to find their best game
     if command == "-bestgame":

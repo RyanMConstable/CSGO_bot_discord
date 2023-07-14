@@ -163,3 +163,8 @@ def worstgame(username, message, userID):
         returnString += str(t2a(header=["Stats", "Worst"], body = tableInfo[0], style=PresetStyle.thin_compact))
         return returnString
     return "Test"
+
+
+#This function finds the lastgame of a user
+def lastgame(username, message, userID):
+    return
