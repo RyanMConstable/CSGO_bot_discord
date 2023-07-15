@@ -125,3 +125,7 @@ def sortGame(gameInfo):
             continue
         returnList.append([categories[index], gameInfo[0][index]])
     return [returnList, gameDate]
+
+
+def posGame(userID):
+    return
