@@ -191,7 +191,7 @@ def pos(username, message, userID):
     return returnString
 
 #This function finds finds the sum
-def sum(discordName, fullCommand, userID):
+def sum(userID, fullCommand, discordName):
     commandLength = len(fullCommand.split(" "))
     
     limiter = '50000'
@@ -210,7 +210,7 @@ def sum(discordName, fullCommand, userID):
     
     try:
         print("Steamid: {} Name: {} Limiter: {}".format(steamid, name, limiter))
-        tableValues = formatData.findAvg(steamid, limiter)
+        tableValues = formatData.findSum(steamid, limiter)
         head = ["Category", name]
         body = tableValues[1]
         return t2a(header=head, body=body, style=PresetStyle.thin_compact)
