@@ -179,4 +179,11 @@ def lastgame(username, message, userID):
 
 #This function finds the position of a user
 def pos(username, message, userID):
-    return
+    name = username.split("#")[0]
+    if message == "-pos":
+        return "Try adding a category... for now '-pos <category>'"
+    else:
+        steamid = CSGOsql.findSteamID(userID)[0]
+        category = commandsToCol[message.split(" ")[1]]
+        returnString = "You are {} place for the {} category".format(CSGOsql.findPos(steamid, category), category)
+    return returnString
