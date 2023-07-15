@@ -16,7 +16,8 @@ def help():
     commands += "top <optional amount> <optional category> <optional steam user>\n\t"
     commands += "-leaders <optional amount> <optional category>\n\t"
     commands += "-bestgame\n\t"
-    commands += "-worstgame\n\n"
+    commands += "-worstgame\n\t"
+    commands += "-pos\n\n"
     commands += "Categories:\n\t"
       
 
