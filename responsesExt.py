@@ -189,3 +189,7 @@ def pos(username, message, userID):
         category = commandsToCol[message.split(" ")[1]]
         returnString = "You are {} place for the {} category".format(CSGOsql.findPos(steamid, category), category)
     return returnString
+
+#This function finds finds the sum
+def sum(username, message, userID):
+    return
