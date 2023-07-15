@@ -191,5 +191,28 @@ def pos(username, message, userID):
     return returnString
 
 #This function finds finds the sum
-def sum(username, message, userID):
-    return
+def sum(discordName, fullCommand, userID):
+    commandLength = len(fullCommand.split(" "))
+    
+    limiter = '50000'
+    name = discordName.split("#")[0]
+    steamid = CSGOsql.findSteamID(userID)[0]
+                
+    if commandLength >= 2:
+        if fullCommand.split(" ")[-1].isdigit() == False:
+            name = ' '.join(fullCommand.split(" ")[1:])
+            steamid = CSGOsql.findSteamID2(name)
+        else:
+            limiter = fullCommand.split(" ")[commandLength-1]
+            if commandLength != 2:
+                name = ' '.join(fullCommand.split(" ")[1:commandLength-1])
+                steamid = CSGOsql.findSteamID2(name)   
+    
+    try:
+        print("Steamid: {} Name: {} Limiter: {}".format(steamid, name, limiter))
+        tableValues = formatData.findAvg(steamid, limiter)
+        head = ["Category", name]
+        body = tableValues[1]
+        return t2a(header=head, body=body, style=PresetStyle.thin_compact)
+    except:
+        return "Error..."
