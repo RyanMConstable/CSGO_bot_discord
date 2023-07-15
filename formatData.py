@@ -120,13 +120,13 @@ def findSum(id, limiter):
         strVal.append(["Total Games:", limiter])
     
     strVal.append(["Kills", round(CSGOsql.selectSumUserStat("totalkills", id, limiter), 2)])
-    strVal.append(["Score", round(CSGOsql.selectSumUserStat("score", id, limiter), 2)])
+    #strVal.append(["Score", round(CSGOsql.selectSumUserStat("score", id, limiter), 2)])
     strVal.append(["Team Kills", round(CSGOsql.selectSumUserStat("tk_count", id, limiter),2)])
     strVal.append(["Assists", round(CSGOsql.selectSumUserStat("assist", id, limiter),2)])
     strVal.append(["Deaths", round(CSGOsql.selectSumUserStat("deaths", id, limiter),2)])
     strVal.append(["Headshots", round(CSGOsql.selectSumUserStat("headshot", id, limiter),2)])
-    strVal.append(["KD", round(CSGOsql.selectSumUserStat("kd", id, limiter),2)])
-    strVal.append(["RWS", round(CSGOsql.selectSumUserStat("rws", id, limiter),2)])
+    #strVal.append(["KD", round(CSGOsql.selectSumUserStat("kd", id, limiter),2)])
+    #strVal.append(["RWS", round(CSGOsql.selectSumUserStat("rws", id, limiter),2)])
     strVal.append(["Shot Count", round(CSGOsql.selectSumUserStat("shot_count", id, limiter),2)])
     strVal.append(["Hit Count", round(CSGOsql.selectSumUserStat("hit_count", id, limiter),2)])
     strVal.append(["ADR", round(CSGOsql.selectSumUserStat("adr", id, limiter),2)])
@@ -134,9 +134,9 @@ def findSum(id, limiter):
     strVal.append(["Entry Deaths", round(CSGOsql.selectSumUserStat("entry_kill_loss_count", id, limiter),2)])
     strVal.append(["Total Damage", round(CSGOsql.selectSumUserStat("total_health_damage", id, limiter),2)])
     strVal.append(["Total Damage Taken", round(CSGOsql.selectSumUserStat("total_health_damage_taken", id, limiter),2)])
-    strVal.append(["Kills Per Round", round(CSGOsql.selectSumUserStat("kill_per_round", id, limiter),2)])
-    strVal.append(["Assists Per Round", round(CSGOsql.selectSumUserStat("assist_per_round", id, limiter),2)])
-    strVal.append(["Deaths Per Round", round(CSGOsql.selectSumUserStat("death_per_round", id, limiter),2)])
+    #strVal.append(["Kills Per Round", round(CSGOsql.selectSumUserStat("kill_per_round", id, limiter),2)])
+    #strVal.append(["Assists Per Round", round(CSGOsql.selectSumUserStat("assist_per_round", id, limiter),2)])
+    #strVal.append(["Deaths Per Round", round(CSGOsql.selectSumUserStat("death_per_round", id, limiter),2)])
     return [["Category", "Sum"], strVal]
 
 def sortGame(gameInfo):
