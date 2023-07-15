@@ -176,3 +176,7 @@ def lastgame(username, message, userID):
         returnString += str(t2a(header=["Stats", "Last"], body = tableInfo[0], style=PresetStyle.thin_compact))
         return returnString
     return
+
+#This function finds the position of a user
+def pos(username, message, userID):
+    return

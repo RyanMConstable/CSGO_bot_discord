@@ -26,7 +26,7 @@ def handle_response(message, username, usernameID) -> str:
     
     #This allows a user to see their position on the leaderboards
     if command == "-pos":
-        return responsesExt.pos(usernameID, p_message, username)
+        return responsesExt.pos(username, p_message, usernameID)
     
     #This allows the user to see their last game
     if command == "-lastgame":
