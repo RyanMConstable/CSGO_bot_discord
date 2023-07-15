@@ -128,4 +128,36 @@ def sortGame(gameInfo):
 
 
 def posGame(userID):
-    return
+    tableInfo = []
+    tableInfo.append(["Kills", CSGOsql.findPos(userID, "totalkills")])
+    tableInfo.append(["Score", CSGOsql.findPos(userID, "score")])
+    tableInfo.append(["Assist", CSGOsql.findPos(userID, "assist")])
+    tableInfo.append(["Death", CSGOsql.findPos(userID, "deaths")])
+    tableInfo.append(["5k", CSGOsql.findPos(userID, "5k")])
+    tableInfo.append(["4k", CSGOsql.findPos(userID, "4k")])
+    tableInfo.append(["3k", CSGOsql.findPos(userID, "3k")])
+    tableInfo.append(["2k", CSGOsql.findPos(userID, "2k")])
+    tableInfo.append(["1k", CSGOsql.findPos(userID, "1k")])
+    tableInfo.append(["Head", CSGOsql.findPos(userID, "headshot")])
+    tableInfo.append(["KD", CSGOsql.findPos(userID, "kd")])
+    tableInfo.append(["RWS", CSGOsql.findPos(userID, "rws")])
+    tableInfo.append(["Shots", CSGOsql.findPos(userID, "shot_count")])
+    tableInfo.append(["Hits", CSGOsql.findPos(userID, "hit_count")])
+    tableInfo.append(["ADR", CSGOsql.findPos(userID, "adr")])
+    tableInfo.append(["EntryW", CSGOsql.findPos(userID, "entry_kill_won_count")])
+    tableInfo.append(["EntryL", CSGOsql.findPos(userID, "entry_kill_loss_count")])
+    tableInfo.append(["HoldW", CSGOsql.findPos(userID, "entry_hold_kill_won_count")])
+    tableInfo.append(["HoldL", CSGOsql.findPos(userID, "entry_hold_kill_loss_count")])
+    tableInfo.append(["Dmg", CSGOsql.findPos(userID, "total_health_damage")])
+    tableInfo.append(["ArmDmg", CSGOsql.findPos(userID, "total_armor_damage")])
+    tableInfo.append(["DmgL", CSGOsql.findPos(userID, "total_health_damage_taken")])
+    tableInfo.append(["ArmDmgL", CSGOsql.findPos(userID, "total_armor_damage_taken")])
+    tableInfo.append(["KPR", CSGOsql.findPos(userID, "kill_per_round")])
+    tableInfo.append(["APR", CSGOsql.findPos(userID, "assist_per_round")])
+    tableInfo.append(["DPR", CSGOsql.findPos(userID, "death_per_round")])
+    tableInfo.append(["1v5W", CSGOsql.findPos(userID, "1v5_won_count")])
+    tableInfo.append(["1v4W", CSGOsql.findPos(userID, "1v4_won_count")])
+    tableInfo.append(["1v3W", CSGOsql.findPos(userID, "1v3_won_count")])
+    tableInfo.append(["1v2W", CSGOsql.findPos(userID, "1v2_won_count")])
+    tableInfo.append(["1v1W", CSGOsql.findPos(userID, "1v1_won_count")])
+    return tableInfo
