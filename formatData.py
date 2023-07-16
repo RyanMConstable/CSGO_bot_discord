@@ -125,8 +125,8 @@ def findSum(id, limiter):
     strVal.append(["Assists", round(CSGOsql.selectSumUserStat("assist", id, limiter),2)])
     strVal.append(["Deaths", round(CSGOsql.selectSumUserStat("deaths", id, limiter),2)])
     strVal.append(["Headshots", round(CSGOsql.selectSumUserStat("headshot", id, limiter),2)])
-    #strVal.append(["KD", round(CSGOsql.selectSumUserStat("kd", id, limiter),2)])
-    #strVal.append(["RWS", round(CSGOsql.selectSumUserStat("rws", id, limiter),2)])
+    strVal.append(["Rounds", round(CSGOsql.selectSumUserStat("round_count", id, limiter),2)])
+    strVal.append(["Clutches", round(CSGOsql.selectSumUserStat("clutches", id, limiter),2)])
     strVal.append(["Shot Count", round(CSGOsql.selectSumUserStat("shot_count", id, limiter),2)])
     strVal.append(["Hit Count", round(CSGOsql.selectSumUserStat("hit_count", id, limiter),2)])
     strVal.append(["ADR", round(CSGOsql.selectSumUserStat("adr", id, limiter),2)])
@@ -134,9 +134,10 @@ def findSum(id, limiter):
     strVal.append(["Entry Deaths", round(CSGOsql.selectSumUserStat("entry_kill_loss_count", id, limiter),2)])
     strVal.append(["Total Damage", round(CSGOsql.selectSumUserStat("total_health_damage", id, limiter),2)])
     strVal.append(["Total Damage Taken", round(CSGOsql.selectSumUserStat("total_health_damage_taken", id, limiter),2)])
-    #strVal.append(["Kills Per Round", round(CSGOsql.selectSumUserStat("kill_per_round", id, limiter),2)])
-    #strVal.append(["Assists Per Round", round(CSGOsql.selectSumUserStat("assist_per_round", id, limiter),2)])
-    #strVal.append(["Deaths Per Round", round(CSGOsql.selectSumUserStat("death_per_round", id, limiter),2)])
+    strVal.append(["ClutchW", round(CSGOsql.selectSumUserStat("clutch_won_count", id, limiter),2)])
+    strVal.append(["ClutchL", round(CSGOsql.selectSumUserStat("clutch_loss_count", id, limiter),2)])
+    strVal.append(["Hold Frags", round(CSGOsql.selectSumUserStat("entry_hold_kill_won_count", id, limiter),2)])
+    strVal.append(["Hold Deaths", round(CSGOsql.selectSumUserStat("entry_hold_kill_loss_count", id, limiter),2)])
     return [["Category", "Sum"], strVal]
 
 def sortGame(gameInfo):
