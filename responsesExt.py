@@ -201,6 +201,7 @@ def pos(username, message, userID):
     return returnString
 
 #This function finds finds the sum
+#This is current a copy of avg, need to refactor
 def sum(userID, fullCommand, discordName):
     commandLength = len(fullCommand.split(" "))
     
