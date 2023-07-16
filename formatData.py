@@ -138,6 +138,11 @@ def findSum(id, limiter):
     strVal.append(["ClutchL", round(CSGOsql.selectSumUserStat("clutch_loss_count", id, limiter),2)])
     strVal.append(["Hold Frags", round(CSGOsql.selectSumUserStat("entry_hold_kill_won_count", id, limiter),2)])
     strVal.append(["Hold Deaths", round(CSGOsql.selectSumUserStat("entry_hold_kill_loss_count", id, limiter),2)])
+    strVal.append(["1v1W", round(CSGOsql.selectSumUserStat("1v1_won_count", id, limiter),2)])
+    strVal.append(["1v2W", round(CSGOsql.selectSumUserStat("1v2_won_count", id, limiter),2)])
+    strVal.append(["1v3W", round(CSGOsql.selectSumUserStat("1v3_won_count", id, limiter),2)])
+    strVal.append(["1v4W", round(CSGOsql.selectSumUserStat("1v4_won_count", id, limiter),2)])
+    strVal.append(["1v5W", round(CSGOsql.selectSumUserStat("1v5_won_count", id, limiter),2)])
     return [["Category", "Sum"], strVal]
 
 def sortGame(gameInfo):
