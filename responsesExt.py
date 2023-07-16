@@ -63,6 +63,7 @@ def leaders(fullCommand):
 
 
 #For the average of the given users
+#Updated the users avg games
 def avg(userID, fullCommand, discordName):
     commandLength = len(fullCommand.split(" "))
     
