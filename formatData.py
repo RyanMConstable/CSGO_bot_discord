@@ -160,7 +160,7 @@ def sortGame(gameInfo):
         returnList.append([categories[index], gameInfo[0][index]])
     return [returnList, gameDate]
 
-
+#posGame allows for a tabulated value to be presented to the user
 def posGame(userID):
     tableInfo = []
     tableInfo.append(["Kills", CSGOsql.findPos(userID, "totalkills")])
