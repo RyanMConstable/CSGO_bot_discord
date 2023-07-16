@@ -158,7 +158,7 @@ def bestgame(username, message, userID):
     return returnString
 
 
-#This function finds the bestgame of a user
+#This function finds the worstgame of a user
 def worstgame(username, message, userID):
     name = username.split("#")[0]
     steamid = CSGOsql.findSteamID(userID)[0]
