@@ -177,6 +177,7 @@ def worstgame(username, message, userID):
 
 
 #This function finds the lastgame of a user
+#It then returns the table of data
 def lastgame(username, message, userID):
     name = username.split("#")[0]
     if message == "-lastgame":
