@@ -92,6 +92,7 @@ def avg(userID, fullCommand, discordName):
     
     
 #For the top games of the given users
+#Returns the users best games!
 def top(userID, message, discordName):
     name = discordName.split("#")[0]
     commandList = ["-top", "-givetop"]
