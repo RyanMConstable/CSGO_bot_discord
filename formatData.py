@@ -170,7 +170,7 @@ def sortGame(gameInfo):
         myString += '\n'
     myString += "-" * len(gameInfo[0][-1])
             
-    return [returnList, gameDate]
+    return [returnList, gameDate, myString]
 
 #posGame allows for a tabulated value to be presented to the user
 def posGame(userID):
