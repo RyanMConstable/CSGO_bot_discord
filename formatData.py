@@ -160,15 +160,18 @@ def sortGame(gameInfo):
         returnList.append([categories[index], gameInfo[0][index]])
     
     #Create shortened csgo visual round vs kill
-    myString = ""
-    for x in range(5,0,-1):
-        for index in range(len(gameInfo[0][-1])):
-            if int(gameInfo[0][-1][index]) >= x:
-                myString += 'X'
-            else:
-                myString += " "
-        myString += '\n'
-    myString += "-" * len(gameInfo[0][-1])
+    if gameInfo[0][-1] != None:
+        myString = ""
+        for x in range(5,0,-1):
+            for index in range(len(gameInfo[0][-1])):
+                if int(gameInfo[0][-1][index]) >= x:
+                    myString += 'X'
+                else:
+                    myString += " "
+            myString += '\n'
+        myString += "-" * len(gameInfo[0][-1])
+    else:
+        myString = ""
             
     return [returnList, gameDate, myString]
 
