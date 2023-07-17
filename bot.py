@@ -39,4 +39,11 @@ def run_discord_bot():
 
         #this sends in the discord
         await send_message(username, message, user_message, usernameID, is_private=False)
+    
+    #Testing on_typing event   
+    @client.event
+    async def on_typing(channel, user, when):
+        print("User: {} is typing in channel: {} at: {}".format(user, channel, when))
+        
+        
     client.run(TOKEN)
