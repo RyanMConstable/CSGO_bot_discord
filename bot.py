@@ -49,6 +49,13 @@ def run_discord_bot():
     #@client.event
     #async def on_raw_typing(payload):
     #    print(payload)
+    
+    @client.event
+    async def on_connect():
+        print("Connected and ready to go")
         
+    @client.event
+    async def on_disconnect():
+        print("Going dark")
         
     client.run(TOKEN)
