@@ -150,7 +150,7 @@ def sortGame(gameInfo):
     categories = dictCommands.gameStatsColumns
     returnList = []
     gameDate = None
-    for index in range(len(gameInfo[0])):
+    for index in range(len(gameInfo[0])-1):
         if categories[index] == "Date":
             gameDate = gameInfo[0][index]
             continue
@@ -158,6 +158,18 @@ def sortGame(gameInfo):
             returnList.append([categories[index], round(gameInfo[0][index])])
             continue
         returnList.append([categories[index], gameInfo[0][index]])
+    
+    #Create shortened csgo visual round vs kill
+    myString = ""
+    for x in range(5,0,-1):
+        for index in range(len(gameInfo[0][-1])):
+            if int(gameInfo[0][-1][index]) >= x:
+                myString += 'X'
+            else:
+                myString += " "
+        myString += '\n'
+    myString += "-" * len(gameInfo[0][-1])
+            
     return [returnList, gameDate]
 
 #posGame allows for a tabulated value to be presented to the user
