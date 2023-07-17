@@ -151,12 +151,14 @@ def bestgame(username, message, userID):
         returnString = "{}'s Best Score Game\n".format(name)
         returnString += "Date: {}\n".format(tableInfo[1])
         returnString += str(t2a(header=["Stats", "Best"], body = tableInfo[0], style=PresetStyle.thin_compact))
+        returnString += tableInfo[2]
         return returnString
     category = commandsToCol[message.split(" ")[1]]
     tableInfo = formatData.sortGame(CSGOsql.findGameStats(steamid, category, "DESC"))
     returnString = "{}'s Best Score Game\n".format(name)
     returnString += "Date: {}\n".format(tableInfo[1])
     returnString += str(t2a(header=["Stats", "Best"], body = tableInfo[0], style=PresetStyle.thin_compact))
+    returnString += tableInfo[2]
     return returnString
 
 
@@ -169,12 +171,14 @@ def worstgame(username, message, userID):
         returnString = "{}'s Worst Score Game\n".format(name)
         returnString += "Date: {}\n".format(tableInfo[1])
         returnString += str(t2a(header=["Stats", "Worst"], body = tableInfo[0], style=PresetStyle.thin_compact))
+        returnString += tableInfo[2]
         return returnString
     category = commandsToCol[message.split(" ")[1]]
     tableInfo = formatData.sortGame(CSGOsql.findGameStats(steamid, category, "ASC"))
     returnString = "{}'s Worst Score Game\n".format(name)
     returnString += "Date: {}\n".format(tableInfo[1])
     returnString += str(t2a(header=["Stats", "Worst"], body = tableInfo[0], style=PresetStyle.thin_compact))
+    returnString += tableInfo[2]
     return returnString
 
 
@@ -188,6 +192,7 @@ def lastgame(username, message, userID):
         returnString = "{}'s Last Game\n".format(name)
         returnString += "Date: {}\n".format(tableInfo[1])
         returnString += str(t2a(header=["Stats", "Last"], body = tableInfo[0], style=PresetStyle.thin_compact))
+        returnString += tableInfo[2]
         return returnString
     return
 
