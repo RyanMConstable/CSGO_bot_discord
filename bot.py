@@ -8,7 +8,7 @@ async def send_message(username, message, user_message, usernameID, is_private):
             return
         #Create an embed for a cleaner feel
         embed = discord.Embed(title = "", description = "```\n{}\n```".format(response))
-        embed.add_field(name = "")
+        embed.add_field(name = "", value = "")
         print(len(embed))
         #If the embed is too large then just print normally (although there is a max on that as well)
         if len(embed) > 4096:
