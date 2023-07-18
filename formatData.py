@@ -177,7 +177,7 @@ def sortGame(gameInfo):
 
 #posGame allows for a tabulated value to be presented to the user
 def posGame(userID):
-    totalGames = str(CSGOsql.findNumStats())
+    totalGames = CSGOsql.findNumStats()
     tableInfo = []
     tableInfo.append(["Kills", CSGOsql.findPos(userID, "totalkills")])
     tableInfo.append(["Score", CSGOsql.findPos(userID, "score")])
@@ -210,4 +210,8 @@ def posGame(userID):
     tableInfo.append(["1v3W", CSGOsql.findPos(userID, "1v3_won_count")])
     tableInfo.append(["1v2W", CSGOsql.findPos(userID, "1v2_won_count")])
     tableInfo.append(["1v1W", CSGOsql.findPos(userID, "1v1_won_count")])
+    
+    for item in tableInfo:
+        item.append(round((item[1]/totalGames)*100, 4))
+    
     return tableInfo

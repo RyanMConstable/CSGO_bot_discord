@@ -202,7 +202,7 @@ def pos(username, message, userID):
     steamid = CSGOsql.findSteamID(userID)[0]
     if message == "-pos":
         tableInfo = formatData.posGame(steamid)
-        return str(t2a(header = ["Stat", "Pos"], body = tableInfo, style=PresetStyle.thin_compact))
+        return str(t2a(header = ["Stat", "Pos", "%"], body = tableInfo, style=PresetStyle.thin_compact))
     else:
         category = commandsToCol[message.split(" ")[1]]
         returnString = "You are {} place for the {} category".format(CSGOsql.findPos(steamid, category), category)
