@@ -191,7 +191,7 @@ def lastgame(username, message, userID):
         tableInfo = formatData.sortGame(CSGOsql.findGameStats(steamid, "date", "DESC"))
         returnString = "{}'s Last Game\n".format(name)
         returnString += "Date: {}\n".format(tableInfo[1])
-        returnString += str(t2a(header=["Stats", "Last"], body = tableInfo[0], style=PresetStyle.thin_compact))
+        returnString += str(t2a(header=["Stats", "Last"], body = tableInfo[0], style=PresetStyle.thin_compact)) + "\n"
         returnString += tableInfo[2]
         return returnString
     return
