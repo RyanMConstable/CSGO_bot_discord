@@ -124,7 +124,7 @@ def top(userID, message, discordName):
         category = commandsToCol[message.split(" ")[2]]
         topGames = CSGOsql.findTopUser(category, steamid, limit)
     
-        head = ["Highest {}".format(category)]
+        head = [F"Highest {category}"]
         body = topGames[0]        
     return t2a(header=head, body=body, style=PresetStyle.thin_compact)
 
