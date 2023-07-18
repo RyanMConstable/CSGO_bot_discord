@@ -7,12 +7,12 @@ async def send_message(username, message, user_message, usernameID, is_private):
         if response == None:
             return
         #Create an embed for a cleaner feel
-        embed = discord.Embed(title = "", description = "```\n{}\n```".format(response))
+        embed = discord.Embed(title = "", description = F"```\n{response}\n```")
         embed.add_field(name = "", value = "")
         print(len(embed))
         #If the embed is too large then just print normally (although there is a max on that as well)
         if len(embed) > 4096:
-            await message.author.send("```\n{}\n```".format(response)) if is_private else await message.channel.send("```\n{}\n```".format(response))
+            await message.author.send(F"```\n{response}\n```") if is_private else await message.channel.send(F"```\n{response}\n```")
         else:
             await message.author.send(embed=embed) if is_private else await message.channel.send(embed = embed)
     except Exception as e:
@@ -43,7 +43,7 @@ def run_discord_bot():
     #Testing on_typing event   
     #@client.event
     #async def on_typing(channel, user, when):
-    #    print("User: {} is typing in channel: {} at: {}".format(user, channel, when))
+    #    print(F"User: {user} is typing in channel: {channel} at: {when}"
         
     #Testing on_raw_typing event   
     #@client.event
