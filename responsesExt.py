@@ -168,15 +168,15 @@ def worstgame(username, message, userID):
     steamid = CSGOsql.findSteamID(userID)[0]
     if message == "-worstgame":
         tableInfo = formatData.sortGame(CSGOsql.findGameStats(steamid, "score", "ASC"))
-        returnString = "{}'s Worst Score Game\n".format(name)
-        returnString += "Date: {}\n".format(tableInfo[1])
+        returnString = F"{name}'s Worst Score Game\n"
+        returnString += F"Date: {tableInfo[1]}\n"
         returnString += str(t2a(header=["Stats", "Worst"], body = tableInfo[0], style=PresetStyle.thin_compact)) + "\n"
         returnString += tableInfo[2]
         return returnString
     category = commandsToCol[message.split(" ")[1]]
     tableInfo = formatData.sortGame(CSGOsql.findGameStats(steamid, category, "ASC"))
-    returnString = "{}'s Worst Score Game\n".format(name)
-    returnString += "Date: {}\n".format(tableInfo[1])
+    returnString = F"{name}'s Worst Score Game\n"
+    returnString += F"Date: {tableInfo[1]}\n"
     returnString += str(t2a(header=["Stats", "Worst"], body = tableInfo[0], style=PresetStyle.thin_compact)) + "\n"
     returnString += tableInfo[2]
     return returnString
