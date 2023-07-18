@@ -179,6 +179,7 @@ def sortGame(gameInfo):
 def posGame(userID):
     totalGames = str(CSGOsql.findNumberOfGames(userID))
     tableInfo = []
+    tableInfo.append(["Total Games", totalGames])
     tableInfo.append(["Kills", CSGOsql.findPos(userID, "totalkills")])
     tableInfo.append(["Score", CSGOsql.findPos(userID, "score")])
     tableInfo.append(["Assist", CSGOsql.findPos(userID, "assist")])
