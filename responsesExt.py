@@ -82,7 +82,6 @@ def avg(userID, fullCommand, discordName):
                 steamid = CSGOsql.findSteamID2(name)   
     
     try:
-        print("Steamid: {} Name: {} Limiter: {}".format(steamid, name, limiter))
         tableValues = formatData.findAvg(steamid, limiter)
         head = ["Category", name]
         body = tableValues[1]
