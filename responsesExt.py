@@ -205,7 +205,7 @@ def pos(username, message, userID):
         return str(t2a(header = ["Stat", "Pos", "%"], body = tableInfo, style=PresetStyle.thin_compact))
     else:
         category = commandsToCol[message.split(" ")[1]]
-        returnString = "You are {} place for the {} category".format(CSGOsql.findPos(steamid, category), category)
+        returnString = F"You are {CSGOsql.findPos(steamid, category)} place for the {category} category"
     return returnString
 
 #This function finds finds the sum
