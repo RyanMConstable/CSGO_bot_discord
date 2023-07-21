@@ -236,4 +236,23 @@ def sum(userID, fullCommand, discordName):
     
 #This function will print a summary to the user
 def summary():
-    return
+    #If a user is below 50 adr, bozo alert is handed out
+    #Return top adr, bottom adr
+    recentGameInfo = CSGOsql.findGameInfo()
+    lowADRList = []
+    highADRList = []
+    for gamer in recentGameInfo:
+        if float(gamer[1]) <= 50:
+            lowADRList.append([gamer[0]])
+        if float(gamer[1]) >= 100:
+            highADRList.append([gamer[0]])
+    
+    head = ["The Bozos"]
+    body = lowADRList
+    lowadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
+    
+    head = ["Super Gamers"]
+    body = highADRList
+    highadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
+    #First find the game id for 
+    return lowadrtable + "\n" + highadrtable
