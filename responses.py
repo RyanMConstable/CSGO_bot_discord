@@ -8,6 +8,7 @@ def handle_response(message, username, usernameID) -> str:
     #Create dictionary of commands
     commands = {"-help":0, "-h":0, "h":0, "help":0, "-steamid":0, "-leaders":0, "-top":0, "-givetop":0, "-avg":0, "-bottom":0, "-condone":0, "-bestgame":0, "-worstgame":0, "-lastgame":0, "-pos":0}
     commands["-sum"] = 0
+    commands["-summary"] = 0
     try:
         command = p_message.split(" ")[0]
     except:
@@ -60,6 +61,10 @@ def handle_response(message, username, usernameID) -> str:
     #Gives the user bottom of a category
     if command == "-bottom":
         return responsesExt.bottom(p_message) 
+    
+    #Gives a summary for the users in the last game
+    if command == "-summary":
+        return responsesExt.summary()
     
     #Condone
     if command == "-condone":

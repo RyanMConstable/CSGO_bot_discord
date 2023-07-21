@@ -233,3 +233,7 @@ def sum(userID, fullCommand, discordName):
         return t2a(header=head, body=body, style=PresetStyle.thin_compact)
     except:
         return "Error..."
+    
+#This function will print a summary to the user
+def summary():
+    return
