@@ -249,7 +249,7 @@ def summary():
     
     head = ["The Bozos"]
     body = lowADRList
-    lowadrtable = "No Bozos"
+    lowadrtable = "No Bozos?\n"
     if any(body):
         lowadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
     
