@@ -264,7 +264,7 @@ def summary():
     if any(body):
         highadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
     
-    head = ["The insider"]
+    head = ["The Real Enemy"]
     body = [[highest_team_damage[0] + ": " + str(highest_team_damage[1]) + " dmg"]]
     teamdamagetable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
     
