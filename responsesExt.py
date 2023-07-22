@@ -249,16 +249,15 @@ def summary():
     
     head = ["The Bozos"]
     body = lowADRList
+    lowadrtable = "No Bozos"
     if any(lowadrtable):
         lowadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
-    else:
-        lowadrtable = "No Bozos"
     
     head = ["Super Gamers"]
     body = highADRList
+    highadrtable = "No Super Gamers"
     if any(highadrtable):
         highadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
-    else:
-        highadrtable = "No Super Gamers"
+        
     #First find the game id for 
     return lowadrtable + "\n" + highadrtable
