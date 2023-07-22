@@ -241,12 +241,16 @@ def summary():
     recentGameInfo = CSGOsql.findGameInfo()
     lowADRList = []
     highADRList = []
+    highest_team_damage = [None, 0]
+    print(recentGameInfo)
     for gamer in recentGameInfo:
         if float(gamer[1]) <= 50:
             lowADRList.append([gamer[0]])
         if float(gamer[1]) >= 115:
             highADRList.append([gamer[0]])
-    
+        if int(gamer[2]) > highest_team_damage[1]:
+            highest_team_damage = [gamer[0], int(gamer[2])]
+            
     head = ["The Bozos"]
     body = lowADRList
     lowadrtable = "No Bozos?\n"
@@ -255,9 +259,14 @@ def summary():
     
     head = ["Super Gamers"]
     body = highADRList
+    print(highADRList)
     highadrtable = "No Super Gamers"
     if any(body):
         highadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
-        
+    
+    head = ["The insider"]
+    body = [[highest_team_damage[0] + ": " + str(highest_team_damage[1]) + " dmg"]]
+    teamdamagetable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
+    
     #First find the game id for 
-    return lowadrtable + "\n" + highadrtable
+    return lowadrtable + "\n" + highadrtable + "\n" + teamdamagetable
