@@ -244,15 +244,21 @@ def summary():
     for gamer in recentGameInfo:
         if float(gamer[1]) <= 50:
             lowADRList.append([gamer[0]])
-        if float(gamer[1]) >= 100:
+        if float(gamer[1]) >= 115:
             highADRList.append([gamer[0]])
     
     head = ["The Bozos"]
     body = lowADRList
-    lowadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
+    if any(lowadrtable):
+        lowadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
+    else:
+        lowadrtable = "No Bozos"
     
     head = ["Super Gamers"]
     body = highADRList
-    highadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
+    if any(highadrtable):
+        highadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
+    else:
+        highadrtable = "No Super Gamers"
     #First find the game id for 
     return lowadrtable + "\n" + highadrtable
