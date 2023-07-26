@@ -17,7 +17,13 @@ def help():
     commands += "-leaders <optional amount> <optional category>\n\t"
     commands += "-bestgame\n\t"
     commands += "-worstgame\n\t"
-    commands += "-pos\n\n"
+    commands += "-pos\n\t"
+    commands += "-sum\n\t"
+    commands += "-summary\n\t"
+    commands += "-lastgame\n\t"
+    commands += "-bestgame\n\t"
+    commands += "-worstgame\n\n"
+    
     commands += "Categories:\n\t"
       
 
