@@ -58,7 +58,7 @@ def leaders(fullCommand):
         try:
             num = fullCommand.split(" ")[1]
             category = commandsToCol[fullCommand.split(" ")[2]]
-            result = CSGOsql.findTopX(category, num)
+            result = [CSGOsql.findTopX(category, num), ["Name", category]]
         except Exception as e:
             #os.system(F"echo [ERROR] in leaders function: {e} >> responsesLOG.txt")
             return "Incorrect format, try '-leaders <amount> <category>'"
