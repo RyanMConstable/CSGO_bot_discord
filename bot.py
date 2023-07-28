@@ -51,9 +51,6 @@ def run_discord_bot():
     #@client.event
     #async def on_raw_typing(payload):
     #    print(payload)
-    @client.event
-    async def on_ready():
-        client.add_view(MyView())
         
     @client.event
     async def on_connect():
