@@ -2,22 +2,23 @@ import discord
 import responses
 import os
 
-async def send_message(username, message, user_message, usernameID, is_private):
-    try:
-        response = responses.handle_response(user_message, username, usernameID)
-        if response == None:
-            return
-        #Create an embed for a cleaner feel
-        embed = discord.Embed(title = "", description = F"```\n{response}\n```")
-        embed.add_field(name = "", value = "")
-        print(len(embed))
-        #If the embed is too large then just print normally (although there is a max on that as well)
-        if len(embed) > 4096:
-            await message.author.send(F"```\n{response}\n```") if is_private else await message.channel.send(F"```\n{response}\n```")
-        else:
-            await message.author.send(embed=embed) if is_private else await message.channel.send(embed = embed)
-    except Exception as e:
-        print(e)
+async def send_message(username, message, user_message, usernameID, is_private, send = True):
+    if send:
+        try:
+            response = responses.handle_response(user_message, username, usernameID)
+            if response == None:
+                return
+            #Create an embed for a cleaner feel
+            embed = discord.Embed(title = "", description = F"```\n{response}\n```")
+            embed.add_field(name = "", value = "")
+            print(len(embed))
+            #If the embed is too large then just print normally (although there is a max on that as well)
+            if len(embed) > 4096:
+                await message.author.send(F"```\n{response}\n```") if is_private else await message.channel.send(F"```\n{response}\n```")
+            else:
+                await message.author.send(embed=embed) if is_private else await message.channel.send(embed = embed)
+        except Exception as e:
+            print(e)
 
 def run_discord_bot():
     TOKEN = os.environ["DISCORD_TOKEN"]
@@ -67,11 +68,12 @@ def run_discord_bot():
             
         @discord.ui.button(label="Your Best Stats", style=discord.ButtonStyle.primary)
         async def first_button_callback(self, button, interaction):
-            await interaction.response.send_message("ewewfawefawef") 
+            #message username, usernameid
+            await interaction.response.send_message("-leaders", "", self.userid) 
             
         @discord.ui.button(label="Leaders", style=discord.ButtonStyle.primary)
         async def second_button_callback(self, button, interaction):
-            await interaction.response.send_message("Leader") 
+            await interaction.response.send_message("-Leaders") 
     
     @client.slash_command() # Create a slash command
     async def button(ctx, message):
@@ -79,6 +81,6 @@ def run_discord_bot():
         
     @client.command() # Create a slash command
     async def menu(ctx, message):
-        await ctx.respond("", view=MyView(ctx.author.id))
+        await ctx.send("", view=MyView(ctx.author.id))
     
     client.run(TOKEN)
