@@ -1,6 +1,7 @@
 import discord
 import responses
 import os
+
 async def send_message(username, message, user_message, usernameID, is_private):
     try:
         response = responses.handle_response(user_message, username, usernameID)
@@ -20,7 +21,7 @@ async def send_message(username, message, user_message, usernameID, is_private):
 
 def run_discord_bot():
     TOKEN = os.environ["DISCORD_TOKEN"]
-    client = discord.Client(intents=discord.Intents.all())
+    client = discord.Bot(intents=discord.Intents.all())
     
     @client.event
     async def on_message(message):
@@ -50,7 +51,10 @@ def run_discord_bot():
     #@client.event
     #async def on_raw_typing(payload):
     #    print(payload)
-    
+    @client.event
+    async def on_ready():
+        client.add_view(MyView())
+        
     @client.event
     async def on_connect():
         print("Connected and ready to go")
@@ -59,4 +63,22 @@ def run_discord_bot():
     async def on_disconnect():
         print("Going dark")
         
+    class MyView(discord.ui.View):
+        def __init__(self):
+            super().__init__(timeout=None)
+            
+        @discord.ui.button(label="Your Best Stats", custom_id="button-1", style=discord.ButtonStyle.primary)
+        async def first_button_callback(self, button, interaction):
+            print(button)
+            print(interaction)
+            await interaction.response.send_message("") 
+            
+        @discord.ui.button(label="Leaders", custom_id="button-2", style=discord.ButtonStyle.primary)
+        async def second_button_callback(self, button, interaction):
+            await interaction.response.send_message("Leaders") 
+    
+    @client.slash_command() # Create a slash command
+    async def button(ctx):
+        await ctx.respond("", view=MyView())
+    
     client.run(TOKEN)
