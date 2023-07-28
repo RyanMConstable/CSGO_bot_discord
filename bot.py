@@ -64,21 +64,23 @@ def run_discord_bot():
         print("Going dark")
         
     class MyView(discord.ui.View):
-        def __init__(self):
+        def __init__(self, userid=None):
             super().__init__(timeout=None)
             
         @discord.ui.button(label="Your Best Stats", custom_id="button-1", style=discord.ButtonStyle.primary)
         async def first_button_callback(self, button, interaction):
-            print(button)
-            print(interaction)
-            await interaction.response.send_message("") 
+            await interaction.response.send_message("ewewfawefawef") 
             
         @discord.ui.button(label="Leaders", custom_id="button-2", style=discord.ButtonStyle.primary)
         async def second_button_callback(self, button, interaction):
             await interaction.response.send_message("Leaders") 
     
     @client.slash_command() # Create a slash command
-    async def button(ctx):
+    async def button(ctx, message):
+        await ctx.respond("", view=MyView())
+        
+    @client.command() # Create a slash command
+    async def menu(ctx, message):
         await ctx.respond("", view=MyView())
     
     client.run(TOKEN)
