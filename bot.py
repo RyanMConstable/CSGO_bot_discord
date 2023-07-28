@@ -60,6 +60,10 @@ def run_discord_bot():
     async def on_disconnect():
         print("Going dark")
         
+        
+        
+        
+    #View for menu buttons
     class MyView(discord.ui.View):
         def __init__(self, ctx=None):
             super().__init__()
@@ -75,7 +79,7 @@ def run_discord_bot():
             await interaction.response.send_message("-Leaders") 
     
     @client.slash_command() # Create a slash command
-    async def button(ctx, message):
+    async def menu(ctx, message):
         await ctx.respond("", view=MyView(ctx))
     
     client.run(TOKEN)
