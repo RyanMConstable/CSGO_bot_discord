@@ -79,7 +79,7 @@ def run_discord_bot():
             msg = responses.handle_response("-leaders", self.ctx.author, self.ctx.author.id)
             embed = discord.Embed(title = "", description = F"```\n{msg}\n```")
             embed.add_field(name = "", value = "")
-            await interaction.response.send_message(embed)
+            await interaction.response.send_message(embed=embed)
             
         @discord.ui.button(label="Position", style=discord.ButtonStyle.primary)
         async def third_button_callback(self, button, interaction):
