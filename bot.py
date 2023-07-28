@@ -101,6 +101,10 @@ def run_discord_bot():
         @discord.ui.button(label="Totals", style=discord.ButtonStyle.primary)
         async def eighth_button_callback(self, button, interaction):
             await send_message("")
+            
+        @discord.ui.button(label="Summary of Last Game", style=discord.ButtonStyle.primary)
+        async def ninth_button_callback(self, button, interaction):
+            await send_message("")
         
     
     @client.slash_command() # Create a slash command
