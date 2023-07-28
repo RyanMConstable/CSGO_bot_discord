@@ -63,6 +63,7 @@ def run_discord_bot():
     class MyView(discord.ui.View):
         def __init__(self, userid=None):
             super().__init__()
+            self.userid = userid
             
         @discord.ui.button(label="Your Best Stats", style=discord.ButtonStyle.primary)
         async def first_button_callback(self, button, interaction):
@@ -70,14 +71,14 @@ def run_discord_bot():
             
         @discord.ui.button(label="Leaders", style=discord.ButtonStyle.primary)
         async def second_button_callback(self, button, interaction):
-            await interaction.response.send_message("Leaders") 
+            await interaction.response.send_message("Leader") 
     
     @client.slash_command() # Create a slash command
     async def button(ctx, message):
-        await ctx.respond("", view=MyView())
+        await ctx.respond("", view=MyView(ctx.author.id))
         
     @client.command() # Create a slash command
     async def menu(ctx, message):
-        await ctx.respond("", view=MyView())
+        await ctx.respond("", view=MyView(ctx.author.id))
     
     client.run(TOKEN)
