@@ -64,11 +64,11 @@ def run_discord_bot():
         def __init__(self, userid=None):
             super().__init__(timeout=None)
             
-        @discord.ui.button(label="Your Best Stats", custom_id="button-1", style=discord.ButtonStyle.primary)
+        @discord.ui.button(label="Your Best Stats", style=discord.ButtonStyle.primary)
         async def first_button_callback(self, button, interaction):
             await interaction.response.send_message("ewewfawefawef") 
             
-        @discord.ui.button(label="Leaders", custom_id="button-2", style=discord.ButtonStyle.primary)
+        @discord.ui.button(label="Leaders", style=discord.ButtonStyle.primary)
         async def second_button_callback(self, button, interaction):
             await interaction.response.send_message("Leaders") 
     
