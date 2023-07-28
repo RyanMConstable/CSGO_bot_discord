@@ -2,7 +2,7 @@ import discord
 import responses
 import os
 
-async def send_message(username, message, user_message, usernameID, is_private):
+async def send_message(username, message, user_message, usernameID, is_private = False):
     try:
         response = responses.handle_response(user_message, username, usernameID)
         if response == None:
@@ -76,7 +76,10 @@ def run_discord_bot():
             
         @discord.ui.button(label="Leaderboard", style=discord.ButtonStyle.primary)
         async def second_button_callback(self, button, interaction):
-            await send_message("-Leaders") 
+            msg = responses.handle_response("-leaders", self.ctx.author, self.ctx.author.id)
+            embed = discord.Embed(title = "", description = F"```\n{msg}\n```")
+            embed.add_field(name = "", value = "")
+            await interaction.response.send_message(embed)
             
         @discord.ui.button(label="Position", style=discord.ButtonStyle.primary)
         async def third_button_callback(self, button, interaction):
@@ -111,11 +114,11 @@ def run_discord_bot():
             await send_message("")
     
     @client.slash_command() # Create a slash command
-    async def menu(ctx, message):
+    async def menu(ctx):
         await ctx.respond("", view=MyView(ctx))
         
     @client.slash_command() # Create a slash command
-    async def button(ctx, message):
+    async def button(ctx):
         await ctx.respond("", view=MyView(ctx))
     
     client.run(TOKEN)
