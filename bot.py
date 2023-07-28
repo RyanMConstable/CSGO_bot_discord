@@ -2,7 +2,7 @@ import discord
 import responses
 import os
 
-async def send_message(username, message, user_message, usernameID, is_private, send = True):
+async def send_message(username, message, user_message, usernameID, is_private):
     try:
         response = responses.handle_response(user_message, username, usernameID)
         if response == None:
