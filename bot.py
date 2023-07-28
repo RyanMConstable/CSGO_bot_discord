@@ -76,10 +76,14 @@ def run_discord_bot():
             
         @discord.ui.button(label="Leaderboard", style=discord.ButtonStyle.primary)
         async def second_button_callback(self, button, interaction):
-            await interaction.response.send_message("-Leaders") 
+            await send_message("-Leaders") 
     
     @client.slash_command() # Create a slash command
     async def menu(ctx, message):
+        await ctx.respond("", view=MyView(ctx))
+        
+    @client.slash_command() # Create a slash command
+    async def button(ctx, message):
         await ctx.respond("", view=MyView(ctx))
     
     client.run(TOKEN)
