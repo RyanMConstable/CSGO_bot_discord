@@ -74,7 +74,7 @@ def run_discord_bot():
             #message username, usernameid
             await interaction.response.send_message(F"-top") 
             
-        @discord.ui.button(label="Leaders", style=discord.ButtonStyle.primary)
+        @discord.ui.button(label="Leaderboard", style=discord.ButtonStyle.primary)
         async def second_button_callback(self, button, interaction):
             await interaction.response.send_message("-Leaders") 
     
