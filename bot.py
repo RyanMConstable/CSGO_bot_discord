@@ -69,7 +69,7 @@ def run_discord_bot():
             super().__init__()
             self.ctx = ctx
             
-        @discord.ui.button(label="Your Best Stats", style=discord.ButtonStyle.primary)
+        @discord.ui.button(label="Top Stats", style=discord.ButtonStyle.primary)
         async def first_button_callback(self, button, interaction):
             #message username, usernameid
             await interaction.response.send_message(F"-top") 
@@ -106,6 +106,9 @@ def run_discord_bot():
         async def ninth_button_callback(self, button, interaction):
             await send_message("")
         
+        @discord.ui.button(label="Bottom Stats", style=discord.ButtonStyle.primary)
+        async def tenth_button_callback(self, button, interaction):
+            await send_message("")
     
     @client.slash_command() # Create a slash command
     async def menu(ctx, message):
