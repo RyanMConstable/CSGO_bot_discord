@@ -101,7 +101,8 @@ def run_discord_bot():
             
         @discord.ui.button(label="Worst Game", style=discord.ButtonStyle.primary)
         async def sixth_button_callback(self, button, interaction):
-            await send_message("")
+            msg = responses.handle_response("-worstgame", str(self.ctx.author), self.ctx.author.id)
+            await interaction.response.send_message(embed=self.makeEmbed(msg))
             
         @discord.ui.button(label="Average Stats", style=discord.ButtonStyle.primary)
         async def seventh_button_callback(self, button, interaction):
