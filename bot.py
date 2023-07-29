@@ -91,7 +91,8 @@ def run_discord_bot():
             
         @discord.ui.button(label="Last Game", style=discord.ButtonStyle.primary)
         async def fourth_button_callback(self, button, interaction):
-            await send_message("")
+            msg = responses.handle_response("-lastgame", str(self.ctx.author), self.ctx.author.id)
+            await interaction.response.send_message(embed=self.makeEmbed(msg))
             
         @discord.ui.button(label="Best Game", style=discord.ButtonStyle.primary)
         async def fifth_button_callback(self, button, interaction):
