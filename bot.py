@@ -116,7 +116,8 @@ def run_discord_bot():
             
         @discord.ui.button(label="Summary of Last Game", style=discord.ButtonStyle.primary)
         async def ninth_button_callback(self, button, interaction):
-            await send_message("")
+            msg = responses.handle_response("-summary", str(self.ctx.author), self.ctx.author.id)
+            await interaction.response.send_message(embed=self.makeEmbed(msg))
         
         @discord.ui.button(label="Bottom Stats", style=discord.ButtonStyle.primary)
         async def tenth_button_callback(self, button, interaction):
