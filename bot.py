@@ -68,13 +68,16 @@ def run_discord_bot():
         def __init__(self, ctx=None):
             super().__init__()
             self.ctx = ctx
-            
+        
+        def makeEmbed(self, msg):
+            embed = discord.Embed(title = "", description = F"```\n{msg}\n```")
+            embed.add_field(name = "", value = "")
+            return embed
+        
         @discord.ui.button(label="Top Stats", style=discord.ButtonStyle.primary)
         async def first_button_callback(self, button, interaction):
             msg = responses.handle_response("-top", str(self.ctx.author), self.ctx.author.id)
-            embed = discord.Embed(title = "", description = F"```\n{msg}\n```")
-            embed.add_field(name = "", value = "")
-            await interaction.response.send_message(embed=embed)
+            await interaction.response.send_message(embed=self.makeEmbed(msg))
             
         @discord.ui.button(label="Leaderboard", style=discord.ButtonStyle.primary)
         async def second_button_callback(self, button, interaction):
