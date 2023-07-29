@@ -106,7 +106,8 @@ def run_discord_bot():
             
         @discord.ui.button(label="Average Stats", style=discord.ButtonStyle.primary)
         async def seventh_button_callback(self, button, interaction):
-            await send_message("")
+            msg = responses.handle_response("-avg", str(self.ctx.author), self.ctx.author.id)
+            await interaction.response.send_message(embed=self.makeEmbed(msg))
             
         @discord.ui.button(label="Totals", style=discord.ButtonStyle.primary)
         async def eighth_button_callback(self, button, interaction):
