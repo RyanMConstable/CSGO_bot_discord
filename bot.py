@@ -121,7 +121,8 @@ def run_discord_bot():
         
         @discord.ui.button(label="Bottom Stats", style=discord.ButtonStyle.primary)
         async def tenth_button_callback(self, button, interaction):
-            await send_message("")
+            msg = responses.handle_response("-bottom 50 kills", str(self.ctx.author), self.ctx.author.id)
+            await interaction.response.send_message(embed=self.makeEmbed(msg))
     
     @client.slash_command() # Create a slash command
     async def menu(ctx):
