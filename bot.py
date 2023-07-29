@@ -71,8 +71,10 @@ def run_discord_bot():
             
         @discord.ui.button(label="Top Stats", style=discord.ButtonStyle.primary)
         async def first_button_callback(self, button, interaction):
-            #message username, usernameid
-            await interaction.response.send_message(F"-top") 
+            msg = responses.handle_response("-top", str(self.ctx.author), self.ctx.author.id)
+            embed = discord.Embed(title = "", description = F"```\n{msg}\n```")
+            embed.add_field(name = "", value = "")
+            await interaction.response.send_message(embed=embed)
             
         @discord.ui.button(label="Leaderboard", style=discord.ButtonStyle.primary)
         async def second_button_callback(self, button, interaction):
