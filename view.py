@@ -1,4 +1,4 @@
-import discord, responses
+import discord, responses, CSGOsql
 
 #View for menu buttons
 class MyView(discord.ui.View):
@@ -8,7 +8,12 @@ class MyView(discord.ui.View):
         self.user = str(self.ctx.author)
         self.userid = ctx.author.id
         self.enteredUser = enteredUser
-        
+        if CSGOsql.findSteamID2(self.enteredUser) != None and self.enteredUser != None:
+            self.searchUserID = CSGOsql.findSteamID2(self.enteredUser)
+            self.searchUserName = self.enteredUser
+        else:
+            self.searchUserID = self.userid
+            self.searchUserName = self.user
         
         
     def makeEmbed(self, msg):
