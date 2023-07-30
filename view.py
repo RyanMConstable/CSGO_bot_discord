@@ -2,10 +2,14 @@ import discord, responses
 
 #View for menu buttons
 class MyView(discord.ui.View):
-    def __init__(self, ctx=None, user=None):
+    def __init__(self, ctx=None, enteredUser=None):
         super().__init__()
         self.ctx = ctx
-        self.user = user
+        self.user = str(self.ctx.author)
+        self.userid = ctx.author.id
+        self.enteredUser = enteredUser
+        
+        
         
     def makeEmbed(self, msg):
         embed = discord.Embed(title = "", description = F"```\n{msg}\n```")
