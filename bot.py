@@ -65,10 +65,14 @@ def run_discord_bot():
         
     #View for menu buttons
     class MyView(discord.ui.View):
-        def __init__(self, ctx=None):
+        def __init__(self, ctx=None, user=None):
             super().__init__()
             self.ctx = ctx
-        
+            if user is None:
+                self.user = str(self.ctx.author)
+            else:
+                self.user = user
+            
         def makeEmbed(self, msg):
             embed = discord.Embed(title = "", description = F"```\n{msg}\n```")
             embed.add_field(name = "", value = "")
