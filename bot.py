@@ -131,9 +131,5 @@ def run_discord_bot():
     @client.slash_command() # Create a slash command
     async def menu(ctx):
         await ctx.respond("", view=MyView(ctx))
-        
-    @client.slash_command() # Create a slash command
-    async def button(ctx):
-        await ctx.respond("", view=MyView(ctx))
     
     client.run(TOKEN)
