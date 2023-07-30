@@ -1,5 +1,4 @@
-import discord
-import responses
+import discord, responses
 
 #View for menu buttons
 class MyView(discord.ui.View):
