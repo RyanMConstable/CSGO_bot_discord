@@ -23,50 +23,50 @@ class MyView(discord.ui.View):
     
     @discord.ui.button(label="Top Stats", style=discord.ButtonStyle.primary)
     async def first_button_callback(self, button, interaction):
-        msg = responses.handle_response("-top", self.user, self.ctx.author.id)
+        msg = responses.handle_response("-top", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
     @discord.ui.button(label="Leaderboard", style=discord.ButtonStyle.primary)
     async def second_button_callback(self, button, interaction):
-        msg = responses.handle_response("-leaders", self.user, self.ctx.author.id)
+        msg = responses.handle_response("-leaders", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
     @discord.ui.button(label="Position", style=discord.ButtonStyle.primary)
     async def third_button_callback(self, button, interaction):
-        msg = responses.handle_response("-pos", self.user, self.ctx.author.id)
+        msg = responses.handle_response("-pos", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
     @discord.ui.button(label="Last Game", style=discord.ButtonStyle.primary)
     async def fourth_button_callback(self, button, interaction):
-        msg = responses.handle_response("-lastgame", self.user, self.ctx.author.id)
+        msg = responses.handle_response("-lastgame", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
     @discord.ui.button(label="Best Game", style=discord.ButtonStyle.primary)
     async def fifth_button_callback(self, button, interaction):
-        msg = responses.handle_response("-bestgame", self.user, self.ctx.author.id)
+        msg = responses.handle_response("-bestgame", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
     @discord.ui.button(label="Worst Game", style=discord.ButtonStyle.primary)
     async def sixth_button_callback(self, button, interaction):
-        msg = responses.handle_response("-worstgame", self.user, self.ctx.author.id)
+        msg = responses.handle_response("-worstgame", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
     @discord.ui.button(label="Average Stats", style=discord.ButtonStyle.primary)
     async def seventh_button_callback(self, button, interaction):
-        msg = responses.handle_response("-avg", self.user, self.ctx.author.id)
+        msg = responses.handle_response("-avg", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
     @discord.ui.button(label="Totals", style=discord.ButtonStyle.primary)
     async def eighth_button_callback(self, button, interaction):
-        msg = responses.handle_response("-sum", self.user, self.ctx.author.id)
+        msg = responses.handle_response("-sum", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
     @discord.ui.button(label="Summary of Last Game", style=discord.ButtonStyle.primary)
     async def ninth_button_callback(self, button, interaction):
-        msg = responses.handle_response("-summary", self.user, self.ctx.author.id)
+        msg = responses.handle_response("-summary", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
     
     @discord.ui.button(label="Bottom Stats", style=discord.ButtonStyle.primary)
     async def tenth_button_callback(self, button, interaction):
-        msg = responses.handle_response("-bottom 50 adr", self.user, self.ctx.author.id)
+        msg = responses.handle_response("-bottom 50 adr", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
