@@ -8,13 +8,14 @@ class MyView(discord.ui.View):
         self.user = str(self.ctx.author)
         self.userid = ctx.author.id
         self.enteredUser = enteredUser
-        if CSGOsql.findSteamID2(self.enteredUser) != None and self.enteredUser != None:
-            self.searchUserID = CSGOsql.findSteamID2(self.enteredUser)
+        if CSGOsql.findDiscordID(CSGOsql.findSteamID2(self.enteredUser)) != None and self.enteredUser != None:
+            self.searchUserID = CSGOsql.findDiscordID(CSGOsql.findSteamID2(self.enteredUser))
             self.searchUserName = self.enteredUser
         else:
             self.searchUserID = self.userid
             self.searchUserName = self.user
-        
+        print(self.searchUserID)
+        print(self.searchUserName)
         
     def makeEmbed(self, msg):
         embed = discord.Embed(title = "", description = F"```\n{msg}\n```")

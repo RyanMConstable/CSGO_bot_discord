@@ -62,8 +62,7 @@ def run_discord_bot():
         print("Going dark")
         
     @client.slash_command() # Create a slash command
-    async def menu(ctx: discord.ApplicationContext, entereduser:str):
-        print(entereduser)
-        await ctx.respond("", view=view.MyView(ctx, entereduser))
+    async def menu(ctx: discord.ApplicationContext, message:str):
+        await ctx.respond("", view=view.MyView(ctx, message))
     
     client.run(TOKEN)
