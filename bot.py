@@ -27,7 +27,7 @@ def run_discord_bot():
     @client.event
     async def on_message(message):
         #This is used in case the bot should not respond to itself
-        if message.author == client.user:
+        if message.author == client.user and message.content != "-Summary Time":
             return
 
         usernameID = str(message.author.id)
