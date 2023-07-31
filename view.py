@@ -14,8 +14,6 @@ class MyView(discord.ui.View):
         else:
             self.searchUserID = self.userid
             self.searchUserName = self.user
-        print(self.searchUserID)
-        print(self.searchUserName)
         
     def makeEmbed(self, msg):
         embed = discord.Embed(title = "", description = F"```\n{msg}\n```")
