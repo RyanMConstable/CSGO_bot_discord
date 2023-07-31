@@ -22,7 +22,8 @@ def help():
     commands += "-summary\n\t"
     commands += "-lastgame\n\t"
     commands += "-bestgame\n\t"
-    commands += "-worstgame\n\n"
+    commands += "-worstgame\n\t"
+    commands += "/menu <name>\n\n"
     
     commands += "Categories:\n\t"
       
