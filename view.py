@@ -8,7 +8,9 @@ class MyView(discord.ui.View):
         self.user = str(self.ctx.author)
         self.userid = ctx.author.id
         self.enteredUser = enteredUser
-        if CSGOsql.findDiscordID(CSGOsql.findSteamID2(self.enteredUser)) != None and self.enteredUser != None:
+        
+        myid = CSGOsql.findSteamID2(self.enteredUser)
+        if myid != None and CSGOsql.findDiscordID(myid) != None and self.enteredUser != None:
             self.searchUserID = CSGOsql.findDiscordID(CSGOsql.findSteamID2(self.enteredUser))
             self.searchUserName = self.enteredUser
         else:
