@@ -3,7 +3,7 @@ import discord, responses, CSGOsql
 #View for menu buttons
 class MyView(discord.ui.View):
     def __init__(self, ctx=None, enteredUser=None):
-        super().__init__()
+        super().__init__(timeout=30)
         self.ctx = ctx
         self.user = str(self.ctx.author)
         self.userid = ctx.author.id
@@ -16,6 +16,9 @@ class MyView(discord.ui.View):
         else:
             self.searchUserID = self.userid
             self.searchUserName = self.user
+        
+        button = discord.ui.Button(label ="Steam Login", style=discord.ButtonStyle.url, url = "https://store.steampowered.com/")
+        self.add_item(button)
         
     def makeEmbed(self, msg):
         embed = discord.Embed(title = "", description = F"```\n{msg}\n```")
@@ -71,7 +74,3 @@ class MyView(discord.ui.View):
     async def tenth_button_callback(self, button, interaction):
         msg = responses.handle_response("-bottom 50 adr", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
-        
-    @discord.ui.button(label="Steam Link", style=discord.ButtonStyle.link)
-    async def tenth_button_callback(self, button, interaction):
-        await interaction.response.send_message(embed=self.makeEmbed("Out of order"))
