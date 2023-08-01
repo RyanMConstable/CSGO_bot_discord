@@ -71,3 +71,7 @@ class MyView(discord.ui.View):
     async def tenth_button_callback(self, button, interaction):
         msg = responses.handle_response("-bottom 50 adr", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
+        
+    @discord.ui.button(label="Steam Link", style=discord.ButtonStyle.link)
+    async def tenth_button_callback(self, button, interaction):
+        await interaction.response.send_message(embed=self.makeEmbed("Out of order"))
