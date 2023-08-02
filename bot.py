@@ -61,8 +61,12 @@ def run_discord_bot():
     async def on_disconnect():
         print("Going dark")
         
-    @client.slash_command() # Create a slash command
+    @client.slash_command() # Create a menu command
     async def menu(ctx: discord.ApplicationContext, message:str):
         await ctx.respond("", view=view.MyView(ctx, message))
+        
+    @client.slash_command() #Sign up view
+    async def signup(ctx):
+        await ctx.respond("", view=view.SignUpView())
     
     client.run(TOKEN)
