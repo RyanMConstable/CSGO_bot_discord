@@ -17,9 +17,6 @@ class MyView(discord.ui.View):
             self.searchUserID = self.userid
             self.searchUserName = self.user
         
-        button = discord.ui.Button(label ="Steam Login", style=discord.ButtonStyle.url, url = "http://localhost:5000")
-        self.add_item(button)
-        
     def makeEmbed(self, msg):
         embed = discord.Embed(title = "", description = F"```\n{msg}\n```")
         embed.add_field(name = "", value = "")
@@ -74,3 +71,12 @@ class MyView(discord.ui.View):
     async def tenth_button_callback(self, button, interaction):
         msg = responses.handle_response("-bottom 50 adr", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
+        
+        
+        
+class SignUpView(discord.ui.View):
+    def __init__(self):
+        super().__init__()
+        
+        button = discord.ui.Button(label ="Steam Login", style=discord.ButtonStyle.url, url = "http://localhost:5000")
+        self.add_item(button)
