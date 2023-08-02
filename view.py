@@ -17,7 +17,7 @@ class MyView(discord.ui.View):
             self.searchUserID = self.userid
             self.searchUserName = self.user
         
-        button = discord.ui.Button(label ="Steam Login", style=discord.ButtonStyle.url, url = "https://store.steampowered.com/")
+        button = discord.ui.Button(label ="Steam Login", style=discord.ButtonStyle.url, url = "http://localhost:5000")
         self.add_item(button)
         
     def makeEmbed(self, msg):
