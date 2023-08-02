@@ -24,6 +24,10 @@ def run_discord_bot():
     TOKEN = os.environ["DISCORD_TOKEN"]
     client = discord.Bot(intents=discord.Intents.all())
     
+    @client.command()
+    async def sync(ctx):
+        await client.command.sync()
+    
     @client.event
     async def on_message(message):
         #This is used in case the bot should not respond to itself
