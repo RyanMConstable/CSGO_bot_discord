@@ -37,6 +37,7 @@ def help():
 
 
 #Add your steamid to the database so it tracks your games, we need a better validate function
+#the new validate function should attempt to use the api call and if nothings in the api call return false and don't update
 def steamid(discordID, message):
     try:
         steamID = message.split(" ")[1]
