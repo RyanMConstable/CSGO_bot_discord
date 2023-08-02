@@ -36,7 +36,7 @@ def help():
 
 
 
-#Add your steamid to the database so it tracks your games
+#Add your steamid to the database so it tracks your games, we need a better validate function
 def steamid(discordID, message):
     try:
         steamID = message.split(" ")[1]
