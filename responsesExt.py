@@ -53,6 +53,7 @@ def steamid(discordID, message):
 
 
 #For the top all time leaders of categories
+#The best of the best
 def leaders(fullCommand):
     if fullCommand == "-leaders":
         result = formatData.findtopstat()
