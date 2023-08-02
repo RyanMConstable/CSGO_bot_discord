@@ -66,7 +66,7 @@ def run_discord_bot():
         await ctx.respond("", view=view.MyView(ctx, message))
         
     @client.slash_command() #Sign up view
-    async def signup(ctx):
+    async def egochecksignup(ctx):
         await ctx.respond("", view=view.SignUpView())
     
     client.run(TOKEN)
