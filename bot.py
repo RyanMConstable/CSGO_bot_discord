@@ -65,7 +65,7 @@ def run_discord_bot():
     
     @client.command(name = "sync")
     async def sync(ctx):
-        await client.sync()
+        #await client.sync()
         await ctx.respond("Synced commands")
     
     @client.command(name = "menu", description="Provides a stat gui") # Create a menu command
