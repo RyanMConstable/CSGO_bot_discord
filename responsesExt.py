@@ -248,11 +248,14 @@ def summary():
     #If a user is below 50 adr, bozo alert is handed out
     #Return top adr, bottom adr
     recentGameInfo = CSGOsql.findGameInfo()
+    lowlowADRList = []
     lowADRList = []
     highADRList = []
     highest_team_damage = [None, 0]
     print(recentGameInfo)
     for gamer in recentGameInfo:
+        if float(gamer[1]) <= 35:
+            lowlowADRList.append([gamer[0]])
         if float(gamer[1]) <= 50:
             lowADRList.append([gamer[0]])
         if float(gamer[1]) >= 115:
@@ -265,6 +268,12 @@ def summary():
     lowadrtable = "No Bozos?\n"
     if any(body):
         lowadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
+        
+    head = ["The Super Bozos"]
+    body = lowlowADRList
+    lowadrtable = ""
+    if any(body):
+        lowlowadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
     
     head = ["Super Gamers"]
     body = highADRList
@@ -280,4 +289,4 @@ def summary():
         teamdamagetable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
     
     #First find the game id for 
-    return lowadrtable + "\n" + highadrtable + "\n" + teamdamagetable
+    return lowlowadrtable + "\n" + lowadrtable + "\n" + highadrtable + "\n" + teamdamagetable
