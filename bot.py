@@ -24,7 +24,7 @@ def run_discord_bot():
     TOKEN = os.environ["DISCORD_TOKEN"]
     client = discord.Bot(intents=discord.Intents.all())
     
-    viewcommands = client.create_group("viewcommands", "Button views")
+    #viewcommands = client.create_group("viewcommands", "Button views")
     
     @client.event
     async def on_message(message):
@@ -62,12 +62,16 @@ def run_discord_bot():
     @client.event
     async def on_disconnect():
         print("Going dark")
+    
+    @client.command(name = "sync")
+    async def sync(ctx):
+        await client.sync_commands()
+    
+    @client.command(name = "menu", description="Provides a stat gui") # Create a menu command
+    async def menu(ctx: discord.ApplicationContext):
+        await ctx.respond("", view=view.MyView(ctx))
         
-    @viewcommands.command(name = "menu", description="Provides a stat gui") # Create a menu command
-    async def menu(ctx: discord.ApplicationContext, message:str):
-        await ctx.respond("", view=view.MyView(ctx, message))
-        
-    @viewcommands.command(name = "signup", description="Provides the signup menu") #Sign up view
+    @client.command(name = "signup", description="Provides the signup menu") #Sign up view
     async def egochecksignup(ctx):
         await ctx.respond("", view=view.SignUpView())
     
