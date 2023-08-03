@@ -271,7 +271,7 @@ def summary():
         
     head = ["The Super Bozos"]
     body = lowlowADRList
-    lowadrtable = ""
+    lowlowadrtable = ""
     if any(body):
         lowlowadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
     
