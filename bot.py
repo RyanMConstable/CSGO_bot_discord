@@ -65,7 +65,7 @@ def run_discord_bot():
     
     @client.command(name = "sync")
     async def sync(ctx):
-        await client.sync_commands()
+        await client.sync()
         await ctx.respond("Synced commands")
     
     @client.command(name = "menu", description="Provides a stat gui") # Create a menu command
@@ -73,7 +73,7 @@ def run_discord_bot():
         await ctx.respond("", view=view.MyView(ctx))
         
     @client.command(name = "signup", description="Provides the signup menu") #Sign up view
-    async def signup(ctx):
+    async def signup(ctx: discord.ApplicationContext):
         await ctx.respond("", view=view.SignUpView())
     
     client.run(TOKEN)

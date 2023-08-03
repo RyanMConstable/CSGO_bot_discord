@@ -78,11 +78,5 @@ class SignUpView(discord.ui.View):
     def __init__(self):
         super().__init__()
         
-        button = discord.ui.Button(label ="Steam Login", style=discord.ButtonStyle.url, url = "http://localhost:5000")
+        button = discord.ui.Button(label="Steam Login", style=discord.ButtonStyle.url, url = "http://localhost:5000")
         self.add_item(button)
-        
-        textbox = discord.ui.InputText(label = "Steam ID Key")
-        self.add_item(textbox)
-        
-        textbox2 = discord.ui.InputText(label = "Known match code")
-        self.add_item(textbox2)
