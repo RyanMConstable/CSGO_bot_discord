@@ -64,7 +64,7 @@ def run_discord_bot():
         print("Going dark")
     
     @client.slash_command(name = "sync")
-    async def sync(ctx):
+    async def sync(ctx: discord.ApplicationContext):
         #await client.sync()
         await ctx.respond("Synced commands")
     
