@@ -22,10 +22,6 @@ def handle_response(message, username, usernameID) -> str:
     if p_message == "help" or p_message == '-h' or p_message == 'h' or p_message == '-help':
         return responsesExt.help()
     
-    #This allows a user to add their steamid to the database for future reference
-    if command == "-steamid":
-        return responsesExt.steamid(usernameID, p_message)
-    
     #This allows a user to see their position on the leaderboards
     if command == "-pos":
         return responsesExt.pos(username, p_message, usernameID)
