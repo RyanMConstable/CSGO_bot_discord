@@ -78,5 +78,5 @@ class SignUpView(discord.ui.View):
     def __init__(self):
         super().__init__()
         
-        button = discord.ui.Button(label="Steam Login", style=discord.ButtonStyle.url, url = "http://localhost:5000")
+        button = discord.ui.Button(label="Create Account", style=discord.ButtonStyle.url, url = "http://localhost:5000")
         self.add_item(button)
