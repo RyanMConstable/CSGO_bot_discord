@@ -67,6 +67,10 @@ def run_discord_bot():
     async def menu(ctx: discord.ApplicationContext):
         await ctx.respond("", view=view.MyView(ctx))
         
+    @client.slash_command(name = "menu", description="Provides a stat gui") # Create a menu command
+    async def omenu(ctx: discord.ApplicationContext, message):
+        await ctx.respond("", view=view.MyView(ctx, message))
+        
     @client.slash_command(name = "signup", description="Provides the signup menu") #Sign up view
     async def signup(ctx: discord.ApplicationContext):
         await ctx.respond("", view=view.SignUpView())
