@@ -236,7 +236,7 @@ def summary():
     lowADRList = []
     highADRList = []
     highest_team_damage = [None, 0]
-    print(recentGameInfo)
+
     for gamer in recentGameInfo:
         if float(gamer[1]) <= 35:
             lowlowADRList.append([gamer[0]])
@@ -249,7 +249,7 @@ def summary():
             
     head = ["The Bozos"]
     body = lowADRList
-    lowadrtable = "No Bozos?\n"
+    lowadrtable = ""
     if any(body):
         lowadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
         
@@ -261,8 +261,7 @@ def summary():
     
     head = ["Super Gamers"]
     body = highADRList
-    print(highADRList)
-    highadrtable = "No Super Gamers"
+    highadrtable = ""
     if any(body):
         highadrtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
     
