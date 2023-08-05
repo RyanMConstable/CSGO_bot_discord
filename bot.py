@@ -63,11 +63,6 @@ def run_discord_bot():
     async def on_disconnect():
         print("Going dark")
     
-    @client.slash_command(name = "sync")
-    async def sync(ctx: discord.ApplicationContext):
-        #await client.sync()
-        await ctx.respond("Synced commands")
-    
     @client.slash_command(name = "menu", description="Provides a stat gui") # Create a menu command
     async def menu(ctx: discord.ApplicationContext, username=''):
         await ctx.respond("", view=view.MyView(ctx, username))
