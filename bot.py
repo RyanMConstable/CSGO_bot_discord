@@ -64,8 +64,8 @@ def run_discord_bot():
         print("Going dark")
     
     @client.slash_command(name = "menu", description="Provides a stat gui") # Create a menu command
-    async def menu(ctx: discord.ApplicationContext, username=''):
-        await ctx.respond("", view=view.MyView(ctx, username))
+    async def menu(ctx: discord.ApplicationContext):
+        await ctx.respond("", view=view.MyView(ctx))
         
     @client.slash_command(name = "signup", description="Provides the signup menu") #Sign up view
     async def signup(ctx: discord.ApplicationContext):
