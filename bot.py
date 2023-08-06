@@ -24,11 +24,8 @@ def run_discord_bot():
     TOKEN = os.environ["DISCORD_TOKEN"]
     client = discord.Bot(intents=discord.Intents.all())
     
-    #viewcommands = client.create_group("viewcommands", "Button views")
-    
     @client.event
     async def on_message(message):
-        #This is used in case the bot should not respond to itself
         if message.author == client.user and message.content != "-Summary Time":
             return
 
