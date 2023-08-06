@@ -40,15 +40,15 @@ def run_discord_bot():
     async def on_disconnect():
         print("Going dark")
     
-    @bot.slash_command(name = "menu", description="Provides a stat gui") # Create a menu command
+    @bot.slash_command(name = "menu", description="Provides a stat gui")
     async def menu(ctx: discord.ApplicationContext):
         await ctx.respond("", view=view.MyView(ctx))
         
-    @bot.slash_command(name = "menu", description="Provides a stat gui") # Create a menu command
+    @bot.slash_command(name = "menu", description="Provides a stat gui")
     async def omenu(ctx: discord.ApplicationContext, message):
         await ctx.respond("", view=view.MyView(ctx, message))
         
-    @bot.slash_command(name = "signup", description="Provides the signup menu") #Sign up view
+    @bot.slash_command(name = "signup", description="Provides the signup menu")
     async def signup(ctx: discord.ApplicationContext):
         await ctx.respond("", view=view.SignUpView())
     
