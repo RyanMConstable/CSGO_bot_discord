@@ -35,7 +35,6 @@ def run_discord_bot():
         usernameID = str(message.author.id)
         username = str(message.author)
         user_message = message.content
-        channel = str(message.channel)
 
         await send_message(username, message, user_message, usernameID, is_private=False)
         
