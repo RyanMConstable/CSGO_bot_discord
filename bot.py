@@ -37,23 +37,7 @@ def run_discord_bot():
         user_message = message.content
         channel = str(message.channel)
 
-        print(f"{username} said: '{user_message}' ({channel})")
-
-        #this sends the user a dm
-        #await send_message(username, message, user_message, is_private=True)
-
-        #this sends in the discord
         await send_message(username, message, user_message, usernameID, is_private=False)
-    
-    #Testing on_typing event   
-    #@client.event
-    #async def on_typing(channel, user, when):
-    #    print(F"User: {user} is typing in channel: {channel} at: {when}"
-        
-    #Testing on_raw_typing event   
-    #@client.event
-    #async def on_raw_typing(payload):
-    #    print(payload)
         
     @client.event
     async def on_connect():
