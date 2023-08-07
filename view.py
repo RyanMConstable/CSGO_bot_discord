@@ -1,6 +1,6 @@
 import discord, responses, CSGOsql
 
-#View for menu buttons, the class includes login for the database as well
+#GUI for the commands
 class MyView(discord.ui.View):
     def __init__(self, ctx=None, enteredUser=None):
         super().__init__(timeout=30)
