@@ -187,8 +187,8 @@ def lastgame(username, message, userID):
         returnString += tableInfo[2] + "\n"
         
         gameinfo = CSGOsql.findGameInfoLastGame()
-        importantGameInfo = [gameinfo[1]/60, gameinfo[2].split("_")[1], str(gameinfo[3]) + ":" + str(gameinfo[4])]
-        returnString += str(t2a(header = ["Game Length", "Map", "Score"], body = importantGameInfo, style=PresetStyle.thin_compact))
+        importantGameInfo = [["Game Length", str(float(gameinfo[1])/60)], ["Map", gameinfo[2].split("_")[1]], ["Score", str(gameinfo[3]) + ":" + str(gameinfo[4])]]
+        returnString += str(t2a(body = importantGameInfo, style=PresetStyle.thin_compact))
         return returnString
     return
 
