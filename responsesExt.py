@@ -279,6 +279,12 @@ def summary():
         head = ["The Real Enemy"]
         body = [[str(highest_team_damage[0]) + ": " + str(highest_team_damage[1]) + " dmg"]]
         teamdamagetable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
+        
+    head = ["Teammate Terminators"]
+    body = highest_team_kills
+    highteamkillstable = ""
+    if any(body):
+        highteamkillstable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
     
     #First find the game id for 
-    return lowlowadrtable + "\n" + lowadrtable + "\n" + highadrtable + "\n" + teamdamagetable
+    return lowlowadrtable + "\n" + lowadrtable + "\n" + highadrtable + "\n" + teamdamagetable + "\n" + highteamkillstable
