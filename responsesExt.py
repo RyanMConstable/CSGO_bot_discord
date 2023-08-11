@@ -238,12 +238,16 @@ def summary():
     highest_team_damage = [None, 0]
 
     for gamer in recentGameInfo:
+        
+        #ADR
         if float(gamer[1]) <= 35:
             lowlowADRList.append([gamer[0]])
         elif float(gamer[1]) <= 50:
             lowADRList.append([gamer[0]])
         elif float(gamer[1]) >= 115:
             highADRList.append([gamer[0]])
+            
+        #Team damage
         if int(gamer[2]) > highest_team_damage[1]:
             highest_team_damage = [gamer[0], int(gamer[2])]
             
