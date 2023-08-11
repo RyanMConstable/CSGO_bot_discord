@@ -244,7 +244,7 @@ def summary():
             lowADRList.append([gamer[0]])
         elif float(gamer[1]) >= 115:
             highADRList.append([gamer[0]])
-        elif int(gamer[2]) > highest_team_damage[1]:
+        if int(gamer[2]) > highest_team_damage[1]:
             highest_team_damage = [gamer[0], int(gamer[2])]
             
     head = ["The Bozos"]
