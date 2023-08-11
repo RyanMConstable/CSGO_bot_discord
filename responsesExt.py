@@ -184,11 +184,11 @@ def lastgame(username, message, userID):
         returnString = F"{name}'s Last Game\n"
         returnString += F"Date: {tableInfo[1]}\n"
         returnString += str(t2a(header=["Stats", "Last"], body = tableInfo[0], style=PresetStyle.thin_compact)) + "\n"
-        returnString += tableInfo[2]
+        returnString += tableInfo[2] + "\n"
         
         gameinfo = CSGOsql.findGameInfoLastGame()
         importantGameInfo = [gameinfo[1]/60, gameinfo[2].split("_")[1], str(gameinfo[3]) + ":" + str(gameinfo[4])]
-        returnString += str(t2a(header = ["Game Length", "Map", "Score"]))
+        returnString += str(t2a(header = ["Game Length", "Map", "Score"], body = importantGameInfo, style=PresetStyle.thin_compact))
         return returnString
     return
 
