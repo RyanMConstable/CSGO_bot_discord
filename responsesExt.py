@@ -254,7 +254,7 @@ def summary():
             
         #Team kills
         if int(gamer[3]) >= 2:
-            highest_team_kills.append(gamer[0], int(gamer[3]))
+            highest_team_kills.append([gamer[0]])
             
     head = ["The Bozos"]
     body = lowADRList
