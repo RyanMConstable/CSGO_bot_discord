@@ -236,6 +236,7 @@ def summary():
     lowADRList = []
     highADRList = []
     highest_team_damage = [None, 0]
+    highest_team_kills = []
 
     for gamer in recentGameInfo:
         
@@ -250,6 +251,10 @@ def summary():
         #Team damage
         if int(gamer[2]) > highest_team_damage[1]:
             highest_team_damage = [gamer[0], int(gamer[2])]
+            
+        #Team kills
+        if int(gamer[3]) >= 2:
+            highest_team_kills.append(gamer[0], int(gamer[3]))
             
     head = ["The Bozos"]
     body = lowADRList
