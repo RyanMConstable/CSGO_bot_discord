@@ -11,7 +11,6 @@ commandsToCol = dictCommands.commandsToCol
 #Display help message tp the user
 def help():
     commands = "Commands:\n\t"
-    commands += "-steamid <id> <steamkey>\n\t"
     commands += "avg <optional steam user>\n\t"
     commands += "top <optional amount> <optional category> <optional steam user>\n\t"
     commands += "-leaders <optional amount> <optional category>\n\t"
