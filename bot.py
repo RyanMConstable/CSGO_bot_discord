@@ -41,7 +41,8 @@ def run_discord_bot():
     @bot.slash_command(name = "menu", description="Provides a stat gui")
     async def menu(ctx: discord.ApplicationContext):
         await ctx.respond("", view=view.MyView(ctx))
-        
+    
+    #Provides a button that links to the signup page
     @bot.slash_command(name = "signup", description="Provides the signup button, links to website")
     async def signup(ctx: discord.ApplicationContext):
         await ctx.respond("", view=view.SignUpView())
