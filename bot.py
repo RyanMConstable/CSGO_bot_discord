@@ -3,6 +3,7 @@ import responses
 import os
 import view
 
+#Creates a discord embed to prettify results and send to user discord
 async def send_message(username, message, user_message, usernameID, is_private = False):
     try:
         response = responses.handle_response(user_message, username, usernameID)
