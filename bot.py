@@ -23,7 +23,7 @@ def run_discord_bot():
     
     @bot.event
     async def on_message(message):
-        if message.author == bot.user and message.content != "-Summary Time":
+        if message.author != bot.user or message.content != "-Summary Time":
             return
 
         usernameID = str(message.author.id)
