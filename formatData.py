@@ -111,7 +111,7 @@ def findAvg(id, limiter):
     strVal.append(["Deaths Per Round", round(CSGOsql.selectAvgUserStat("death_per_round", id, limiter),2)])
     return [["Category", "Average"], strVal]
 
-####Write a function for 
+#Find sum function
 def findSum(id, limiter):
     strVal = []
     if int(limiter) >= 50000:
