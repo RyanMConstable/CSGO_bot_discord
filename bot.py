@@ -31,7 +31,8 @@ def run_discord_bot():
         user_message = message.content
 
         await send_message(username, message, user_message, usernameID, is_private=False)
-        
+    
+    #Simple notification, notifies that the bot is ready and working
     @bot.event
     async def on_connect():
         print("Connected and ready to go")
