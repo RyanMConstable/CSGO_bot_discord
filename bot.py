@@ -35,10 +35,6 @@ def run_discord_bot():
     @bot.event
     async def on_connect():
         print("Connected and ready to go")
-        
-    '''@bot.event
-    async def on_disconnect():
-        print("Going dark")'''
     
     @bot.slash_command(name = "menu", description="Provides a stat gui")
     async def menu(ctx: discord.ApplicationContext):
