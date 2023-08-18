@@ -261,7 +261,7 @@ def summary():
             highest_team_kills.append([gamer[0]])
             
         #Flashes
-        if int(gamer[4]) >= int(gamer[5]) or int(gamer[6]) >= int(gamer[7]):
+        if int(gamer[4]) >= int(gamer[5]) or float(gamer[6]) >= float(gamer[7]):
             flashes.append([gamer[0], gamer[4], gamer[5], gamer[6], gamer[7]])
             
     head = ["The Bozos"]
