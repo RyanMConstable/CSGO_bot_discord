@@ -294,5 +294,12 @@ def summary():
     if any(body):
         highteamkillstable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
     
+    
+    flashtable = ''
+    if highest_team_damage[0] != None:
+        head = ["Feebleminded Flashbangers"]
+        body = flashes
+        teamdamagetable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
+        
     #First find the game id for 
     return lowlowadrtable + "\n" + lowadrtable + "\n" + highadrtable + "\n" + teamdamagetable + "\n" + highteamkillstable
