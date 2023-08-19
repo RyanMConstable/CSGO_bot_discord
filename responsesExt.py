@@ -312,5 +312,5 @@ def summary():
         footer = ["Feebleminded Flashbangers", "Count", "Count", "Dur", "Dur"]
         flashtable = t2a(header=head, body=body, footer=footer, style=PresetStyle.thin_compact)
 
-    #First find the game id for 
+    #Returns table format for multiple different calculated values at the end of each game 
     return lowlowadrtable + "\n" + lowadrtable + "\n" + highadrtable + "\n" + teamdamagetable + "\n" + highteamkillstable + "\n" + uniquemsgtable + "\n" + flashtable
