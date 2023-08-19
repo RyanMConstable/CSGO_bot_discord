@@ -264,6 +264,10 @@ def summary():
         #Flashes
         if int(gamer[4]) >= int(gamer[5]) or float(gamer[6]) >= float(gamer[7]):
             flashes.append([gamer[0], gamer[4], gamer[5], gamer[6], gamer[7]])
+        
+        #Messages
+        if int(gamer[8]) >= 30:
+            uniquemsgs.append([gamer[0], gamer[8]])
             
     head = ["The Bozos"]
     body = lowADRList
@@ -302,6 +306,6 @@ def summary():
         body = flashes
         footer = ["Feebleminded Flashbangers", "Count", "Count", "Dur", "Dur"]
         flashtable = t2a(header=head, body=body, footer=footer, style=PresetStyle.thin_compact)
-        
+
     #First find the game id for 
     return lowlowadrtable + "\n" + lowadrtable + "\n" + highadrtable + "\n" + teamdamagetable + "\n" + highteamkillstable + "\n" + flashtable
