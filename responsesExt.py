@@ -313,4 +313,4 @@ def summary():
         flashtable = t2a(header=head, body=body, footer=footer, style=PresetStyle.thin_compact)
 
     #First find the game id for 
-    return lowlowadrtable + "\n" + lowadrtable + "\n" + highadrtable + "\n" + teamdamagetable + "\n" + highteamkillstable + "\n" + flashtable
+    return lowlowadrtable + "\n" + lowadrtable + "\n" + highadrtable + "\n" + teamdamagetable + "\n" + highteamkillstable + "\n" + uniquemsgtable + "\n" + flashtable
