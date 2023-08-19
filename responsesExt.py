@@ -241,6 +241,7 @@ def summary():
     highest_team_damage = [None, 0]
     highest_team_kills = []
     flashes = []
+    uniquemsgs = []
 
     for gamer in recentGameInfo:
         
