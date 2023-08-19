@@ -299,6 +299,11 @@ def summary():
     if any(body):
         highteamkillstable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
     
+    head = ["Typing Terry"]
+    body = uniquemsgs
+    uniquemsgtable = ""
+    if any(body):
+        uniquemsgtable = t2a(header=head, body=body, style=PresetStyle.thin_compact)
     
     flashtable = ''
     if highest_team_damage[0] != None:
