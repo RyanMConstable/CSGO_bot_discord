@@ -117,6 +117,7 @@ def findAvg(id, limiter):
     strVal.append(["Deaths Per Round", round(CSGOsql.selectAvgUserStat("death_per_round", id, limiter),2)])
     strVal.append(["Team Damage", round(CSGOsql.selectAvgUserStat("team_damage", id, limiter),2)])
     strVal.append(["Team Flashes", round(CSGOsql.selectAvgUserStat("teamflashcount", id, limiter),2)])
+    strVal.append(["Enemy Flashes", round(CSGOsql.selectAvgUserStat("enemyflashcount", id, limiter),2)])
     return [["Category", "Average"], strVal]
 
 #Find sum function
