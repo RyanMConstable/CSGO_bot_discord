@@ -81,6 +81,8 @@ def findusertop(steamid):
     userStats.append(['Team Damage:' , str(CSGOsql.findTop1user('team_damage', steamid))])
     userStats.append(['Team Flashes:' , str(CSGOsql.findTop1user('teamflashcount', steamid))])
     userStats.append(['Enemy Flashes' , str(CSGOsql.findTop1user('enemyflashcount', steamid))])
+    userStats.append(['Team Flash Duration:' , str(CSGOsql.findTop1user('teamflashduration', steamid))])
+    userStats.append(['Enemy Flash Duration:' , str(CSGOsql.findTop1user('enemyflashduration', steamid))])
     head = ["Category", "Best"]
     return [userStats, head]
 
