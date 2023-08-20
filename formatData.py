@@ -158,6 +158,7 @@ def findSum(id, limiter):
     strVal.append(["Team Dmg", round(CSGOsql.selectSumUserStat("team_damage", id, limiter),2)])
     strVal.append(["Team Flashes", round(CSGOsql.selectSumUserStat("teamflashcount", id, limiter),2)])
     strVal.append(["Enemies Flashed", round(CSGOsql.selectSumUserStat("enemyflashcount", id, limiter),2)])
+    strVal.append(["Team Flash Duration", round(CSGOsql.selectSumUserStat("teamflashduration", id, limiter),2)])
     return [["Category", "Sum"], strVal]
 
 #Sort game takes the game info and sorts it to a tabulated value (list value) for a single game/row
