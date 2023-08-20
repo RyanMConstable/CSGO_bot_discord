@@ -78,6 +78,7 @@ def findusertop(steamid):
     userStats.append(['1v3 Wins:' , str(CSGOsql.findTop1user('1v3_won_count', steamid))])
     userStats.append(['1v4 Wins:' , str(CSGOsql.findTop1user('1v4_won_count', steamid))])
     userStats.append(['1v5 Wins:' , str(CSGOsql.findTop1user('1v5_won_count', steamid))])
+    userStats.append(['Team Damage:' , str(CSGOsql.findTop1user('team_damage', steamid))])
     head = ["Category", "Best"]
     return [userStats, head]
 
