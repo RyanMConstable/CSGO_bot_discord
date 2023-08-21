@@ -233,6 +233,7 @@ def posGame(userID):
     tableInfo.append(["1v3W", CSGOsql.findPos(userID, "1v3_won_count")])
     tableInfo.append(["1v2W", CSGOsql.findPos(userID, "1v2_won_count")])
     tableInfo.append(["1v1W", CSGOsql.findPos(userID, "1v1_won_count")])
+    tableInfo.append(["Team Damage", CSGOsql.findPos(userID, "team_damage")])
     
     for item in tableInfo:
         item.append(round((item[1]/totalGames)*100, 4))
