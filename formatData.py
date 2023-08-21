@@ -37,6 +37,7 @@ def findtopstat():
     userStats.append(['Team Flash Count: ' , str(CSGOsql.finduserandstat('teamflashcount'))])
     userStats.append(['Enemy Flash Count: ' , str(CSGOsql.finduserandstat('enemyflashcount'))])
     userStats.append(['Team Flash Duration: ' , str(CSGOsql.finduserandstat('teamflashduration'))])
+    userStats.append(['Enemy Flash Duration: ' , str(CSGOsql.finduserandstat('enemyflashduration'))])
     
     head = ["Category", "Best Recorded Game"]
     return [userStats, head]
