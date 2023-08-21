@@ -33,6 +33,7 @@ def findtopstat():
     userStats.append(['1v3 Wins: ' , str(CSGOsql.finduserandstat('1v3_won_count'))])
     userStats.append(['1v4 Wins: ' , str(CSGOsql.finduserandstat('1v4_won_count'))])
     userStats.append(['1v5 Wins: ' , str(CSGOsql.finduserandstat('1v5_won_count'))])
+    userStats.append(['Team Damage: ' , str(CSGOsql.finduserandstat('team_damage'))])
     
     head = ["Category", "Best Recorded Game"]
     return [userStats, head]
