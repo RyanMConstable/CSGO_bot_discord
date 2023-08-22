@@ -52,7 +52,7 @@ class MyView(discord.ui.View):
         msg = responses.handle_response("-worstgame", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
-    @discord.ui.button(label="Average Stats", style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Average Stats", row = 3, style=discord.ButtonStyle.primary)
     async def seventh_button_callback(self, button, interaction):
         msg = responses.handle_response("-avg", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
