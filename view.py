@@ -89,7 +89,5 @@ class MyModal(discord.ui.Modal):
         self.add_item(discord.ui.InputText(label="Long Input", style=discord.InputTextStyle.long))
 
     async def callback(self, interaction: discord.Interaction):
-        embed = discord.Embed(title="Modal Results")
-        embed.add_field(name="Short Input", value=self.children[0].value)
-        embed.add_field(name="Long Input", value=self.children[1].value)
-        await interaction.response.send_message(embeds=[embed])
+        print(self.children[0].value, self.children[1].value)
+        await interaction.response.send_message("Thank you for your feedback!")
