@@ -56,6 +56,6 @@ def run_discord_bot():
     #Provides a modal where a user can enter in their suggestion
     @bot.slash_command(name = "oUser", description="Finds another users statistics if in the table")
     async def oUser(ctx: discord.ApplicationContext):
-        await ctx.send_modal(view.MyModal(title = "User Stats"))
+        await ctx.send_modal(view.oUserModal(title = "User Stats"))
     
     bot.run(TOKEN)
