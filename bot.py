@@ -48,8 +48,8 @@ def run_discord_bot():
     async def signup(ctx: discord.ApplicationContext):
         await ctx.respond("", view = view.SignUpView())
         
-    @bot.slash_command(name = "modaltesting", description="Testing modal sends")
-    async def modaltesting(ctx: discord.ApplicationContext):
+    @bot.slash_command(name = "SuggestionORFeedback", description="Testing modal sends")
+    async def SuggestionORFeedback(ctx: discord.ApplicationContext):
         await ctx.send_modal(view.MyModal(title = "Test"))
     
     bot.run(TOKEN)
