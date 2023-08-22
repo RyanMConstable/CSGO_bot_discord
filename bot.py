@@ -49,7 +49,7 @@ def run_discord_bot():
         await ctx.respond("", view = view.SignUpView())
     
     #Provides a modal where a user can enter in their suggestion
-    @bot.slash_command(name = "SuggestionORFeedback", description="Testing modal sends")
+    @bot.slash_command(name = "SuggestionORFeedback", description="For feedback and suggestions")
     async def SuggestionORFeedback(ctx: discord.ApplicationContext):
         await ctx.send_modal(view.MyModal(title = "Test"))
     
