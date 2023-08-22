@@ -32,7 +32,7 @@ class MyView(discord.ui.View):
         msg = responses.handle_response("-leaders", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
-    @discord.ui.button(label="Position", style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Position", row = 1, style=discord.ButtonStyle.primary)
     async def third_button_callback(self, button, interaction):
         msg = responses.handle_response("-pos", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
