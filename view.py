@@ -62,7 +62,7 @@ class MyView(discord.ui.View):
         msg = responses.handle_response("-sum", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
-    @discord.ui.button(label="Summary of Last Game", style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Summary of Last Game", row = 4, style=discord.ButtonStyle.primary)
     async def ninth_button_callback(self, button, interaction):
         msg = responses.handle_response("-summary", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
