@@ -91,3 +91,13 @@ class MyModal(discord.ui.Modal):
     async def callback(self, interaction: discord.Interaction):
         print(self.children[0].value, self.children[1].value)
         await interaction.response.send_message("Thank you for your feedback!")
+        
+class oUserModal(discord.ui.Modal):
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+
+        self.add_item(discord.ui.InputText(label="Username"))
+
+    async def callback(self, interaction: discord.Interaction):
+        print(self.children[0].value)
+        await interaction.response.send_message("Return the menu here?")
