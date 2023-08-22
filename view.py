@@ -47,7 +47,7 @@ class MyView(discord.ui.View):
         msg = responses.handle_response("-bestgame", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
-    @discord.ui.button(label="Worst Game", style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Worst Game", row = 2, style=discord.ButtonStyle.primary)
     async def sixth_button_callback(self, button, interaction):
         msg = responses.handle_response("-worstgame", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
