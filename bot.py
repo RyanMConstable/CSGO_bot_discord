@@ -46,6 +46,10 @@ def run_discord_bot():
     #Provides a button that links to the signup page
     @bot.slash_command(name = "signup", description="Provides the signup button, links to website")
     async def signup(ctx: discord.ApplicationContext):
-        await ctx.respond("", view=view.SignUpView())
+        await ctx.respond("", view = view.SignUpView())
+        
+    @bot.slash_command(name = "modaltesting", description="Testing modal sends")
+    async def modaltesting(ctx: discord.ApplicationContext):
+        await ctx.send_modal(view.MyModal(title = "Test"))
     
     bot.run(TOKEN)
