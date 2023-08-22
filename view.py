@@ -57,7 +57,7 @@ class MyView(discord.ui.View):
         msg = responses.handle_response("-avg", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
-    @discord.ui.button(label="Totals", style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Totals", row = 3, style=discord.ButtonStyle.primary)
     async def eighth_button_callback(self, button, interaction):
         msg = responses.handle_response("-sum", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
