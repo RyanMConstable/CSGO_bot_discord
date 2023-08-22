@@ -57,7 +57,7 @@ class MyView(discord.ui.View):
         msg = responses.handle_response("-avg", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
-    @discord.ui.button(label="Totals", row = 3, style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Totals", row = 4, style=discord.ButtonStyle.primary)
     async def eighth_button_callback(self, button, interaction):
         msg = responses.handle_response("-sum", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
@@ -67,7 +67,7 @@ class MyView(discord.ui.View):
         msg = responses.handle_response("-summary", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
     
-    @discord.ui.button(label="Bottom Stats", row=4, style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Bottom Stats", row=3, style=discord.ButtonStyle.primary)
     async def tenth_button_callback(self, button, interaction):
         msg = responses.handle_response("-bottom 50 adr", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
