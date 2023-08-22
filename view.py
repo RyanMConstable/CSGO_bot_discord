@@ -37,7 +37,7 @@ class MyView(discord.ui.View):
         msg = responses.handle_response("-pos", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
-    @discord.ui.button(label="Last Game", style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Last Game", row = 1, style=discord.ButtonStyle.primary)
     async def fourth_button_callback(self, button, interaction):
         msg = responses.handle_response("-lastgame", self.searchUserName, self.searchUserID)
         await interaction.response.send_message(embed=self.makeEmbed(msg))
