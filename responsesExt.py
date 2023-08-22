@@ -263,6 +263,8 @@ def summary():
             
         #Flashes
         if int(gamer[4]) >= int(gamer[5]) or float(gamer[6]) >= float(gamer[7]):
+            if len(gamer[0] > 25):
+                gamer[0] = gamer[0][:25]
             flashes.append([gamer[0], gamer[4], gamer[5], round(gamer[6]), round(gamer[7])])
         
         #Messages
