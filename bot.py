@@ -49,13 +49,13 @@ def run_discord_bot():
         await ctx.respond("", view = view.SignUpView())
     
     #Provides a modal where a user can enter in their suggestion
-    @bot.slash_command(name = "SuggestionORFeedback", description="For feedback and suggestions")
-    async def SuggestionORFeedback(ctx: discord.ApplicationContext):
+    @bot.slash_command(name = "suggestionorfeedback", description="For feedback and suggestions")
+    async def suggestionorfeedback(ctx: discord.ApplicationContext):
         await ctx.send_modal(view.MyModal(title = "Test"))
     
     #Provides a modal where a user can enter in their suggestion
-    @bot.slash_command(name = "oUser", description="Finds another users statistics if in the table")
-    async def oUser(ctx: discord.ApplicationContext):
+    @bot.slash_command(name = "ouser", description="Finds another users statistics if in the table")
+    async def ouser(ctx: discord.ApplicationContext):
         await ctx.send_modal(view.oUserModal(title = "User Stats"))
     
     bot.run(TOKEN)
