@@ -41,6 +41,7 @@ def run_discord_bot():
         print("Connected and ready to go")
     
     #Provides a menu for all of the commands that a user can see
+    #Specifically the MyMenu view in the view page
     @bot.slash_command(name = "menu", description="Provides a stat gui")
     async def menu(ctx: discord.ApplicationContext):
         await ctx.respond("", view=view.MyMenu(ctx))
