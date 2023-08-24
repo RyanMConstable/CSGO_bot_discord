@@ -81,7 +81,7 @@ class SignUpView(discord.ui.View):
         button = discord.ui.Button(label="Create Account", style=discord.ButtonStyle.url, url = "http://10.0.0.130")
         self.add_item(button)
 
-#This is a test modal   
+#This is the user feedback modal  
 class MyModal(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
