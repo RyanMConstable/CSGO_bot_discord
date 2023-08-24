@@ -1,6 +1,6 @@
 import CSGOsql, dictCommands
 
-
+#leaderboard func
 def findtopstat():
     userStats = []
     userStats.append(['Kills: ' , CSGOsql.finduserandstat('totalkills')])
