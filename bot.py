@@ -43,7 +43,7 @@ def run_discord_bot():
     #Provides a menu for all of the commands that a user can see
     @bot.slash_command(name = "menu", description="Provides a stat gui")
     async def menu(ctx: discord.ApplicationContext):
-        await ctx.respond("", view=view.MyView(ctx))
+        await ctx.respond("", view=view.MyMenu(ctx))
     
     #Provides a button that links to the signup page
     #Specifically the button for signing up, the SignUpView button on the view page
