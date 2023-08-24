@@ -19,6 +19,7 @@ async def send_message(username, message, user_message, usernameID, is_private =
     except Exception as e:
         return
 
+#Starts the discord bot
 def run_discord_bot():
     TOKEN = os.environ["DISCORD_TOKEN"]
     bot = discord.Bot(intents=discord.Intents.all())
