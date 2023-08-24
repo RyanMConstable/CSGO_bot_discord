@@ -51,7 +51,7 @@ def run_discord_bot():
     #Provides a modal where a user can enter in their suggestion
     @bot.slash_command(name = "suggestionorfeedback", description="For feedback and suggestions")
     async def suggestionorfeedback(ctx: discord.ApplicationContext):
-        await ctx.send_modal(view.MyModal(title = "Test"))
+        await ctx.send_modal(view.userFeedback(title = "Test"))
     
     #Provides a modal where a user can enter in their suggestion
     @bot.slash_command(name = "ouser", description="Finds another users statistics if in the table")
