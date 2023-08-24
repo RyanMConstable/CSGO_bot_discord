@@ -1,7 +1,7 @@
 import discord, responses, CSGOsql
 
 #GUI for the commands
-class MyView(discord.ui.View):
+class MyMenu(discord.ui.View):
     def __init__(self, ctx=None, enteredUser=None):
         super().__init__(timeout=30)
         self.ctx = ctx
