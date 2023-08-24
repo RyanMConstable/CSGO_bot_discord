@@ -46,6 +46,7 @@ def run_discord_bot():
         await ctx.respond("", view=view.MyView(ctx))
     
     #Provides a button that links to the signup page
+    #Specifically the button for signing up, the SignUpView button on the view page
     @bot.slash_command(name = "signup", description="Provides the signup button, links to website")
     async def signup(ctx: discord.ApplicationContext):
         await ctx.respond("", view = view.SignUpView())
