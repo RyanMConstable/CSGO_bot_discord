@@ -82,7 +82,7 @@ class SignUpView(discord.ui.View):
         self.add_item(button)
 
 #This is the user feedback modal  
-class MyModal(discord.ui.Modal):
+class userFeedback(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
