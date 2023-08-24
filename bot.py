@@ -38,7 +38,7 @@ def run_discord_bot():
     #Simple notification, notifies that the bot is ready and working
     @bot.event
     async def on_connect():
-        print("Connected and ready to go")
+        print("Ready to serve!")
     
     #Provides a menu for all of the commands that a user can see
     #Specifically the MyMenu view in the view page
