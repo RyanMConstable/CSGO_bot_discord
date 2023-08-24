@@ -1,6 +1,6 @@
 import CSGOsql, dictCommands
 
-#Write a function to find all top categories for a user given an id
+
 def findtopstat():
     userStats = []
     userStats.append(['Kills: ' , CSGOsql.finduserandstat('totalkills')])
