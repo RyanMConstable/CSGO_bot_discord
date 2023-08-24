@@ -1,6 +1,6 @@
 import CSGOsql, dictCommands
 
-#leaderboard func
+#leaderboard function, for the top players
 def findtopstat():
     userStats = []
     userStats.append(['Kills: ' , CSGOsql.finduserandstat('totalkills')])
