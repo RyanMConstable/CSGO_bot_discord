@@ -73,7 +73,7 @@ class MyMenu(discord.ui.View):
         await interaction.response.send_message(embed=self.makeEmbed(msg))
         
         
-#This view is just a link to the login website, need a domain eventually instead of the raw ip    
+#This view is just a link to the login website, need a domain eventually instead of the raw ip TODO    
 class SignUpView(discord.ui.View):
     def __init__(self):
         super().__init__()
