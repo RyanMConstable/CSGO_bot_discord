@@ -129,7 +129,7 @@ def findAvg(id, limiter):
     strVal.append(["Unique Messages", round(CSGOsql.selectAvgUserStat("uniquemsgs", id, limiter),2)])
     return [["Category", "Average"], strVal]
 
-#Find sum function
+#Find total function for a single user
 def findSum(id, limiter):
     strVal = []
     if int(limiter) >= 50000:
