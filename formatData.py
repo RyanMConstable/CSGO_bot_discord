@@ -45,7 +45,7 @@ def findtopstat():
 
 
 
-#Write a function to find all top categories for a user given an id
+#Function for formatting a single users top stats
 def findusertop(steamid):
     userStats = []
     userStats.append(['Total Games:' , str(CSGOsql.findNumberOfGames(steamid))])
