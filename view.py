@@ -1,6 +1,6 @@
 import discord, responses, CSGOsql
 
-#GUI for the commands
+#GUI for the statistic commands
 class MyMenu(discord.ui.View):
     def __init__(self, ctx=None, enteredUser=None):
         super().__init__(timeout=30)
