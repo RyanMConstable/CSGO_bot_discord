@@ -63,9 +63,9 @@ def handle_response(message, username, usernameID) -> str:
     if command == "-summary":
         return responsesExt.summary()
     
-    #Condone
+    #This message is just a little joke, currently uncallable
     if command == "-condone":
-        return "5 big guys does not condone: valorant, will flashes, wes holding outside, office, men"
+        return "5 big guys does not condone: valorant, will flashes, wes holding outside, office"
     
     #Testing buttons
     if command == "-menu":
