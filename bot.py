@@ -24,6 +24,7 @@ def run_discord_bot():
     TOKEN = os.environ["DISCORD_TOKEN"]
     bot = discord.Bot(intents=discord.Intents.all())
     
+    #On an event message, the bot will make sure that the user sending the message is the bot itself, and that the message is exact
     @bot.event
     async def on_message(message):
         if message.author != bot.user or message.content != "-Summary Time":
