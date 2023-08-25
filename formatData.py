@@ -95,7 +95,7 @@ def findusertop(steamid):
 
 
 
-#Average function format
+#Average function formatting for a single user
 def findAvg(id, limiter):
     strVal = []
     if int(limiter) >= 50000:
