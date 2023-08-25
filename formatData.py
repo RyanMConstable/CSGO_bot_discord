@@ -198,7 +198,7 @@ def sortGame(gameInfo):
             
     return [returnList, gameDate, myString]
 
-#posGame allows for a tabulated value to be presented to the user
+#Shows the position of your game
 def posGame(userID):
     totalGames = CSGOsql.findNumStats()
     tableInfo = []
