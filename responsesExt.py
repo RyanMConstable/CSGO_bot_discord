@@ -261,14 +261,14 @@ def summary():
         if int(gamer[3]) >= 2:
             highest_team_kills.append([gamer[0]])
             
-        #Flash count ([4], [5]) | Flash Duration ([6],[7])
+        #Flash count ([4], [5]) | Flash Duration ([6], [7])
         if int(gamer[4]) >= int(gamer[5]) or float(gamer[6]) >= float(gamer[7]):
             newgamer = gamer[0]
             if len(gamer[0] > 25):
                 newgamer = gamer[0][:25]
             flashes.append([newgamer, gamer[4], gamer[5], round(gamer[6]), round(gamer[7])])
         
-        #Unique Messages
+        #Unique Messages ([8])
         if int(gamer[8]) >= 30:
             uniquemsgs.append([gamer[0], gamer[8]])
             
