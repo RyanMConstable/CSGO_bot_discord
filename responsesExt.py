@@ -268,7 +268,7 @@ def summary():
                 newgamer = gamer[0][:25]
             flashes.append([newgamer, gamer[4], gamer[5], round(gamer[6]), round(gamer[7])])
         
-        #Messages
+        #Unique Messages
         if int(gamer[8]) >= 30:
             uniquemsgs.append([gamer[0], gamer[8]])
             
