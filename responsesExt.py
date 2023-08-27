@@ -191,7 +191,7 @@ def lastgame(username, message, userID):
         return returnString
     return
 
-#This function finds the position of a user
+#This function finds the ranking of a user
 def pos(username, message, userID):
     name = username.split("#")[0]
     steamid = CSGOsql.findSteamID(userID)[0]
