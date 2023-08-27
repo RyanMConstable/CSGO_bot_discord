@@ -232,8 +232,6 @@ def sum(userID, fullCommand, discordName):
     
 #This function will print a summary to the user
 def summary():
-    #If a user is below 50 adr, bozo alert is handed out
-    #Return top adr, bottom adr
     recentGameInfo = CSGOsql.findGameInfo()
     lowlowADRList = []
     lowADRList = []
