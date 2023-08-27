@@ -261,7 +261,7 @@ def summary():
         if int(gamer[3]) >= 2:
             highest_team_kills.append([gamer[0]])
             
-        #Flashes
+        #Flash count ([4], [5]) | Flash Duration ([6],[7])
         if int(gamer[4]) >= int(gamer[5]) or float(gamer[6]) >= float(gamer[7]):
             newgamer = gamer[0]
             if len(gamer[0] > 25):
