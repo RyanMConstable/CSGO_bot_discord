@@ -94,8 +94,8 @@ class userFeedback(discord.ui.Modal):
         print(self.children[0].value, self.children[1].value)
         await interaction.response.send_message("Thank you for your feedback!")
 
-#This is the modal to return a menu for the user given 
-#Enter a username into the modal and it returns the menu for stats of that user    
+#This is the modal to return a menu for the user given
+#Enter a username into the modal and it returns the menu for stats of that user
 class oUserModal(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
