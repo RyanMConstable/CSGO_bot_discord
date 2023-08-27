@@ -253,7 +253,7 @@ def summary():
         elif float(gamer[1]) >= 115:
             highADRList.append([gamer[0]])
             
-        #Team damage
+        #Highest Team Damage ([2])
         if int(gamer[2]) > highest_team_damage[1]:
             highest_team_damage = [gamer[0], int(gamer[2])]
             
