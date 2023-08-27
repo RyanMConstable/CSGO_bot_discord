@@ -245,7 +245,7 @@ def summary():
 
     for gamer in recentGameInfo:
         
-        #ADR
+        #ADR checker ([1])
         if float(gamer[1]) <= 35:
             lowlowADRList.append([gamer[0]])
         elif float(gamer[1]) <= 50:
