@@ -8,23 +8,6 @@ commandsToCol = dictCommands.commandsToCol
 
 
 
-#Display help message tp the user
-def help():
-    commands = "Commands:\n\t"
-    commands += "/menu \n\t"
-    commands += "/Signup\n\n"
-    
-    commands += "Categories:\n\t"
-      
-
-    dictionaryKeys = []
-    for key in commandsToCol:
-        dictionaryKeys.append(key)
-    
-    return commands + str(dictionaryKeys)
-
-
-
 #For the top all time leaders of categories
 #The best of the best
 def leaders(fullCommand):
