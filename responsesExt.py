@@ -201,7 +201,7 @@ def sum(userID, fullCommand, discordName):
     except:
         return "Error..."
     
-#This function will print a summary to the user
+#This function will print a funny summary to the user
 def summary():
     recentGameInfo = CSGOsql.findGameInfo()
     lowlowADRList = []
