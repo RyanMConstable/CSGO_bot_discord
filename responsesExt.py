@@ -6,8 +6,6 @@ import formatData, dictCommands
 
 commandsToCol = dictCommands.commandsToCol
 
-
-
 #For the top all time leaders of categories
 #The best of the best
 def leaders(fullCommand):
