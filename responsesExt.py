@@ -11,7 +11,8 @@ commandsToCol = dictCommands.commandsToCol
 #Display help message tp the user
 def help():
     commands = "Commands:\n\t"
-    commands += "/menu \n\n"
+    commands += "/menu \n\t"
+    commands += "/Signup\n\n"
     
     commands += "Categories:\n\t"
       
