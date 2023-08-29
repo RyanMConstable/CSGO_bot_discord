@@ -233,7 +233,7 @@ def summary():
         #Flash count ([4], [5]) | Flash Duration ([6], [7])
         if int(gamer[4]) >= int(gamer[5]) or float(gamer[6]) >= float(gamer[7]):
             newgamer = gamer[0]
-            if len(gamer[0] > 25):
+            if len(gamer[0]) > 25:
                 newgamer = gamer[0][:25]
             flashes.append([newgamer, gamer[4], gamer[5], round(gamer[6]), round(gamer[7])])
         
